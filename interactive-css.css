@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+    font-family:'Open Sans',Arial,sans-serif;
+    background:#FFF;
+    font-weight:300;
+    height:100%;
+    padding:0;
+    color:#94a3a8;
+}
+
+.masthead{
+    position:fixed;
+    padding:80px 15px;
+    color:#FFF;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(0,0,0,.1);
+    background-color:#6883cc;
+    background-image:url("education.jpg");
+    width: 100% ;
+    height: 100%;
+    background-repeat:no-repeat;
+    background-position:center center;
+    /*background-attachment:fixed;*/
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    /*background-size:100%;*/
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.logo{
+    margin-left: -10px;;
+    margin-top: -10px;
+}
+
+.icon{
+    position: absolute;
+    display: inline;
+    top: -.25rem;
+    left: 135rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    opacity: .4;
+    fill:blue ;//#01223E;
+    font-size: 20px;
+    background-color: #5cb85c;
+}
+.icon>a {
+    background-color: #449d44 !important;
+}
+.icon:hover{
+    background-color: #66512c;
+}
+.ro {
+    position: relative;
+    display: inline;
+    width: 1200px;
+    height: 100px;
+}
+
+/*#student{
+    position: absolute;
+    right: 100px;
+    clear: left;
+}
+*/
+
+.s3d  {
+    clear: both;
+
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+
+    -webkit-box-shadow:0 4px 5px rgba(0,0,0,.3);
+    -moz-box-shadow:0 4px 5px rgba(0,0,0,.3);
+    box-shadow:0 4px 5px rgba(0,0,0,.3);
+
+    display: inline-block !important;
+    font: 700 1.7rem/4.5rem  'Arial', Helvetica, Clean, sans-serif;
+    height: 53px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 0 0px 11px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(255,255,255,.35);
+    width: 40%; }
+
+a.register {
+    /*background: #28AADC;*/
+    background: #28AADC;
+    /*background: -webkit-gradient(linear, 0 0, 0 0, from(#4669ab), to(#304886));
+    background: -moz-linear-gradient(#4669ab, #304886);
+    background: linear-gradient(#4669ab, #304886);*/
+    border: 1px solid #8ea4cd;
+    color: #FFF;
+    /*color:#00648C;*/
+    text-shadow: 0 1px 1px rgba(255,255,255,.35);
+    text-align-all:center;}
+
+a.register:hover{
+    background: #318eb2;
+    color: #476377;
+    text-decoration: none;
+
+}
+
+
+a.register:active {
+    border-color:#237C9E;
+    border-width:3px;
+    border-radius: 2px;
+}
+
+.rgs{
+    clear: both;
+    border-radius: 3px;
+    box-shadow: 0 4px 5px rgba(0,0,0,.3);
+    display: inline-block;
+    font: 700 1.5rem/3rem 'Arial', Helvetica, Clean, sans-serif;
+    height: 3.7rem;
+    width: 9rem;
+    margin-top: .7rem;
+     /*margin-left: 122rem;*/
+    /*margin-left: 100rem;*/
+    margin-right:1rem;
+    padding: 0.3rem;
+    text-align: center;
+    text-decoration: none;
+    background: #28AADC;
+    border: 1px solid #8ea4cd;
+    color: #FFF;
+    text-shadow: 0 1px 1px rgba(255,255,255,.35);
+    float:right;
+}
+
+.rgs:hover{
+    background: #318eb2;
+    color: #476377;
+    text-decoration: none;
+
+}
+
+
+.rgs:active {
+    border-color:#237C9E;
+    border-width:3px;
+    border-radius: 2px;
+}
