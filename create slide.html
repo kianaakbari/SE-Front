@@ -8,9 +8,7 @@
     <script src="bootstrap.js"></script>
     <script src="create%20slide.js"></script>
     <script src="jquery.js"></script>
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
-    <!--<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+
 </head>
 <body>
 
@@ -63,51 +61,99 @@
             <br class="slide col-lg-12 col-sm-10">
             <div class="row">
                 <button type="button" onclick="myFunction()" id="title-btn" class="bttn col-lg-2 col-sm-2 ttl col-centered" >Title</button>
+                <!--<span class="glyphicon glyphicon-picture"></span>-->
+                <img id="close-title" onclick="closeTitleFunction()" src="close_blue%20(1).png">
             </div>
             <!--<p id="demo" onclick="myFunction()">Click me to change my text color.</p>-->
             <div id="etc" class="etc row col-centered">
-                <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm col-centered" >Add Image</button>
-                <button id="video-btn" type="button" onclick="videoFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add Video</button>
-                <button id="text-btn" type="button" onclick="myFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add hyper text</button>
-                <button id="list-btn" type="button" onclick="myFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >add list </button>
+                <img id="close" onclick="closeFunction()" src="close_blue%20(1).png">
+                <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add Image</button>
+                <button id="video-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add Video</button>
+                <button id="text-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add hyper text</button>
+                <button id="list-btn" type="button" onclick="listFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >add list </button>
+
             </div>
             <script>
                 function myFunction() {
                     document.getElementById("header-input").style.visibility = "visible";
                     document.getElementById("title-btn").style.visibility = "hidden";
+                    document.getElementById("close-title").style.visibility = "visible";
                 }
-                function imgFunction(){
-                    document.getElementById("add-img").style.visibility = "visible";
+                function closeTitleFunction(){
+                    document.getElementById("header-input").style.visibility = "hidden";
+                    document.getElementById("title-btn").style.visibility = "visible";
+                    document.getElementById("close-title").style.visibility = "hidden";
+                }
+                function closeFunction(){
+                    document.getElementById("img-btn").style.visibility = "visible";
+                    document.getElementById("video-btn").style.visibility = "visible";
+                    document.getElementById("text-btn").style.visibility = "visible";
+                    document.getElementById("list-btn").style.visibility = "visible";
+                    document.getElementById("add-img").style.visibility = "hidden";
+                    document.getElementById("add-list").style.visibility = "hidden";
+                    document.getElementById("close").style.visibility = "hidden";
+                }
+//                closeFunction("header-input", "title-btn" , "close-title");
+                function hiddenGroup(){
                     document.getElementById("img-btn").style.visibility = "hidden";
                     document.getElementById("video-btn").style.visibility = "hidden";
                     document.getElementById("text-btn").style.visibility = "hidden";
                     document.getElementById("list-btn").style.visibility = "hidden";
                 }
+                function imgFunction(){
+                    hiddenGroup();
+                    document.getElementById("add-img").style.visibility = "visible";
+                    document.getElementById("close").style.visibility = "visible";
+                }
+                function listFunction(){
+                    hiddenGroup();
+                    document.getElementById("add-list").style.visibility = "visible";
+                    document.getElementById("close").style.visibility = "visible";
+                }
             </script>
             <div class="title">
                 <!--<textarea class="watermarkOn" cols=20 id="txtCommentSection" name="txtCommentSection "rows=2>Type your comments here</textarea>';-->
                 <textarea  id="header-input" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="Ask Your Question Here" class="col-lg-6 header-input ng-pristine ng-valid ng-touched" style="overflow: hidden; word-wrap: break-word; resize: none; height: 76px;"></textarea>
+
             </div>
 
             <div id="add-img" class="add-img">
                 <label for="img"><img id="img-label" src="img.png" alt="choose your image"></label></label>
                 <input id="img" type="file">
             </div>
+            <div><textarea id="hyper-text"></textarea></div>
+            <div id="add-list" class="add-list">
+                <a href="#" id="filldetails" onclick="addFields()">Fill Details</a>
+                <div id="container"/>
 
-            <!--<div image-drag-and-drop="" on-image-dropped="onImageDropped" class="drag-n-drop-image ng-isolate-scope">-->
-                <!--<div ng-disabled="!deck.editable" ng-show="slide.hasImage" style="background-image:url('')" class="content-block__image ng-hide">-->
-                    <!--<div class="content-block__image-caption ng-binding">-->
+                <script type='text/javascript'>
+                    function addFields(){
+//            // Number of inputs to create
+//            var number = document.getElementById("member").value;
+//            var number = document.getElementById("container").lastChild.getFeature(input);
+//            // Container <div> where dynamic content will be placed
+//            var number = container.lastChild.value
+                        var container = document.getElementById("container");
+//            // Clear previous contents of the container
+//            while (container.hasChildNodes()) {
+//                container.removeChild(container.lastChild);
+//            }
+//            for (i=0;i<number;i++){
+                        // Append a node with a random text
+//                container.appendChild(document.createTextNode("Member " + (1)));
+                        // Create an <input> element, set its type and name attributes
+                        var input = document.createElement("input");
+                        input.type = "text";
+                        input.name = "member" + 1;
+                        container.appendChild(input);
+                        // Append a line break
+                        container.appendChild(document.createElement("br"));
+                        alert(number);
+//            }
+                    }
+                </script>
+            </div>
 
-                    <!--</div>-->
-                <!--</div>&lt;!&ndash; ngIf: !slide.hasImage && deck.editable &ndash;&gt;-->
-                <!--<div ng-if="!slide.hasImage &amp;&amp; deck.editable" class="drag-n-drop-image dropzone ng-scope">-->
-                    <!--<div class="dropzone__container"><div ng-click="pickImage()" class="dropzone__image">-->
-                        <!--<img src="//static.peardeck.com/static/images/icon-image-9ef6f218d9f2bb4c4fc8a5d6544f1249.svg">-->
-                    <!--</div>-->
-                        <!--<span ng-click="pickImage()" class="dropzone__label">Choose an image</span>-->
-                    <!--</div>-->
-                <!--</div>&lt;!&ndash; end ngIf: !slide.hasImage && deck.editable &ndash;&gt;-->
-            <!--</div>-->
         </div>
     </div>
 </div>
