@@ -10,5 +10,8 @@ function fillSlides(title){
     this.hyperText="";
     this.listItems=new Array(100);
 }
-var titleValue = document.getElementById("header-input").valueOf();
-var slide1 =new fillSlides(titleValue);
+function save(){
+    var titleValue = document.getElementById("header-input").value;
+    var slide1 =new fillSlides(titleValue);
+    alert(titleValue);
+}
