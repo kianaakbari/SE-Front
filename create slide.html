@@ -8,6 +8,11 @@
     <script src="bootstrap.js"></script>
     <script src="create%20slide.js"></script>
     <script src="jquery.js"></script>
+    <script src="createSlide.js"></script>
+
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
 </head>
 <body>
@@ -40,7 +45,7 @@
                 <!--<button type="button" class="btn btn-primary btn-lg col-lg-12">Large button</button>-->
                 <div class="btn-group">
 
-                    <button type="button" class="btn btn-primary" >Add Slide</button>
+                    <button type="button" class="btn btn-primary" >اضافه کردن اسلاید</button>
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -60,21 +65,21 @@
         <div class="content col-lg-12 col-sm-10">
             <br class="slide col-lg-12 col-sm-10">
             <div class="row">
-                <button type="button" onclick="myFunction()" id="title-btn" class="bttn col-lg-2 col-sm-2 ttl col-centered" >Title</button>
+                <button type="button" onclick="titleFunction()" id="title-btn" class="bttn col-lg-2 col-sm-2 ttl col-centered" >عنوان</button>
                 <!--<span class="glyphicon glyphicon-picture"></span>-->
-                <img id="close-title" onclick="closeTitleFunction()" src="close_blue%20(1).png">
+                <img id="close-title" onclick="closeTitleFunction()" src="close_blue%20(11).png">
             </div>
             <!--<p id="demo" onclick="myFunction()">Click me to change my text color.</p>-->
             <div id="etc" class="etc row col-centered">
-                <img id="close" onclick="closeFunction()" src="close_blue%20(1).png">
-                <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add Image</button>
-                <button id="video-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add Video</button>
-                <button id="text-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >Add hyper text</button>
-                <button id="list-btn" type="button" onclick="listFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >add list </button>
+                <img id="close" onclick="closeFunction()" src="close_blue%20(11).png">
+                <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >اضافه کردن تصویر</button>
+                <button id="video-btn" type="button" onclick="videoFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >اضافه کردن فیلم</button>
+                <button id="text-btn" type="button" onclick="textFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >افزودن متن</button>
+                <button id="list-btn" type="button" onclick="listFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >افزودن لیست  </button>
 
             </div>
             <script>
-                function myFunction() {
+                function titleFunction() {
                     document.getElementById("header-input").style.visibility = "visible";
                     document.getElementById("title-btn").style.visibility = "hidden";
                     document.getElementById("close-title").style.visibility = "visible";
@@ -91,7 +96,10 @@
                     document.getElementById("list-btn").style.visibility = "visible";
                     document.getElementById("add-img").style.visibility = "hidden";
                     document.getElementById("add-list").style.visibility = "hidden";
+                    document.getElementById("add-video").style.visibility = "hidden";
+                    document.getElementById("hyper-text").style.visibility = "hidden";
                     document.getElementById("close").style.visibility = "hidden";
+                    document.getElementById("blah").style.visibility = "hidden";
                 }
 //                closeFunction("header-input", "title-btn" , "close-title");
                 function hiddenGroup(){
@@ -105,6 +113,16 @@
                     document.getElementById("add-img").style.visibility = "visible";
                     document.getElementById("close").style.visibility = "visible";
                 }
+                function videoFunction(){
+                    hiddenGroup();
+                    document.getElementById("add-video").style.visibility = "visible";
+                    document.getElementById("close").style.visibility = "visible";
+                }
+                function textFunction(){
+                    hiddenGroup();
+                    document.getElementById("hyper-text").style.visibility = "visible";
+                    document.getElementById("close").style.visibility = "visible";
+                }
                 function listFunction(){
                     hiddenGroup();
                     document.getElementById("add-list").style.visibility = "visible";
@@ -113,43 +131,69 @@
             </script>
             <div class="title">
                 <!--<textarea class="watermarkOn" cols=20 id="txtCommentSection" name="txtCommentSection "rows=2>Type your comments here</textarea>';-->
-                <textarea  id="header-input" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="Ask Your Question Here" class="col-lg-6 header-input ng-pristine ng-valid ng-touched" style="overflow: hidden; word-wrap: break-word; resize: none; height: 76px;"></textarea>
+                <textarea  id="header-input" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="Add Your Text Here" class="col-lg-6 header-input ng-pristine ng-valid ng-touched" style="overflow: hidden; word-wrap: break-word; resize: none; height: 76px;"></textarea>
 
             </div>
+            <div class="row">
 
-            <div id="add-img" class="add-img">
-                <label for="img"><img id="img-label" src="img.png" alt="choose your image"></label></label>
-                <input id="img" type="file">
+                <div id="add-img" class="add-img col-lg-12 col-centered">
+                    <label for="img"><img class="img-label" src="img.png" alt="choose your image"></label></label>
+                    <input class="browse" id="img" onchange="readURL(this);" type="file">
+                    <img id="blah" src="#"  />
+                    <script>
+                        function readURL(input) {
+                            document.getElementById("blah").style.visibility = "visible";
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    $('#blah')
+                                            .attr('src', e.target.result)
+                                            .width(700)
+                                            .height(500);
+                                };
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+                    </script>
+                </div>
+
+
+                <div id="add-video" class="add-video col-lg-12 col-centered">
+                    <label for="video"><img class="img-label" src="video.png" alt="choose your video"></label></label>
+                    <input class="browse" id="video" type="file">
+                </div>
+
+
+
+                    <textarea id="hyper-text" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="Add Your Text Here" class="col-lg-6 header-input ng-pristine ng-valid ng-touched" style="overflow: hidden; word-wrap: break-word; resize: none; height: 76px;"></textarea>
+                <!--</div>-->
+                <div id="add-list" class="add-list col-lg-12 col-centered">
+                    <div class="row_list" >
+                        <button id="filldetails" type="button" onclick="addFields()" class="bttn col-lg-2 col-sm-2 col-centered" >افزودن لیست  </button>
+                        <button id="deldetails" type="button" onclick="delFields()" class="bttn col-lg-2 col-sm-2 col-centered" >حذف لیست </button>
+                    </div>
+
+                    <div id="container"/>
+                </div>
             </div>
-            <div><textarea id="hyper-text"></textarea></div>
-            <div id="add-list" class="add-list">
-                <a href="#" id="filldetails" onclick="addFields()">Fill Details</a>
-                <div id="container"/>
-
                 <script type='text/javascript'>
                     function addFields(){
-//            // Number of inputs to create
-//            var number = document.getElementById("member").value;
-//            var number = document.getElementById("container").lastChild.getFeature(input);
-//            // Container <div> where dynamic content will be placed
-//            var number = container.lastChild.value
                         var container = document.getElementById("container");
-//            // Clear previous contents of the container
-//            while (container.hasChildNodes()) {
-//                container.removeChild(container.lastChild);
-//            }
-//            for (i=0;i<number;i++){
-                        // Append a node with a random text
-//                container.appendChild(document.createTextNode("Member " + (1)));
-                        // Create an <input> element, set its type and name attributes
                         var input = document.createElement("input");
                         input.type = "text";
-                        input.name = "member" + 1;
+//                        input.name = "member" + 1;
                         container.appendChild(input);
                         // Append a line break
                         container.appendChild(document.createElement("br"));
                         alert(number);
-//            }
+                    }
+                    function delFields(){
+                        var container = document.getElementById("container");
+                        var lastChild = container.lastChild;
+                        container.removeChild(container.lastChild);
+
                     }
                 </script>
             </div>
