@@ -45,7 +45,6 @@ textarea {
     border-radius: 0.3125rem;
 }
 
-
 .title{
     margin: 0 auto;
     float: none;
@@ -113,15 +112,15 @@ textarea {
 
 .ttl{
     position: static;
-    margin-left: 43rem;
+    margin-left: 43%;
     margin-top: 2rem;
 }
 
 .etc{
     position: static;
-    margin-right: -10rem;
+    /*margin-right: -10rem;*/
     margin-top: 4rem;
-    margin-left: 16rem;
+    margin-left: 16%;
     /*padding-right: 1rem;*/
 }
 
@@ -156,7 +155,7 @@ textarea {
 
 }
 .add-img{
-    width: 97%;
+    width: 95%;
     border: 3px dotted #28AADC !important;
     border-radius: 0 !important;
     font-size: 2rem;
@@ -166,15 +165,66 @@ textarea {
     color: #344141;
     height:100%;
     resize: none;
-    overflow-y: auto !important;
+    /*overflow-y: auto !important;*/
     max-height: 6em;
     position: static;
     margin: -4rem auto;
     padding-right: 20rem;
     padding-bottom: 65rem;
     visibility:hidden;
+    z-index: 0;
     /*top:-5rem;*/
     /*left: 40rem;*/
+}
+.add-video{
+
+    width: 95%;
+    border: 3px dotted #28AADC !important;
+    border-radius: 0 !important;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #FFFFFF;
+    outline: none;
+    color: #344141;
+    height:100%;
+    resize: none;
+    /*overflow-y: auto !important;*/
+    max-height: 6em;
+    position: static;
+    margin: -4rem auto;
+    margin-top: -65rem;
+    padding-right: 20rem;
+    padding-bottom: 65rem;
+    visibility:hidden;
+    z-index:3;
+    /*top:-5rem;*/
+    /*left: 40rem;*/
+}
+
+#hyper-text{
+
+    width: 95%;
+    border: 3px dotted #28AADC !important;
+    border-radius: 0 !important;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #FFFFFF;
+    outline: none;
+    color: #344141;
+    height:100%;
+    resize: none;
+    /*overflow-y: auto !important;*/
+    max-height: 6em;
+    position: static;
+    margin: -4rem auto;
+    margin-top: -65rem;
+    padding-right: 20rem;
+    padding-bottom: 65rem;
+    visibility:hidden;
+    z-index:6;
+    float:none;
+    /*overflow: hidden;*/
+    text-indent: 20rem;
 }
 
 #close-title{
@@ -193,36 +243,31 @@ textarea {
     fill: #ffffff;
     visibility: hidden;
 }
-#hyper-text{
-    width: 97%;
-    border: 3px dotted #28AADC !important;
-    border-radius: 0 !important;
-    font-size: 2rem;
-    text-align: center;
-    background-color: #FFFFFF;
-    outline: none;
-    color: #344141;
-    height:100%;
-    resize: none;
-    overflow-y: auto !important;
-    position: static;
-    margin: -66rem auto;
-    padding-bottom: 61rem;
-    visibility: hidden;
-}
-
 
 .add-list input{
     border-right: none;
     border-left: none;
     border-top: none;
+    margin-left: 18.5rem;
+    margin-top:5rem;
+}
+
+.add-list input:focus{
+    color:#ffffff;
+    border:none;
+    background-color: #28AADC;
+}
+
+.add-list a{
+    margin-left: 18.5rem;
+    margin-top:5rem;
 }
 
 .add-list input:active{
 
 }
 
-#img{
+.browse{
     visibility: hidden;
 }
 
@@ -231,12 +276,15 @@ textarea {
     cursor: pointer;
 }
 
-#img-label{
-    margin-left: 12rem;
+.img-label{
+    margin-left: 18rem;
     margin-top: 25rem;
+    z-index: 1000;
 }
 .add-list{
-    width: 97%;
+
+
+    width: 95%;
     border: 3px dotted #28AADC !important;
     border-radius: 0 !important;
     font-size: 2rem;
@@ -246,13 +294,25 @@ textarea {
     color: #344141;
     height:100%;
     resize: none;
-    overflow-y: auto !important;
+    /*overflow-y: auto !important;*/
     max-height: 6em;
     position: static;
     margin: -4rem auto;
     padding-right: 20rem;
     padding-bottom: 65rem;
     visibility:hidden;
+    margin-top: -67rem;
 
 }
 
+.row_list{
+    margin-top: 3rem;
+    margin-left: 18rem;
+}
+
+#blah{
+    margin-right: -17rem;
+    margin-top: -29rem;
+    z-index: 0;
+    visibility: hidden;
+}
