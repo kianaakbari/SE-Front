@@ -250,6 +250,7 @@ textarea {
     border-top: none;
     margin-left: 18.5rem;
     margin-top:5rem;
+    border-color: #4392B9;
 }
 
 .add-list input:focus{
@@ -315,8 +316,14 @@ textarea {
     margin-top: -29rem;
     z-index: 0;
     visibility: hidden;
+    max-height: 500px;
+    max-width: 800px;
 }
 
 #save-btn{
     margin-top:2rem;
+    border-radius: 5px !important;
+}
+#add-slide-btn{
+        border-radius: 5px !important;
 }
