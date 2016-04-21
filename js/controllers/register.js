@@ -22,9 +22,11 @@
             $http.post('http://127.0.0.1:8000/api/v1/register', (data), config)
                     .success(function (data, status, headers, config) {
                         $scope.PostDataResponse = data;
+                        $scope.PostStatusResponse = status;
                     })
                     .error(function (data, status, header, config) {
                         $scope.PostDataResponse = data;
+                        $scope.PostStatusResponse = status;
                     });
         };
 
