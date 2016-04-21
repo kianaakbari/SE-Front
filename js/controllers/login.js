@@ -21,9 +21,11 @@ app.controller("loginAppController", function ($scope, $http) {
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         $scope.PostDataResponse = data;
+                        $scope.PostStatusResponse = status;
                     })
                     .error(function (data, status, header, config) {
                         $scope.PostDataResponse = data;
+                        $scope.PostStatusResponse = status;
                     });
         };
 
