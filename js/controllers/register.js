@@ -23,10 +23,13 @@
                     .success(function (data, status, headers, config) {
                         $scope.PostDataResponse = data;
                         $scope.PostStatusResponse = status;
+                        // window.location="Presenter Page.html";
                     })
                     .error(function (data, status, header, config) {
                         $scope.PostDataResponse = data;
                         $scope.PostStatusResponse = status;
+                        // if(status==406) {document.getElementById("wrong_password").style.visibility="visible";}
+                        // if(status==401) {document.getElementById("wrong_password").style.visibility="visible";}
                     });
         };
 
