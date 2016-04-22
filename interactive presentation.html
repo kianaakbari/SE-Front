@@ -58,31 +58,10 @@
                             <a href="#" id="teacher" class="s3d register" ng-click="SendData1()">
                                 ورود ارایه دهنده
                             </a>
-                            <a href="#" about="student" class="s3d register" ng-click="SendData1()">
+                            <a href="#" about="student" class="s3d register" ng-click="SendData2()">
                                 ورود مخاطب
                             </a>
-							
-							  <script>
-                                function checkFields(){
-									if(document.getElementById("username").value==""){
-										document.getElementById("username_require").style.visibility="visible";
-									}
-                                    if({{PostDataResponse.status}} == 404) {
-										<!---window.location = "http://www.google.com";-->
-                                        document.getElementById("username_notvalid").style.visibility="visible";
-                                        }
-									else if({{PostDataResponse.status}} == 400) {
-										<!---window.location = "http://www.google.com";-->
-                                        document.getElementById("wrong_password").style.visibility="visible";
-                                        }
-
-                                }
-                          </script>
-                            <input type="submit" value="Log In" class="hover">
-							<!--<p style="color:black">{{ PostDataResponse }}</p>-->
-							<script>
-								
-							</script> 
+                            
                         </li>
                     </ul>
 
