@@ -23,14 +23,10 @@ app.controller("loginAppController", function ($scope, $http) {
 
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
-                        $scope.PostDataResponse = data;
-                        $scope.PostStatusResponse = status;
                         window.location="Presenter Page.html";
 
                     })
                     .error(function (data, status, header, config) {
-                        $scope.PostDataResponse = data;
-                        $scope.PostStatusResponse = status;
                         // if(status==404) {document.getElementById("wrong_password").style.visibility="visible";}
                         // if(status==403) {document.getElementById("wrong_password").style.visibility="visible";}
                         // if(status==400) {document.getElementById("wrong_password").style.visibility="visible";}
@@ -51,13 +47,9 @@ app.controller("loginAppController", function ($scope, $http) {
 
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
-                        $scope.PostDataResponse = data;
-                        $scope.PostStatusResponse = status;
                         // window.location="Presenter Page.html";
                     })
                     .error(function (data, status, header, config) {
-                        $scope.PostDataResponse = data;
-                        $scope.PostStatusResponse = status;
                         // if(status==404) {document.getElementById("wrong_password").style.visibility="visible";}
                         // if(status==403) {document.getElementById("wrong_password").style.visibility="visible";}
                         // if(status==400) {document.getElementById("wrong_password").style.visibility="visible";}
