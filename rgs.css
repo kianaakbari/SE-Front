@@ -38,7 +38,7 @@ body{
 /*body { background: #383838; }*/
 
 #container {
-    margin: 50px 115px auto;
+    margin: 3px 115px auto;
     width: 125px; }
 
 /**
@@ -140,6 +140,6 @@ form{
 .form{
     margin-top:3rem;
     border:solid 1px #c9c9c9;
-    padding:50px;
+    padding:65px;
     border-radius: 4px;
 }

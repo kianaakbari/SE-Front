@@ -27,9 +27,9 @@ app.controller("loginAppController", function ($scope, $http) {
 
                     })
                     .error(function (data, status, header, config) {
-                        // if(status==404) {document.getElementById("wrong_password").style.visibility="visible";}
-                        // if(status==403) {document.getElementById("wrong_password").style.visibility="visible";}
-                        // if(status==400) {document.getElementById("wrong_password").style.visibility="visible";}
+                         if(status==404) {document.getElementById("username_notvalid").style.visibility="visible";}
+                         if(status==403) {document.getElementById("notActive_account").style.visibility="visible";}
+                         if(status==400) {document.getElementById("wrong_password").style.visibility="visible";}
                     });
         };
 

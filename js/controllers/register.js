@@ -24,8 +24,8 @@
                         // window.location="Presenter Page.html";
                     })
                     .error(function (data, status, header, config) {
-                        // if(status==406) {document.getElementById("wrong_password").style.visibility="visible";}
-                        // if(status==401) {document.getElementById("wrong_password").style.visibility="visible";}
+                         if(status==406) {document.getElementById("user_exist").style.visibility="visible";}
+                        if(status==401) {document.getElementById("email_notSend").style.visibility="visible";}
                     });
         };
 
