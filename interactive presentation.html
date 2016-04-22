@@ -32,11 +32,16 @@
                 <form action = "#" method = "post">
                     <ul class="list">
                         <li>
-                            <label class ="field">نام کاربری :</label>					    <input type="text" name="Username" placeholder="نام کاربری" class="font1">
+                            <label class ="field">نام کاربری :</label>					    
+							<input type="text" name="Username" placeholder="نام کاربری" class="font1">
+							<div style="font-size:18px; visibility: hidden; color: #67051B;" id="username_require"> <p>نوشتن نام کاربری الزامی است</p> </div>
+                            <div style="font-size:18px; color: #67051B;" id="username_notvalid"> <p>نام کاربری معتبر نمیباشد</p> </div>
                         </li>
                         <li>
                             <label class="field">رمز عبور :</label>
                             <input type="password" name="Password" placeholder="رمز عبور" class = "font1">
+							<div style="font-size:18px; color: #67051B;" id="password_require"> <p>رمز عبور الزامی است </p> </div>
+                            <div style=" font-size:18px; color: #67051B;" id="wrong_password"> <p>رمز وارد شده صحیح نمیباشد </p> </div>
                         </li>
                         <li class="options">
                             <div class="remember">
@@ -53,6 +58,15 @@
                             <a href="#" about="student" class="s3d register">
                                 ورود مخاطب
                             </a>
+							
+							  <script>
+                                function checkFields(){
+                                    if(sth){
+                                        document.getElementById("username_require").style.visibility="visible";
+                                        }
+
+                                }
+                            </script>
                             <!--<input type="submit" value="Log In" class="hover">-->
 
                         </li>
