@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Slides</title>
-    <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="crate-slide.css">
-    <script src="bootstrap.js"></script>
-    <script src="create%20slide.js"></script>
-    <script src="jquery.js"></script>
-    <script src="createSlide.js"></script>
+    <link rel="stylesheet" href="css/lib/bootstrap.css">
+    <link rel="stylesheet" href="css/crate-slide.css">
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/create%20slide.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/createSlide.js"></script>
 
     <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -68,11 +68,11 @@
             <div class="row">
                 <button type="button" onclick="titleFunction()" id="title-btn" class="bttn col-lg-2 col-sm-2 ttl col-centered" >عنوان</button>
                 <!--<span class="glyphicon glyphicon-picture"></span>-->
-                <img id="close-title" onclick="closeTitleFunction()" src="close_blue%20(11).png">
+                <img id="close-title" onclick="closeTitleFunction()" src="img/close_blue%20(11).png">
             </div>
             <!--<p id="demo" onclick="myFunction()">Click me to change my text color.</p>-->
             <div id="etc" class="etc row col-centered">
-                <img id="close" onclick="closeFunction()" src="close_blue%20(11).png">
+                <img id="close" onclick="closeFunction()" src="img/close_blue%20(11).png">
                 <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >اضافه کردن تصویر</button>
                 <button id="video-btn" type="button" onclick="videoFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >اضافه کردن فیلم</button>
                 <button id="text-btn" type="button" onclick="textFunction()" class="bttn col-lg-2 col-sm-2 col-centered" >افزودن متن</button>
@@ -90,7 +90,7 @@
             <div class="row">
 
                 <div id="add-img" class="add-img col-lg-12 col-centered">
-                    <label for="img"><img class="img-label" id="img-label" src="img.png" alt="choose your image"></label></label>
+                    <label for="img"><img class="img-label" id="img-label" src="img/img.png" alt="choose your image"></label></label>
                     <input class="browse" id="img" onchange="readURL(this);" type="file">
                     <img id="blah" src="#"  />
                     <script>
@@ -113,7 +113,7 @@
 
 
                 <div id="add-video" class="add-video col-lg-12 col-centered">
-                    <label for="video"><img class="img-label" src="video.png" alt="choose your video"></label></label>
+                    <label for="video"><img class="img-label" src="img/video.png" alt="choose your video"></label></label>
                     <input class="browse" id="video" onchange="readURL(this);" accept="video/*" type="file">
                     <video controls autoplay id="blah" src="#"></video>
                 </div>

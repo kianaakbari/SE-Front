@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>interactive presentation</title>
-    <link rel="stylesheet" href="logo-nav.css">
-    <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="interactive-css.css">
+    <link rel="stylesheet" href="css/logo-nav.css">
+    <link rel="stylesheet" href="css/lib/bootstrap.css">
+    <link rel="stylesheet" href="css/interactive-css.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="login-style.css">
+    <link rel="stylesheet" href="css/login-style.css">
     <script src="js/lib/angular.min.js"></script>
     <script src="js/controllers/login.js"></script>
     <script>
@@ -35,17 +35,13 @@
                     <ul class="list">
                         <li>
 
-                            <label class ="field">نام کاربری :</label>					    
+                            <label class ="field">:نام کاربری</label>
 							<input type="text" id="username" name="Username" placeholder="نام کاربری" class="font1" ng-model="username" required>
-							<!--<div style="font-size:18px; visibility: hidden; color: #67051B;" id="username_require"> <p>نوشتن نام کاربری الزامی است</p> </di-->
-                            <div style="font-size:18px; visibility: hidden; color: #67051B;" id="username_notvalid"> <p>نام کاربری معتبر نمیباشد</p> </div>
-                            <div style="font-size:18px; visibility: hidden; color: #67051B;" id="notActive_account"> <p>حساب کاربری فعال نمیباشد</p> </div>
                         </li>
                         <li>
-                            <label class="field">رمز عبور :</label>
+                            <label class="field">:رمز عبور</label>
                             <input type="password" name="Password" placeholder="رمز عبور" class = "font1" ng-model="password" required>
-							<!--<div style="font-size:18px; visibility: hidden; color: #67051B;" id="password_require"> <p>رمز عبور الزامی است </p> </div>-->
-                            <div style=" font-size:18px; visibility: hidden; color: #67051B;" id="wrong_password"> <p>رمز وارد شده صحیح نمیباشد </p> </div>
+                            <div style=" font-size:18px; color: #67051B;" id="error"> <p>{{errtext}} </p> </div>
                         </li>
                         <li class="options">
                             <div class="remember">
@@ -69,11 +65,8 @@
                 </form>
             </div>
             </div>
-            <script src="http://code.jquery.com/jquery.min.js"></script>
-            <script src="bootstrap.min.js"></script>
-
-
-
+            <!--<script src="http://code.jquery.com/jquery.min.js"></script>-->
+            <!--<script src="js/lib/bootstrap.min.js"></script>-->
         </div>
     </div>
 

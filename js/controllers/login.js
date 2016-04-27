@@ -13,7 +13,29 @@ app.controller("loginAppController", function ($scope, $http) {
 //------------------------------------teacher login-------------------------------------//
 
         $scope.SendData1 = function () {
+            $scope.errtext="";
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': make_base_auth($scope.username, $scope.password)
+                }
+            };
+            $http.get('http://127.0.0.1:8000/get-auth-token', config)
+                    .success(function (data, status, headers, config) {
+                        window.location="Presenter Page.html";
+                    })
+                    .error(function (data, status, header, config) {
+                         if(status==404) {$scope.errtext = "نام کاربری معتبر نمیباشد";}
+                         else if(status==403) {$scope.errtext = "حساب کاربری فعال نمیباشد";}
+                         else if(status==400) {$scope.errtext = "رمز وارد شده صحیح نمیباشد";}
+                    });
+        };
 
+
+//------------------------------------student login-------------------------------------//
+
+        $scope.SendData2 = function () {
+            $scope.errtext="";
             var config = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,32 +49,9 @@ app.controller("loginAppController", function ($scope, $http) {
 
                     })
                     .error(function (data, status, header, config) {
-                         if(status==404) {document.getElementById("username_notvalid").style.visibility="visible";}
-                         if(status==403) {document.getElementById("notActive_account").style.visibility="visible";}
-                         if(status==400) {document.getElementById("wrong_password").style.visibility="visible";}
-                    });
-        };
-
-
-//------------------------------------student login-------------------------------------//
-
-        $scope.SendData2 = function () {
-
-            var config = {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': make_base_auth($scope.username, $scope.password)
-                }
-            };
-
-            $http.get('http://127.0.0.1:8000/get-auth-token', config)
-                    .success(function (data, status, headers, config) {
-                        // window.location="Presenter Page.html";
-                    })
-                    .error(function (data, status, header, config) {
-                        // if(status==404) {document.getElementById("wrong_password").style.visibility="visible";}
-                        // if(status==403) {document.getElementById("wrong_password").style.visibility="visible";}
-                        // if(status==400) {document.getElementById("wrong_password").style.visibility="visible";}
+                         if(status==404) {$scope.errtext = "نام کاربری معتبر نمیباشد";}
+                         else if(status==403) {$scope.errtext = "حساب کاربری فعال نمیباشد";}
+                         else if(status==400) {$scope.errtext = "رمز وارد شده صحیح نمیباشد";}
                     });
         };
 
