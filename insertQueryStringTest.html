@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hey you</title>
+</head>
+<body>
+<script>
+function updateQueryStringParameter(uri, key, value) {
+  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+  if (uri.match(re)) {
+    return uri.replace(re, '$1' + key + "=" + value + '$2');
+  }
+  else {
+    return uri + separator + key + "=" + value;
+  }
+}
+var url=updateQueryStringParameter(updateQueryStringParameter("getQueryStringTest.html",'some','hi'),'3','4');
+//alert(url);
+window.location=url;
+</script>
+<!--<a href="ts.html?test=kiana&some=hi">some</a>-->
+</body>
+</html>

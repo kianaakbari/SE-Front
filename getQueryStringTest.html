@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hey you</title>
+</head>
+<body>
+<p id="tx"></p>
+<script>
+    function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
+    myvar = getURLParameter('some');
+//    document.getElementById("ts").innerHTML = myvar;
+
+</script>
+<p><script type="text/javascript">document.write(myvar)</script></p>
+</body>
+</html>

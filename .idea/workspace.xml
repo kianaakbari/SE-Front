@@ -2,74 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/css/simple-sidebar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/URBS87641398022200.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/close_blue (1).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/close_blue (1).psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/close_blue (11).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/close_blue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/crate-slide.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/create slide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/createSlide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/education - Copy.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/education.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interactive-css.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/login-style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logo-nav.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/photo_2016-03-24_04-16-36.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/presenter.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rgs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/css/logo-nav.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/startbootstrap-logo-nav-1.0.4/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test js.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/video.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presenter Page.html" afterPath="$PROJECT_DIR$/Presenter Page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create slide.html" afterPath="$PROJECT_DIR$/create slide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interactive presentation.html" afterPath="$PROJECT_DIR$/interactive presentation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/login.js" afterPath="$PROJECT_DIR$/js/controllers/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/register.js" afterPath="$PROJECT_DIR$/js/controllers/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rgs.html" afterPath="$PROJECT_DIR$/rgs.html" />
     </list>
     <ignored path="main project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="interactive presentation.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="interactive presentation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interactive presentation.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1340">
@@ -103,14 +36,44 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="24" column="62" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getQueryStringTest.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getQueryStringTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insertQueryStringTest.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/insertQueryStringTest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" column="81" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -151,6 +114,9 @@
         <option value="$PROJECT_DIR$/create slide.html" />
         <option value="$PROJECT_DIR$/css/crate-slide.css" />
         <option value="$PROJECT_DIR$/Presenter Page.html" />
+        <option value="$PROJECT_DIR$/ts.html" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/insertQueryStringTest.html" />
       </list>
     </option>
   </component>
@@ -162,9 +128,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -241,7 +207,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SE-Front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -496,7 +480,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1773585" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -549,24 +533,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/interactive presentation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interactive-css.css" />
-    <entry file="file://$PROJECT_DIR$/style.css" />
-    <entry file="file://$PROJECT_DIR$/bootstrap.css" />
-    <entry file="file://$PROJECT_DIR$/register.html" />
     <entry file="file://$PROJECT_DIR$/logo-nav.css" />
     <entry file="file://$PROJECT_DIR$/../test projects/landon.html" />
     <entry file="file://$PROJECT_DIR$/../test projects/main.css" />
@@ -609,14 +581,6 @@
     <entry file="file://$PROJECT_DIR$/test js.html" />
     <entry file="file://$PROJECT_DIR$/crate-slide.css" />
     <entry file="file://$PROJECT_DIR$/createSlide.js" />
-    <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/rgs.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -635,7 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -696,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -707,6 +668,47 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts.html?test=kia" />
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="62" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getQueryStringTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insertQueryStringTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="81" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
+          <folding />
         </state>
       </provider>
     </entry>
