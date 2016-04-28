@@ -24,14 +24,14 @@ body{
 #sidebar-wrapper {
 
     z-index: 1000;
-    position: fixed;
+    position:absolute;
     right:0px;
-    top:58px;
+    top:80px;
     /*width: 0;*/
     height: 100%;
-    margin-left: -250px;
+    /*margin-left: -250px;*/
     overflow-y: auto;
-    border-left: 3px solid #33555A;
+    /*border-left: 3px solid #33555A;*/
     /*background-color: #33555A;*/
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -47,7 +47,7 @@ body{
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+    /*padding: 15px;*/
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -60,10 +60,11 @@ body{
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
-    margin: 0;
+
+    /*width: 250px;*/
+    /*margin: 0;
     padding: 0;
-    list-style: none;
+    list-style: none;*/
 }
 
 .sidebar-nav li {
@@ -84,12 +85,12 @@ body{
 
 }
 
-/*.sidebar-nav li :focus{*/
-    /*border:5px solid #1b6d85;*/
-/*}*/
+.sidebar-nav li :focus{
+    border:5px solid #1b6d85;
+}
 
 .sidebar-nav li a {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
     display: block;
     text-decoration: none;
     color: #FFFFFF;
@@ -132,7 +133,7 @@ body{
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        /*width: 250px;*/
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -160,39 +161,42 @@ body{
 }
 .preview {
     border:2px solid #6F6A6A;
-    width: 250px;
     height: 250px;
     border-radius: 8px;
     background-color: #33555A;
     margin-top: 10px;
-    margin-right: 20px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-
+    padding-left:50px;
+    padding-top: 10px;
+    
+    
+    
 }
 .image{
     border:1px solid #A5A9A5;
-    width: 217px;
-    height: 160px;
+    width: 80%;
+    height: 60%;
     background-color: #FFFFFF;
-    margin: 15px 15px;
+
+    
 }
 
 .templates{
-    float: none;
     position: absolute;
-    margin-left: 10rem;
-    margin-top: 10rem;
+    margin-top: 100px;
     /*left:-255px ;*/
     display: inline;
-    border: 2px solid #476377;
+    border: 2px solid #030E33;
     border-radius: 8px;
     /*overflow-y: auto;*/
     padding-bottom: 15px;
     /*width: 101%;*/
+    padding-left: 0px;
+    
+
 }
 
 .templates  li {
+
 
     display: inline;
     float: left;
@@ -203,4 +207,12 @@ body{
     margin: auto;
 }
 
+
+ul {
+    list-style: none;
+}
+
+.row {
+    margin-right: 0px;
+}
 
