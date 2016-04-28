@@ -31,6 +31,9 @@ app.controller("loginAppController", function ($scope, $http) {
                     .success(function (data, status, headers, config) {
                         // var json=JSON.parse(data);
                         // setCookie('auth', json["token"], 365);
+                        //---- just for test:
+                        setCookie('auth', 'hi', 365);
+                        //------------------
                         window.location="Presenter Page.html";
                     })
                     .error(function (data, status, header, config) {
@@ -56,6 +59,9 @@ app.controller("loginAppController", function ($scope, $http) {
                     .success(function (data, status, headers, config) {
                         // var json=JSON.parse(data);
                         // setCookie('auth', json["token"], 365);
+                        //---- just for test:
+                        setCookie('auth', 'hi', 365);
+                        //------------------
                         setCookie('auth', data, 365);
                         window.location="Presenter Page.html";
 
