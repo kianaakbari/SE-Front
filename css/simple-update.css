@@ -1,0 +1,44 @@
+div{
+	display: block;
+}
+
+.para{
+	border:2px solid #6F6A6A;
+	border-radius: 8px;
+	margin-top: 5px;
+	
+	color: #6F6A6A;
+	text-align: center;
+}
+
+.page1{
+	float:left;
+
+	margin-top: 100px;
+	background-color: #fafafa;
+	height: 350px;
+}
+
+
+
+.matni{
+	margin-top: 35px;
+	font-size: 15px;
+
+}
+
+.matni1{
+	margin-top: 40px;
+	margin-bottom:20px;
+}
+
+.send{
+	padding-top: 30px;
+}
+
+.hover1{
+	
+	height: 40px;
+	width: 100%;
+}
+
