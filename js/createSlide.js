@@ -18,6 +18,7 @@ function initSlide(num){
     this.id = num;
     this.title = "";
     this.tmp = -1;
+    // 0 stands for uploaded slides. they only have image url.
     this.image = ""; //1
     //this.imageUrl = "";
     this.videoUrl = "";//2
