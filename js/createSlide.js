@@ -2,16 +2,41 @@
  * Created by samane on 20/04/2016.
  */
 
- /*slide logic */
-function FillSlides(title){
-    this.Title=title;
-    this.hasImage="False";
-    this.hasVideo="False";
-    this.imageUrl="";
-    this.videoUrl="";
-    this.hyperText="";
-    this.listItems=new Array(100);
+//var slide = {
+//    id  :   document.getElementById().id,
+//    firstName: "John",
+//    lastName : "Doe",
+//    id       : 5566,
+//    fullName : function() {
+//       return this.firstName + " " + this.lastName;
+//    }
+//};
+
+//kiana------
+var presentation=[];
+function initSlide(num){
+    this.id = num;
+    this.title = "";
+    this.tmp = -1;
+    this.image = ""; //1
+    //this.imageUrl = "";
+    this.videoUrl = "";//2
+    this.hyperText = ""; //3
+    this.listItems = new Array(100); //4
+    this.listItemsNum = 0;
 }
+//-------
+
+ /*slide logic */
+//function FillSlides(title){
+//    this.Title=title;
+//    this.hasImage="False";
+//    this.hasVideo="False";
+//    this.imageUrl="";
+//    this.videoUrl="";
+//    this.hyperText="";
+//    this.listItems=new Array(100);
+//}
 function save(){
     var titleValue = document.getElementById("header-input").value;
     var listItems = new Array(15);
@@ -117,26 +142,216 @@ function readURL(input) {
     }
 }
 
-/* add list feilds ( over flow and create )*/
+/*---------------------------------------- add list feilds ( over flow and create )----------------------------------------------------------*/
 function addFields(){
     var container = document.getElementById("container");
     var input = document.createElement("input");
     input.type = "text";
-    input.id="list-field";
+    //input.id="list-field";
 
-    var number=container.childElementCount;
-    input.id="list-field"+ number;
-    if (number<13) {
+    var number = (container.childElementCount)/2;
+    input.id = number;
+
+    //kiana
+    input.addEventListener("change", function(event){
+        var slideID = input.parentNode.parentNode.parentNode.id;
+        (presentation[slideID].listItems)[input.id] = itm.value;
+        event.preventDefault();
+    });
+    //
+
+    var oImg=document.createElement("img");
+    oImg.setAttribute('src', 'img/close_blue%20(11).png');
+    oImg.setAttribute('alt', 'na');
+    oImg.setAttribute('height', '20');
+    oImg.setAttribute('width', '20');
+    oImg.setAttribute('margin-left','20%');
+    oImg.id="list-input-img"+number;
+    oImg.addEventListener("click", function(event) {
+        //kiana
+        var slideID = oImg.parentNode.parentNode.parentNode.id;
+        var slide = presentation[slideID];
+        delete (slide.listItems)[oImg.id];
+        slide.listItemsNum++;
+        if(slide.listItemsNum==0){
+            slide.listItems=[];
+            slide.tmp = -1;
+        }
+        //
+        delFields(input.id);
+        delFields(oImg.id);
+        event.preventDefault();
+    });
+
+
+
+    if (number<10) {
         container.appendChild(input);
+        container.appendChild(oImg);
     }
     // Append a line break
 //                        container.appendChild(document.createElement("br"));
 //                        alert(number);
 }
-function delFields(){
-    var container = document.getElementById("container");
-    container.removeChild(container.lastChild);
+
+function delFields(id){
+    var input_del=document.getElementById(id);
+    return input_del.parentNode.removeChild(input_del);
+    //var container = document.getElementById("container");
+    //container.removeChild(container.lastChild);
+    //container.removeChild(container.lastChild);
+
+}
+/////////////////////////////////////////////////////////create slide///////////////////////////////////////////////////////////////////////////
+function addSlide(){
+    var container = document.getElementById("slide-creator");
+
+    var div = document.createElement('div');
+    div.style.height="20rem";
+    div.style.width="15rem";
+    div.style.paddingTop="5rem";
+    div.style.margin="5rem auto";
+    div.style.backgroundColor="#ffffff";
+
+    div.addEventListener("click", function(event) {
+
+
+        div.style.backgroundColor="red";
+
+        event.preventDefault();
+    });
+
+
+    var number=container.childElementCount;
+    var num = (number+1)/2;
+    div.id=num;
+
+    container.appendChild(div);
+
+    var oImg=document.createElement("img");
+    oImg.setAttribute('src', 'img/close_blue%20(11).png');
+    oImg.setAttribute('alt', 'na');
+    oImg.setAttribute('height', '20');
+    oImg.setAttribute('width', '20');
+    oImg.setAttribute('margin-left','20%');
+    oImg.id="slide-close-img"+number;
+    container.appendChild(oImg);
+
+    var bdy = document.getElementById("row");
+    var num=bdy.childElementCount; //num = 3
+    var content = document.getElementById("content" + num);
+
+    var newDiv = document.createElement('div');
+    newDiv.id=num;
+
+
+    newDiv.innerHTML = document.getElementById('top-content').innerHTML;
+    var firstChild = newDiv.firstElementChild;
+    firstChild.style.visibility="visible";
+    firstChild.style.id="content-slide" + num;
+    document.getElementById('row').appendChild(newDiv);
+
+
+    //content.style.visibility="visible;"
+
+  /*  if(num==3) {
+        //bdy.style.backgroundColor = "red";
+        content.style.visibility = "visible";
+        content.id="slide-template" + num;
+        bdy.appendChild(document.createElement("br"));
+        //alert(content.id);
+    } else if(num>3){
+
+        num=num-1;
+        var pre_slide = document.getElementById("slide-template" + num);
+        //pre_slide.="";
+        //pre_slide.style.visibility="hidden";
+        num++;
+
+        var newDiv = document.createElement('div');
+        newDiv.id="slide-template" + num;
+        //var crntslide = document.getElementById("slide-template" + num);
+        //crntslide.style.visibility="visible";
+            //alert(newDiv.id);
+
+        newDiv.innerHTML = document.getElementById('top-content').innerHTML;
+        //content.style.visibility="hidden;"
+
+        document.getElementById('row').appendChild(newDiv);
+
+    }*/
+
+
+    oImg.addEventListener("click", function(event) {
+        //kiana-----
+        var slideID = oImg.parentNode.parentNode.parentNode.id;
+        delete presentation[slideID];
+        //----------
+
+        delSlide(div.id);
+        delSlide(oImg.id);
+        //delSlide(content.id);
+
+        event.preventDefault();
+    });
+
+    //kiana------
+    presentation.push(initSlide(num));
+    //-----------
 
 }
 
-/////////////////////////////////////////////////////////////////////add list feilds ( over flow and create )/////////////////////////////////////////////////////////////////
+function delSlide(id){
+    var del_slide = document.getElementById(id);
+    return del_slide.parentNode.removeChild(del_slide);
+
+
+}
+
+//kiana------
+function addImg(img){
+    var slideID = img.parentNode.parentNode.parentNode.parentNode.id;
+    var slide = presentation[slideID];
+    slide.tmp = 1;
+    slide.image = this.value;
+}
+
+function addVideo(videoBtn){
+    var slideID = videoBtn.parentNode.parentNode.parentNode.parentNode.id;
+    var slide = presentation[slideID];
+    var val = videoBtn.previousSibling.value;
+    if(val != null){
+        slide.tmp = 2;
+        slide.videoUrl = val;
+    }
+}
+
+function addText(txtarea) {
+    var slideID = txtarea.parentNode.parentNode.parentNode.id;
+    var slide = presentation[slideID];
+    slide.tmp = 3;
+    slide.hyperText = txt.value;
+}
+
+function addListItem(addBtn){
+    var slideID = addBtn.parentNode.parentNode.parentNode.id;
+    var slide = presentation[slideID];
+    slide.tmp = 4;
+    slide.listItems.push("");
+    slide.listItemsNum++;
+}
+
+function clrSlide(closeImg){
+    var slideID = closeImg.parentNode.parentNode.parentNode.id;
+    var slide = presentation[slideID]
+    slide.title = "";
+    slide.tmp = -1;
+    slide.image = ""; //1
+    //slide.imageUrl = "";
+    slide.videoUrl = "";//2
+    slide.hyperText = ""; //3
+    slide.listItems = new Array(100); //4
+    slide.listItemsNum = 0;
+}
+
+//-----------
