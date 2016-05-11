@@ -109,10 +109,13 @@
             //change #save-to-file
             //you should write a jquery event here to call the function that send presentation json file to server
             $('#save-to-file').click(function (event) {
+
+                var  = JSON.stringify(presentation);
+
                 //this arguments should be given tu emit :
                 //  presentation json file, user_id, presentation_id
                 //values are hardcoded now!
-                socket.emit('update presentation', '{"this is going to save in server files":"file"}', 3, 2, function (res) {
+                socket.emit('update presentation', json, 3, 2, function (res) {
                     if (res == 0) {
                         console.log("file not saved");
                     } else if (res == 1) {
