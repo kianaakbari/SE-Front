@@ -11,9 +11,154 @@
     <script src="js/createSlide.js"></script>
     <script src="js/lib/jquery.min.js"></script>
 
-    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
+          rel="stylesheet" type="text/css"/>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        $(document).ready(function () {
+
+            ///////////////////////////socket initialization
+            try {
+                console.log("yess1");
+                var socket = io.connect('http://localhost:8000/edit_presentation');
+
+                console.log("yess2");
+            }
+            catch (err) {
+                console.log(err);
+            }
+            ///////////////////////////socket initialization
+
+            //these 2 functions make base64-encode of the image with given url and will send it to the server
+            //and wait for json response of server
+
+
+            //make base64-encode using canvas
+            function getBase64FromImageUrl(url) {
+                var img = new Image();
+
+                img.setAttribute('crossOrigin', 'anonymous');
+
+                img.src = url;
+
+                img.onload = function () {
+                    var canvas = document.createElement("canvas");
+                    canvas.width = this.width;
+                    canvas.height = this.height;
+
+                    var ctx = canvas.getContext("2d");
+                    ctx.drawImage(this, 0, 0);
+//                  "image/png"
+                    var dataURL = canvas.toDataURL();
+                    socket.emit('save image', {data: dataURL}, function (response) {
+                        //you should use response.data to get url of saved image :)
+                        alert(response.data);
+                    });
+
+                }
+            }
+
+            //make base64-encode using FileReader
+            function getBase64Code(input) {
+                var fReader = new FileReader();
+                fReader.readAsDataURL(input.files[0]);
+                fReader.onloadend = function (event) {
+                    input.src = event.target.result;
+                    alert(input.src);
+
+                    socket.emit('save image', {data: input.src}, function (response) {
+                        //you should use response.data to get url of saved image :)
+                        alert(response.data);
+                    });
+                }
+            }
+
+
+            ///////////////////////////socket event listeners
+            socket.on('my response', function (msg) {
+                console.log('yesssss');
+
+                //change this to append bellow msg somewhere in the view , it's for testing :
+                //  'Received #' + msg.data
+                $('#log').append('<br>' + $('<div/>').text('Received #' + msg.data).html());
+            });
+
+            socket.on('connect', function (msg) {
+                console.log('connected');
+                socket.emit('my event', {data: 'I\'m connected!'});
+            });
+
+            ///////////////////////////socket event listeners
+
+
+            // these function should be called every time an image is uploaded
+            $('#inp').change(function () {
+                var inp = $('#inp')[0];
+                getBase64Code(inp);
+                return false;
+            });
+
+
+            //this jquery event should be change .
+            //change #save-to-file
+            //you should write a jquery event here to call the function that send presentation json file to server
+            $('#save-to-file').click(function (event) {
+                //this arguments should be given tu emit :
+                //  presentation json file, user_id, presentation_id
+                //values are hardcoded now!
+                socket.emit('update presentation', '{"this is going to save in server files":"file"}', 3, 2, function (res) {
+                    if (res == 0) {
+                        console.log("file not saved");
+                    } else if (res == 1) {
+                        console.log("file saved");
+                    }
+                });
+            });
+
+            //////////////////////////////////////////////////////////////////////////////
+
+            //these are samples of base socket functions
+
+//            $('form#emit').submit(function (event) {
+//                socket.emit('my event', {data: $('#emit_data').val()});
+//                return false;
+//            });
+//            $('form#broadcast').submit(function (event) {
+//                socket.emit('my broadcast event', {data: $('#broadcast_data').val()});
+//                return false;
+//            });
+//            $('form#join').submit(function (event) {
+//                socket.emit('join', {room: $('#join_room').val()});
+//                return false;
+//            });
+//            $('form#leave').submit(function (event) {
+//                socket.emit('leave', {room: $('#leave_room').val()});
+//                return false;
+//            });
+//            $('form#send_room').submit(function (event) {
+//                socket.emit('my room event', {room: $('#room_name').val(), data: $('#room_data').val()});
+//                return false;
+//            });
+//            $('form#close').submit(function (event) {
+//                socket.emit('close room', {room: $('#close_room').val()});
+//                return false;
+//            });
+//            $('form#disconnect').submit(function (event) {
+//                socket.emit('disconnect request');
+//                return false;
+//            });
+
+            //////////////////////////////////////////////////////////////////////////////
+        });
+    </script>
+
+
 </head>
 
 
@@ -48,7 +193,9 @@
                 <!--<button type="button" class="btn btn-primary btn-lg col-lg-12">Large button</button>-->
                 <div class="btn-group">
 
-                    <button type="button" id="add-slide-btn" class="btn btn-primary" onclick="addSlide()" >اضافه کردن اسلاید</button>
+                    <button type="button" id="add-slide-btn" class="btn btn-primary" onclick="addSlide()">اضافه کردن
+                        اسلاید
+                    </button>
                     <!--<button type="button" id="save-btn" onclick="save()"  class="btn btn-primary"  >ذخیره</button>-->
 
                     <!--<div class="div" style="background-color: #2b542c; height: 40px; width: 70px;"></div>-->
@@ -58,73 +205,95 @@
         </div>
         <div id="top-content">
             <div id="content3" class="content col-lg-12 col-sm-10">
-            <br class="slide  col-lg-12 col-sm-10">
-            <div class="row">
-                <button type="button" onclick="titleFunction()" id="title-btn" class="bttn col-lg-2 col-md-2 col-sm-2 ttl" >عنوان</button>
-                <div class="title">
-                    <!--<textarea class="watermarkOn" cols=20 id="txtCommentSection" name="txtCommentSection "rows=2>Type your comments here</textarea>';-->
-                <textarea  id="header-input" onchange="addTitle(this)" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="متن خودرا اینجا بنویسید" class="col-lg-10 col-sm-8 header-input ng-pristine ng-valid ng-touched"
-                           style="overflow: hidden; word-wrap: break-word; resize: none; min-height: 50px; -webkit-box-sizing: border-box;-moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
-                    <img id="close-title" onclick="closeTitleFunction();clrSlideTitle(this);" src="img/close_blue%20(11).png">
-                </div>
-
-                <!--<span class="glyphicon glyphicon-picture"></span>-->
-            </div>
-            <!--<p id="demo" onclick="myFunction()">Click me to change my text color.</p>-->
-            <div id="etc" class="etc row">
-                <img id="close" onclick="closeFunction();clrSlideBody(this);" src="img/close_blue%20(11).png">
-                <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-md-2 col-sm-2 " >اضافه کردن تصویر</button>
-                <button id="video-btn" type="button" onclick="videoFunction()" class="bttn col-lg-2 col-md-2 col-sm-2 " >اضافه کردن فیلم</button>
-                <button id="text-btn" type="button" onclick="textFunction()" class="bttn col-lg-2 col-md-2 col-sm-2 " >افزودن متن</button>
-                <button id="list-btn" type="button" onclick="listFunction()" class="bttn col-lg-2 col-md-2 col-sm-2" >افزودن لیست  </button>
-
-            </div>
-
-            <div class="row">
-
-                <div id="add-img" class="add-img col-lg-12 col-centered">
-                    <label for="img"><img class="img-label" id="img-label" src="img/img.png" alt="choose your image"></label></label>
-                    <input class="browse" id="img" onchange="addImg(this);" type="file">
-                    <img id="blah" src="#"  />
-                    <script>
-//                        function previewFile() {
-//                            var preview = document.querySelector('img');
-//                            var file    = document.querySelector('input[type=file]').files[0];
-//                            var reader  = new FileReader();
-//
-//                            reader.addEventListener("load", function () {
-//                                preview.src = reader.result;
-//                            }, false);
-//                            alert(preview.src);
-//                            if (file) {
-//                                reader.readAsDataURL(file);
-//                            }
-//                        }
-
-                    </script>
-                </div>
-
-
-                <div id="add-video" class="add-video col-lg-12 col-centered">
-                    <input  type="text" id="video-url" onchange="addVideo(this);"><button type="button" onclick="addVideo(this)" id="videourl-btn" class="bttn col-lg-2 col-md-2 col-sm-4 ttl" >تایید آدرس</button>
-                    <!--<label for="video"><img class="img-label" src="img/video.png" alt="choose your video"></label></label>-->
-                    <!--<input class="browse" id="video" onchange="readURL(this);" accept="video/*" type="file">-->
-                    <video controls autoplay id="blah" src="#"></video>
-                </div>
-
-
-
-                <textarea id="hyper-text" type="text" onchange="addText(this);" ng-model="slide.header"  placeholder="متن خود را اینجا بنویسید " class="col-lg-11 col-md-11 col-sm-11 header-input ng-pristine ng-valid ng-touched" style="overflow: hidden; word-wrap: break-word; resize: none; height: 76px;"></textarea>
-                <!--</div>-->
-                <div id="add-list" class="add-list col-lg-12 col-centered">
-                    <div class="row_list" >
-                        <button id="filldetails" type="button" onclick="addFields();addListItem(this);" class="bttn col-lg-4 col-md-4 col-sm-6 col-centered" >افزودن لیست  </button>
-                        <!--<button id="deldetails" type="button" onclick="delFields()" class="bttn col-lg-2 col-md-4 col-sm-6 col-centered" >حذف لیست </button>-->
+                <br class="slide  col-lg-12 col-sm-10">
+                <div class="row">
+                    <button type="button" onclick="titleFunction()" id="title-btn"
+                            class="bttn col-lg-2 col-md-2 col-sm-2 ttl">عنوان
+                    </button>
+                    <div class="title">
+                        <!--<textarea class="watermarkOn" cols=20 id="txtCommentSection" name="txtCommentSection "rows=2>Type your comments here</textarea>';-->
+                <textarea id="header-input" onchange="addTitle(this)" type="text"
+                          pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic"
+                          ng-disabled="ngDisabled" placeholder="متن خودرا اینجا بنویسید"
+                          class="col-lg-10 col-sm-8 header-input ng-pristine ng-valid ng-touched"
+                          style="overflow: hidden; word-wrap: break-word; resize: none; min-height: 50px; -webkit-box-sizing: border-box;-moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
+                        <img id="close-title" onclick="closeTitleFunction();clrSlideTitle(this);"
+                             src="img/close_blue%20(11).png">
                     </div>
 
-                    <div id="container"/>
+                    <!--<span class="glyphicon glyphicon-picture"></span>-->
                 </div>
-            </div>
+                <!--<p id="demo" onclick="myFunction()">Click me to change my text color.</p>-->
+                <div id="etc" class="etc row">
+                    <img id="close" onclick="closeFunction();clrSlideBody(this);" src="img/close_blue%20(11).png">
+                    <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-md-2 col-sm-2 ">
+                        اضافه کردن تصویر
+                    </button>
+                    <button id="video-btn" type="button" onclick="videoFunction()"
+                            class="bttn col-lg-2 col-md-2 col-sm-2 ">اضافه کردن فیلم
+                    </button>
+                    <button id="text-btn" type="button" onclick="textFunction()"
+                            class="bttn col-lg-2 col-md-2 col-sm-2 ">افزودن متن
+                    </button>
+                    <button id="list-btn" type="button" onclick="listFunction()"
+                            class="bttn col-lg-2 col-md-2 col-sm-2">افزودن لیست
+                    </button>
+
+                </div>
+
+                <div class="row">
+
+                    <div id="add-img" class="add-img col-lg-12 col-centered">
+                        <label for="img"><img class="img-label" id="img-label" src="img/img.png"
+                                              alt="choose your image"></label></label>
+                        <input class="browse" id="img" onchange="addImg(this);" type="file">
+                        <img id="blah" src="#"/>
+                        <script>
+                            //                        function previewFile() {
+                            //                            var preview = document.querySelector('img');
+                            //                            var file    = document.querySelector('input[type=file]').files[0];
+                            //                            var reader  = new FileReader();
+                            //
+                            //                            reader.addEventListener("load", function () {
+                            //                                preview.src = reader.result;
+                            //                            }, false);
+                            //                            alert(preview.src);
+                            //                            if (file) {
+                            //                                reader.readAsDataURL(file);
+                            //                            }
+                            //                        }
+
+                        </script>
+                    </div>
+
+
+                    <div id="add-video" class="add-video col-lg-12 col-centered">
+                        <input type="text" id="video-url" onchange="addVideo(this);">
+                        <button type="button" onclick="addVideo(this)" id="videourl-btn"
+                                class="bttn col-lg-2 col-md-2 col-sm-4 ttl">تایید آدرس
+                        </button>
+                        <!--<label for="video"><img class="img-label" src="img/video.png" alt="choose your video"></label></label>-->
+                        <!--<input class="browse" id="video" onchange="readURL(this);" accept="video/*" type="file">-->
+                        <video controls autoplay id="blah" src="#"></video>
+                    </div>
+
+
+                    <textarea id="hyper-text" type="text" onchange="addText(this);" ng-model="slide.header"
+                              placeholder="متن خود را اینجا بنویسید "
+                              class="col-lg-11 col-md-11 col-sm-11 header-input ng-pristine ng-valid ng-touched"
+                              style="overflow: hidden; word-wrap: break-word; resize: none; height: 76px;"></textarea>
+                    <!--</div>-->
+                    <div id="add-list" class="add-list col-lg-12 col-centered">
+                        <div class="row_list">
+                            <button id="filldetails" type="button" onclick="addFields();addListItem(this);"
+                                    class="bttn col-lg-4 col-md-4 col-sm-6 col-centered">افزودن لیست
+                            </button>
+                            <!--<button id="deldetails" type="button" onclick="delFields()" class="bttn col-lg-2 col-md-4 col-sm-6 col-centered" >حذف لیست </button>-->
+                        </div>
+
+                        <div id="container"/>
+                    </div>
+                </div>
                 <script type='text/javascript'>
 
                 </script>
