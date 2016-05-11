@@ -361,29 +361,6 @@ function addTitle(title){
     slide.title = title.value;
 }
 
-//function addImg(img){
-//    var slideID = img.parentNode.parentNode.parentNode.parentNode.id;
-//    var slide = presentation[slideID];
-//    slide.tmp = 1;
-//    slide.image = this.value;
-//}
-
-// function addImg(input) {
-//     // var slideID = input.parentNode.parentNode.parentNode.parentNode.id;
-//     var slideID = 0;
-//     var slide = presentation[slideID];
-//     slide.tmp = 1;
-//     var fReader = new FileReader();
-//     fReader.readAsDataURL(input.files[0]);
-//     fReader.onloadend = function (event) {
-//         input.src = event.target.result;
-//         socket.emit('save image', {data: input.src}, function (response) {
-//             //you should use response.data to get url of saved image :)
-//             slide.imageUrl = response.data;
-//         });
-//     }
-// }
-
 function addVideo(videoBtn){
     // var slideID = videoBtn.parentNode.parentNode.parentNode.parentNode.id;
     var slideID = 0;
