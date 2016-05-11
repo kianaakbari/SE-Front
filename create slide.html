@@ -65,14 +65,14 @@
                     <!--<textarea class="watermarkOn" cols=20 id="txtCommentSection" name="txtCommentSection "rows=2>Type your comments here</textarea>';-->
                 <textarea  id="header-input" onchange="addTitle(this)" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="متن خودرا اینجا بنویسید" class="col-lg-10 col-sm-8 header-input ng-pristine ng-valid ng-touched"
                            style="overflow: hidden; word-wrap: break-word; resize: none; min-height: 50px; -webkit-box-sizing: border-box;-moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
-                    <img id="close-title" onclick="closeTitleFunction()" src="img/close_blue%20(11).png">
+                    <img id="close-title" onclick="closeTitleFunction();clrSlideTitle(this);" src="img/close_blue%20(11).png">
                 </div>
 
                 <!--<span class="glyphicon glyphicon-picture"></span>-->
             </div>
             <!--<p id="demo" onclick="myFunction()">Click me to change my text color.</p>-->
             <div id="etc" class="etc row">
-                <img id="close" onclick="closeFunction();clrSlide(this);" src="img/close_blue%20(11).png">
+                <img id="close" onclick="closeFunction();clrSlideBody(this);" src="img/close_blue%20(11).png">
                 <button id="img-btn" type="button" onclick="imgFunction()" class="bttn col-lg-2 col-md-2 col-sm-2 " >اضافه کردن تصویر</button>
                 <button id="video-btn" type="button" onclick="videoFunction()" class="bttn col-lg-2 col-md-2 col-sm-2 " >اضافه کردن فیلم</button>
                 <button id="text-btn" type="button" onclick="textFunction()" class="bttn col-lg-2 col-md-2 col-sm-2 " >افزودن متن</button>
