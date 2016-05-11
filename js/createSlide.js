@@ -155,7 +155,8 @@ function addFields(){
 
     //kiana
     input.addEventListener("change", function(event){
-        var slideID = input.parentNode.parentNode.parentNode.id;
+        // var slideID = input.parentNode.parentNode.parentNode.id;
+        var slideID = 0;
         (presentation[slideID].listItems)[input.id] = itm.value;
         event.preventDefault();
     });
@@ -170,7 +171,8 @@ function addFields(){
     oImg.id="list-input-img"+number;
     oImg.addEventListener("click", function(event) {
         //kiana
-        var slideID = oImg.parentNode.parentNode.parentNode.id;
+        // var slideID = oImg.parentNode.parentNode.parentNode.id;
+        var slideID = 0;
         var slide = presentation[slideID];
         delete (slide.listItems)[oImg.id];
         slide.listItemsNum++;
@@ -285,7 +287,8 @@ function addSlide(){
 
     oImg.addEventListener("click", function(event) {
         //kiana-----
-        var slideID = oImg.parentNode.parentNode.parentNode.id;
+        // var slideID = oImg.parentNode.parentNode.parentNode.id;
+        var slideID = 0;
         delete presentation[slideID];
         //----------
 
@@ -312,7 +315,8 @@ function delSlide(id){
 //kiana------
 
 function addTitle(title){
-    var slideID = title.parentNode.parentNode.parentNode.parentNode.id;
+    // var slideID = title.parentNode.parentNode.parentNode.parentNode.id;
+    var slideID = 0;
     var slide = presentation[slideID];
     slide.title = title.value;
 }
@@ -325,7 +329,8 @@ function addTitle(title){
 //}
 
 function addImg(input) {
-    var slideID = input.parentNode.parentNode.parentNode.parentNode.id;
+    // var slideID = input.parentNode.parentNode.parentNode.parentNode.id;
+    var slideID = 0;
     var slide = presentation[slideID];
     slide.tmp = 1;
     var fReader = new FileReader();
@@ -340,7 +345,8 @@ function addImg(input) {
 }
 
 function addVideo(videoBtn){
-    var slideID = videoBtn.parentNode.parentNode.parentNode.parentNode.id;
+    // var slideID = videoBtn.parentNode.parentNode.parentNode.parentNode.id;
+    var slideID = 0;
     var slide = presentation[slideID];
     var val = videoBtn.previousSibling.value;
     if(val != null){
@@ -350,14 +356,16 @@ function addVideo(videoBtn){
 }
 
 function addText(txtarea) {
-    var slideID = txtarea.parentNode.parentNode.parentNode.id;
+    // var slideID = txtarea.parentNode.parentNode.parentNode.id;
+    var slideID = 0;
     var slide = presentation[slideID];
     slide.tmp = 3;
     slide.hyperText = txtarea.value;
 }
 
 function addListItem(addBtn){
-    var slideID = addBtn.parentNode.parentNode.parentNode.id;
+    // var slideID = addBtn.parentNode.parentNode.parentNode.id;
+    var slideID = 0;
     var slide = presentation[slideID];
     slide.tmp = 4;
     slide.listItems.push("");
@@ -365,13 +373,15 @@ function addListItem(addBtn){
 }
 
 function clrSlideTitle(closeImg){
-    var slideID = closeImg.parentNode.parentNode.parentNode.id;
+    // var slideID = closeImg.parentNode.parentNode.parentNode.id;
+    var slideID = 0;
     var slide = presentation[slideID];
     slide.title = "";
 }
 
 function clrSlideBody(closeImg){
-    var slideID = closeImg.parentNode.parentNode.parentNode.id;
+    // var slideID = closeImg.parentNode.parentNode.parentNode.id;
+    var slideID = 0;
     var slide = presentation[slideID];
     slide.tmp = -1;
     //slide.image = ""; //1
