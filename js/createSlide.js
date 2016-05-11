@@ -23,7 +23,7 @@ function initSlide(num){
     //this.imageUrl = "";
     this.videoUrl = "";//2
     this.hyperText = ""; //3
-    this.listItems = new Array(100); //4
+    this.listItems = []; //4
     this.listItemsNum = 0;
 }
 //-------
@@ -363,7 +363,7 @@ function clrSlideBody(closeImg){
     //slide.imageUrl = "";
     slide.videoUrl = "";//2
     slide.hyperText = ""; //3
-    slide.listItems = new Array(100); //4
+    slide.listItems = []; //4
     slide.listItemsNum = 0;
 }
 
