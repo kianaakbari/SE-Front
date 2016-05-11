@@ -28,18 +28,6 @@ var slideNum=0;
 //     this.listItemsNum = 0;
 // }
 
-var slidetmp = {
-    id : slideNum,
-    title : "",
-    tmp : -1,
-    // 0 stands for uploaded slides. they only have image url.
-    imageUrl : "", //1
-    videoUrl : "",//2
-    hyperText : "", //3
-    listItems : [], //4
-    listItemsNum : 0
-}
-
 // var slide={
 //     this.id = num;
 //     this.title = "";
@@ -54,7 +42,17 @@ var slidetmp = {
 // }
 
 //pak shavad
-presentation.push(slidetmp);
+presentation.push({
+    id : slideNum,
+    title : "",
+    tmp : -1,
+    // 0 stands for uploaded slides. they only have image url.
+    imageUrl : "", //1
+    videoUrl : "",//2
+    hyperText : "", //3
+    listItems : [], //4
+    listItemsNum : 0
+});
 //
 
 //-------
@@ -332,7 +330,17 @@ function addSlide(){
 
     //kiana------
     slideNum = num;
-    presentation.push(slidetmp);
+    presentation.push({
+    id : slideNum,
+    title : "",
+    tmp : -1,
+    // 0 stands for uploaded slides. they only have image url.
+    imageUrl : "", //1
+    videoUrl : "",//2
+    hyperText : "", //3
+    listItems : [], //4
+    listItemsNum : 0
+});
     //-----------
 
 }
@@ -360,21 +368,21 @@ function addTitle(title){
 //    slide.image = this.value;
 //}
 
-function addImg(input) {
-    // var slideID = input.parentNode.parentNode.parentNode.parentNode.id;
-    var slideID = 0;
-    var slide = presentation[slideID];
-    slide.tmp = 1;
-    var fReader = new FileReader();
-    fReader.readAsDataURL(input.files[0]);
-    fReader.onloadend = function (event) {
-        input.src = event.target.result;
-        socket.emit('save image', {data: input.src}, function (response) {
-            //you should use response.data to get url of saved image :)
-            slide.imageUrl = response.data;
-        });
-    }
-}
+// function addImg(input) {
+//     // var slideID = input.parentNode.parentNode.parentNode.parentNode.id;
+//     var slideID = 0;
+//     var slide = presentation[slideID];
+//     slide.tmp = 1;
+//     var fReader = new FileReader();
+//     fReader.readAsDataURL(input.files[0]);
+//     fReader.onloadend = function (event) {
+//         input.src = event.target.result;
+//         socket.emit('save image', {data: input.src}, function (response) {
+//             //you should use response.data to get url of saved image :)
+//             slide.imageUrl = response.data;
+//         });
+//     }
+// }
 
 function addVideo(videoBtn){
     // var slideID = videoBtn.parentNode.parentNode.parentNode.parentNode.id;
