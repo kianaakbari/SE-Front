@@ -37,8 +37,6 @@
 
             //these 2 functions make base64-encode of the image with given url and will send it to the server
             //and wait for json response of server
-
-
             //make base64-encode using canvas
             function getBase64FromImageUrl(url) {
                 var img = new Image();
@@ -98,10 +96,21 @@
 
 
             // these function should be called every time an image is uploaded
-            $('#inp').change(function () {
-                var inp = $('#inp')[0];
-                getBase64Code(inp);
-                return false;
+            $('#img').change(function () {
+//               var slideID = img.parentNode.parentNode.parentNode.parentNode.id;
+                 var inp = $('#img')[0];
+                 var slideID = 0;
+                 var slide = presentation[slideID];
+                 slide.tmp = 1;
+                 var fReader = new FileReader();
+                 fReader.readAsDataURL(inp.files[0]);
+                 fReader.onloadend = function (event) {
+                     inp.src = event.target.result;
+                     socket.emit('save image', {data: inp.src}, function (response) {
+                         //you should use response.data to get url of saved image :)
+                         slide.imageUrl = response.data;
+                     });
+                 }
             });
 
 
@@ -249,7 +258,8 @@
                     <div id="add-img" class="add-img col-lg-12 col-centered">
                         <label for="img"><img class="img-label" id="img-label" src="img/img.png"
                                               alt="choose your image"></label></label>
-                        <input class="browse" id="img" onchange="addImg(this);" type="file">
+
+                        <input class="browse" id="img" type="file">
                         <img id="blah" src="#"/>
                         <script>
                             //                        function previewFile() {
