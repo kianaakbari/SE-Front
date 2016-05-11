@@ -63,7 +63,7 @@
                 <button type="button" onclick="titleFunction()" id="title-btn" class="bttn col-lg-2 col-md-2 col-sm-2 ttl" >عنوان</button>
                 <div class="title">
                     <!--<textarea class="watermarkOn" cols=20 id="txtCommentSection" name="txtCommentSection "rows=2>Type your comments here</textarea>';-->
-                <textarea  id="header-input" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="متن خودرا اینجا بنویسید" class="col-lg-10 col-sm-8 header-input ng-pristine ng-valid ng-touched"
+                <textarea  id="header-input" onchange="addTitle(this)" type="text" pd-focusable="0.07612095677398467-header" ng-model="slide.header" msd-elastic="msd-elastic" ng-disabled="ngDisabled" placeholder="متن خودرا اینجا بنویسید" class="col-lg-10 col-sm-8 header-input ng-pristine ng-valid ng-touched"
                            style="overflow: hidden; word-wrap: break-word; resize: none; min-height: 50px; -webkit-box-sizing: border-box;-moz-box-sizing: border-box; box-sizing: border-box;"></textarea>
                     <img id="close-title" onclick="closeTitleFunction()" src="img/close_blue%20(11).png">
                 </div>
