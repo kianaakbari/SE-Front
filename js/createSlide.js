@@ -309,6 +309,13 @@ function delSlide(id){
 }
 
 //kiana------
+
+function addTitle(title){
+    var slideID = title.parentNode.parentNode.parentNode.parentNode.id;
+    var slide = presentation[slideID];
+    slide.title = title.value;
+}
+
 function addImg(img){
     var slideID = img.parentNode.parentNode.parentNode.parentNode.id;
     var slide = presentation[slideID];
@@ -330,7 +337,7 @@ function addText(txtarea) {
     var slideID = txtarea.parentNode.parentNode.parentNode.id;
     var slide = presentation[slideID];
     slide.tmp = 3;
-    slide.hyperText = txt.value;
+    slide.hyperText = txtarea.value;
 }
 
 function addListItem(addBtn){
@@ -341,10 +348,15 @@ function addListItem(addBtn){
     slide.listItemsNum++;
 }
 
-function clrSlide(closeImg){
+function clrSlideTitle(closeImg){
     var slideID = closeImg.parentNode.parentNode.parentNode.id;
-    var slide = presentation[slideID]
+    var slide = presentation[slideID];
     slide.title = "";
+}
+
+function clrSlideBody(closeImg){
+    var slideID = closeImg.parentNode.parentNode.parentNode.id;
+    var slide = presentation[slideID];
     slide.tmp = -1;
     slide.image = ""; //1
     //slide.imageUrl = "";
