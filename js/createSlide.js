@@ -19,8 +19,8 @@ function initSlide(num){
     this.title = "";
     this.tmp = -1;
     // 0 stands for uploaded slides. they only have image url.
-    this.image = ""; //1
-    //this.imageUrl = "";
+    //this.image = ""; //1
+    this.imageUrl = ""; //1
     this.videoUrl = "";//2
     this.hyperText = ""; //3
     this.listItems = []; //4
@@ -317,11 +317,26 @@ function addTitle(title){
     slide.title = title.value;
 }
 
-function addImg(img){
-    var slideID = img.parentNode.parentNode.parentNode.parentNode.id;
+//function addImg(img){
+//    var slideID = img.parentNode.parentNode.parentNode.parentNode.id;
+//    var slide = presentation[slideID];
+//    slide.tmp = 1;
+//    slide.image = this.value;
+//}
+
+function addImg(input) {
+    var slideID = input.parentNode.parentNode.parentNode.parentNode.id;
     var slide = presentation[slideID];
     slide.tmp = 1;
-    slide.image = this.value;
+    var fReader = new FileReader();
+    fReader.readAsDataURL(input.files[0]);
+    fReader.onloadend = function (event) {
+        input.src = event.target.result;
+        socket.emit('save image', {data: input.src}, function (response) {
+            //you should use response.data to get url of saved image :)
+            slide.imageUrl = response.data;
+        });
+    }
 }
 
 function addVideo(videoBtn){
@@ -359,8 +374,8 @@ function clrSlideBody(closeImg){
     var slideID = closeImg.parentNode.parentNode.parentNode.id;
     var slide = presentation[slideID];
     slide.tmp = -1;
-    slide.image = ""; //1
-    //slide.imageUrl = "";
+    //slide.image = ""; //1
+    slide.imageUrl = ""; //1
     slide.videoUrl = "";//2
     slide.hyperText = ""; //3
     slide.listItems = []; //4
