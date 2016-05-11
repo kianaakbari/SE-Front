@@ -2,7 +2,7 @@
  * Created by samane on 20/04/2016.
  */
 
-//var slide = {
+// var slide = {
 //    id  :   document.getElementById().id,
 //    firstName: "John",
 //    lastName : "Doe",
@@ -10,22 +10,53 @@
 //    fullName : function() {
 //       return this.firstName + " " + this.lastName;
 //    }
-//};
+// };
 
 //kiana------
-var presentation=[];
-function initSlide(num){
-    this.id = num;
-    this.title = "";
-    this.tmp = -1;
+var presentation = [];
+var slideNum=0;
+// function initSlide(num){
+//     this.id = num;
+//     this.title = "";
+//     this.tmp = -1;
+//     // 0 stands for uploaded slides. they only have image url.
+//     //this.image = ""; //1
+//     this.imageUrl = ""; //1
+//     this.videoUrl = "";//2
+//     this.hyperText = ""; //3
+//     this.listItems = []; //4
+//     this.listItemsNum = 0;
+// }
+
+var slidetmp = {
+    id : slideNum,
+    title : "",
+    tmp : -1,
     // 0 stands for uploaded slides. they only have image url.
-    //this.image = ""; //1
-    this.imageUrl = ""; //1
-    this.videoUrl = "";//2
-    this.hyperText = ""; //3
-    this.listItems = []; //4
-    this.listItemsNum = 0;
+    imageUrl : "", //1
+    videoUrl : "",//2
+    hyperText : "", //3
+    listItems : [], //4
+    listItemsNum : 0
 }
+
+// var slide={
+//     this.id = num;
+//     this.title = "";
+//     this.tmp = -1;
+//     // 0 stands for uploaded slides. they only have image url.
+//     //this.image = ""; //1
+//     this.imageUrl = ""; //1
+//     this.videoUrl = "";//2
+//     this.hyperText = ""; //3
+//     this.listItems = []; //4
+//     this.listItemsNum = 0;
+// }
+
+//pak shavad
+presentation.push(slidetmp);
+//
+
 //-------
 
  /*slide logic */
@@ -300,7 +331,8 @@ function addSlide(){
     });
 
     //kiana------
-    presentation.push(initSlide(num));
+    slideNum = num;
+    presentation.push(slidetmp);
     //-----------
 
 }
