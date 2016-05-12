@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="prv" onclick = "prvFunc()" disabled = true>previous</button>
+<button id="nxt" onclick = "nxtFunc()">next</button>
+
+<script>
+
+var slideNum = 0;
+
+function nxtFunc() {
+    slideNum++;
+    //frestadane slide num ba socket
+    document.getElementById("prv").disabled = false;
+}
+
+function prvFunc() {
+    slideNum--;
+    //frestadane slide num ba socket
+    if(slideNum==0) document.getElementById("prv").disabled = true;
+}
+</script>
+
+</body>
+</html>
