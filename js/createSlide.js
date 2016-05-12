@@ -2,46 +2,29 @@
  * Created by samane on 20/04/2016.
  */
 
-// var slide = {
-//    id  :   document.getElementById().id,
-//    firstName: "John",
-//    lastName : "Doe",
-//    id       : 5566,
-//    fullName : function() {
-//       return this.firstName + " " + this.lastName;
-//    }
-// };
 
 //kiana------
-var presentation = [];
-var slideNum=-1;
-// function initSlide(num){
-//     this.id = num;
-//     this.title = "";
-//     this.tmp = -1;
-//     // 0 stands for uploaded slides. they only have image url.
-//     //this.image = ""; //1
-//     this.imageUrl = ""; //1
-//     this.videoUrl = "";//2
-//     this.hyperText = ""; //3
-//     this.listItems = []; //4
-//     this.listItemsNum = 0;
-// }
 
-// var slide={
-//     this.id = num;
-//     this.title = "";
-//     this.tmp = -1;
-//     // 0 stands for uploaded slides. they only have image url.
-//     //this.image = ""; //1
-//     this.imageUrl = ""; //1
-//     this.videoUrl = "";//2
-//     this.hyperText = ""; //3
-//     this.listItems = []; //4
-//     this.listItemsNum = 0;
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
+
+//ezafe shavad
+// var mode = getURLParameter('mode');
+// if(mode) {
+//     var presentationID = getURLParameter('presentationID');
+//     //var presentation = getpresentationbyid
+//     var slideNum=0;
 // }
+// else{
+//     var presentation = [];
+//     var slideNum=-1;
+// }
+//
 
 //pak shavad
+var presentation = [];
+var slideNum=-1;
 presentation.push({
     id : 0,
     title : "",
@@ -57,27 +40,7 @@ presentation.push({
 
 //-------
 
- /*slide logic */
-//function FillSlides(title){
-//    this.Title=title;
-//    this.hasImage="False";
-//    this.hasVideo="False";
-//    this.imageUrl="";
-//    this.videoUrl="";
-//    this.hyperText="";
-//    this.listItems=new Array(100);
-//}
-function save(){
-    var titleValue = document.getElementById("header-input").value;
-    var listItems = new Array(15);
-    for(i =0;i<13;i++){
-        listItems[i] = document.getElementById("list-field"+i).value;
-        alert(listItems[i]);
-    }
-    alert(titleValue);
-    var slide1 =new FillSlides(titleValue,listItems);
-    //slide1.Title=titleValue;
-}
+
 //////////////////////////////////////////////////////////////////////slide logic//////////////////////////////////////////////////////////////////////////
 
 /* preview image in add image feild

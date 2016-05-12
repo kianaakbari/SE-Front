@@ -31,7 +31,7 @@ function updateQueryStringParameter(uri, key, value) {
 }
 
 function onEditClick(editBtn){
-    var url=updateQueryStringParameter(updateQueryStringParameter("#.html",'presentationID',presentationID),'#','#');
+    var url=updateQueryStringParameter(updateQueryStringParameter("create slide.html",'mode',1),'presentationID',presentationID); //0 stands for edit
     window.location=url;
 }
 
