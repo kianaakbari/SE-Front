@@ -96,8 +96,8 @@
 
 
             // these function should be called every time an image is uploaded
-            $('#img').change(function () {
-                 var inp = $('#img')[0];
+            $('.img').change(function () {
+                 var inp = $(this);
                  var slideID = slideNum;
                  var slide = presentation[slideID];
                  slide.tmp = 1;
@@ -254,7 +254,7 @@
 
                 <div class="row">
 
-                    <div id="add-img" class="add-img col-lg-12 col-centered">
+                    <div class="add-img col-lg-12 col-centered">
                         <label for="img"><img class="img-label" id="img-label" src="img/img.png"
                                               alt="choose your image"></label></label>
 
