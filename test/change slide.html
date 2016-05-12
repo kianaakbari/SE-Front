@@ -7,18 +7,21 @@
 
 <script>
 
-var slideNum = 0;
+var current = 0;
+var slidesNum = 5;
 
 function nxtFunc() {
-    slideNum++;
-    //frestadane slide num ba socket
+    current++;
+    //frestadane current ba socket
     document.getElementById("prv").disabled = false;
+    if(current==slidesNum-1) document.getElementById("nxt").disabled = true;
 }
 
 function prvFunc() {
-    slideNum--;
-    //frestadane slide num ba socket
-    if(slideNum==0) document.getElementById("prv").disabled = true;
+    current--;
+    //frestadane current ba socket
+    document.getElementById("nxt").disabled = false;
+    if(current==0) document.getElementById("prv").disabled = true;
 }
 </script>
 
