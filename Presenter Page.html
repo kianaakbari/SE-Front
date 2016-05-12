@@ -17,7 +17,8 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/controllers/presenterPage.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -71,50 +72,11 @@
 
                     
                     
-                        <ul class="row">
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <img class = "image" src="#">
-                                <p>presentation name</p>
-                            </li>
-
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name and presentation id and date and teacher and so on </p>
-                            </li>
-
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name</p>
-                            </li>
-
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name</p>
-                            </li>
-
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name</p>
-                            </li>
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name</p>
-                            </li>
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name</p>
-                            </li>
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name</p>
-                            </li>
-                            <li class ="preview col-xs-12 col-sm-6 col-md-4">
-                                <div class = "image"> <img src="#"></div>
-                                <p>presentation name</p>
-                            </li>
-
+                        <ul class="row" id="some" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
                         </ul>
-                    
+
+
+
                 </div>
 
 
@@ -154,10 +116,10 @@
 
 <!-- jQuery -->
 
-<script src="js/jquery.js"></script>
+<!--<script src="js/jquery.js"></script>-->
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/bootstrap.min.js"></script>-->
 
 <!-- Menu Toggle Script -->
 <!--<script>-->
