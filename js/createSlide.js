@@ -14,7 +14,7 @@
 
 //kiana------
 var presentation = [];
-var slideNum=0;
+var slideNum=-1;
 // function initSlide(num){
 //     this.id = num;
 //     this.title = "";
@@ -43,7 +43,7 @@ var slideNum=0;
 
 //pak shavad
 presentation.push({
-    id : slideNum,
+    id : 0,
     title : "",
     tmp : -1,
     // 0 stands for uploaded slides. they only have image url.
@@ -249,7 +249,7 @@ function addSlide(){
 
 
         div.style.backgroundColor="red";
-
+        slideNum = div.id;
         event.preventDefault();
     });
 
@@ -329,7 +329,7 @@ function addSlide(){
     });
 
     //kiana------
-    slideNum = num;
+    slideNum = num; //slideNum ++;
     presentation.push({
     id : slideNum,
     title : "",
@@ -355,15 +355,13 @@ function delSlide(id){
 //kiana------
 
 function addTitle(title){
-    // var slideID = title.parentNode.parentNode.parentNode.parentNode.id;
-    var slideID = 0;
+    var slideID = slideNum;
     var slide = presentation[slideID];
     slide.title = title.value;
 }
 
 function addVideo(videoBtn){
-    // var slideID = videoBtn.parentNode.parentNode.parentNode.parentNode.id;
-    var slideID = 0;
+    var slideID = slideNum;
     var slide = presentation[slideID];
     var val = videoBtn.previousSibling.value;
     if(val != null){
@@ -373,16 +371,14 @@ function addVideo(videoBtn){
 }
 
 function addText(txtarea) {
-    // var slideID = txtarea.parentNode.parentNode.parentNode.id;
-    var slideID = 0;
+    var slideID = slideNum;
     var slide = presentation[slideID];
     slide.tmp = 3;
     slide.hyperText = txtarea.value;
 }
 
 function addListItem(addBtn){
-    // var slideID = addBtn.parentNode.parentNode.parentNode.id;
-    var slideID = 0;
+    var slideID = slideNum;
     var slide = presentation[slideID];
     slide.tmp = 4;
     slide.listItems.push("");
@@ -390,15 +386,13 @@ function addListItem(addBtn){
 }
 
 function clrSlideTitle(closeImg){
-    // var slideID = closeImg.parentNode.parentNode.parentNode.id;
-    var slideID = 0;
+    var slideID = slideNum;
     var slide = presentation[slideID];
     slide.title = "";
 }
 
 function clrSlideBody(closeImg){
-    // var slideID = closeImg.parentNode.parentNode.parentNode.id;
-    var slideID = 0;
+    var slideID = slideNum;
     var slide = presentation[slideID];
     slide.tmp = -1;
     //slide.image = ""; //1

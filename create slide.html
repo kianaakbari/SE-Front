@@ -97,9 +97,8 @@
 
             // these function should be called every time an image is uploaded
             $('#img').change(function () {
-//               var slideID = img.parentNode.parentNode.parentNode.parentNode.id;
                  var inp = $('#img')[0];
-                 var slideID = 0;
+                 var slideID = slideNum;
                  var slide = presentation[slideID];
                  slide.tmp = 1;
                  var fReader = new FileReader();

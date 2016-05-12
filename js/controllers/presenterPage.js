@@ -16,6 +16,25 @@ function getCookie(cname) {
     return "";
 }
 var auth = getCookie('auth');
+
+var presentationID = -1;
+
+function updateQueryStringParameter(uri, key, value) {
+  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+  if (uri.match(re)) {
+    return uri.replace(re, '$1' + key + "=" + value + '$2');
+  }
+  else {
+    return uri + separator + key + "=" + value;
+  }
+}
+
+function onEditClick(editBtn){
+    var url=updateQueryStringParameter(updateQueryStringParameter("#.html",'presentationID',presentationID),'#','#');
+    window.location=url;
+}
+
 var app = angular.module("app", []);
 app.controller("HttpGetController", function ($scope, $http, $log, $window) {
 
@@ -38,7 +57,6 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
 
                 .success(function (data, status, headers, config) {
                     presentations = data;
-                     console.log(presentations[0].name);
                     var presentationsNum = Object.keys(presentations).length;
                        for(i=0; i<presentationsNum; i++) {
                            var presentationsList = document.getElementById("some");
@@ -52,7 +70,12 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
                            var img = document.createElement('img');
                            img.src = '#';
                            img.id = presentations[i].id;
-
+                           // img.onclick = onPresentationImgClick;
+                           img.addEventListener("click", function(event) {
+                                presentationID = presentationImgID.id;
+                                event.preventDefault();
+                            });
+                           
                            var p = document.createElement('p');
                            p.innerHTML = presentations[i].name;
 
