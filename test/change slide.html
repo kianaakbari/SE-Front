@@ -36,6 +36,13 @@
                 alert(msg.page);
             });
 
+            //this event is not actually for this page
+            //it should be moved to audience presentation page
+            socket.on('session ended', function () {
+                alert("session ended for audience");
+            });
+
+
             socket.on('my response', function (msg) {
                 console.log('yesssss');
 
@@ -61,6 +68,21 @@
             $('#nxt').click(function (event) {
                 nxtFunc();
                 socket.emit('change page', {page: current});
+                return false;
+            });
+
+            $('#end-session').click(function (event) {
+
+                endSession();
+
+                socket.emit('end session', function (msg) {
+                    if (msg == 1) {
+                        // do what is needed in view when the session in ended
+                        alert("session finished properly");
+                    } else if (msg == 0) {
+                        alert("session not finished properly");
+                    }
+                });
                 return false;
             });
 
@@ -90,11 +112,19 @@
         if (current == 0) document.getElementById("prv").disabled = true;
     }
 
+    function endSession() {
+
+
+    }
+
+
 </script>
 
 <button id="prv" disabled=true>previous</button>
 <button id="nxt">next</button>
-
+<br>
+<br>
+<button id="end-session">end session</button>
 
 </body>
 </html>
