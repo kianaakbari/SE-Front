@@ -1,0 +1,152 @@
+.title{
+    /*background-color: #00A1B3;*/
+    height: 10rem;
+    font-family: "B Kamran";
+    text-align: center;
+    margin: 1rem auto;
+    font-size: 8rem;
+    display: table;
+    position: static;
+
+}
+
+.body{
+    height: 70rem;
+    /*background-color: #337ab7;*/
+    margin-top: 2rem;
+}
+
+.image{
+    /*background-color: #3e8e41;*/
+    height: 60rem;
+    margin-left: 25rem;
+    margin-top: 5rem;
+}
+
+.picture {
+    margin-left: 14rem;
+    margin-top: 2rem;
+    z-index: 0;
+    max-height: 800px;
+    max-width: 1000px;
+}
+.video {
+    /*background-color: #3e8e41;*/
+    height: 60rem;
+    margin-left: 25rem;
+    margin-top: 5rem;
+}
+
+.text_slide {
+
+    /*width: 95%;*/
+    border: 3px dotted #28AADC !important;
+    border-radius: 0 !important;
+    font-size: 2rem;
+    text-align: right;
+    background-color: #FFFFFF;
+    outline: none;
+    color: #344141;
+    height: 100%;
+    resize: none;
+    /*overflow-y: auto !important;*/
+    max-height: 6em;
+    position: static;
+    margin-left: 17rem;
+    margin-top: 0;
+    padding-right: 25%;
+    padding-left: 25%;
+    padding-bottom: 65rem;
+    z-index: 6;
+    float: none;
+    /*overflow: hidden;*/
+    /*text-indent: 20rem;*/
+}
+
+.text{
+    font-family: "B Kamran";
+    font-size: 5rem;
+    text-align: center;
+}
+
+.list_slide{
+    height: 60rem;
+    margin-left: 17rem;
+    margin-top: 5rem;
+    /*background-color:#2b542c;*/
+}
+
+.ul{
+    /*background-color: #00A1B3;*/
+    margin-top: 10rem;
+    font-family: "B Kamran";
+    font-size: 5rem;
+    margin-left: 0;
+    text-align: center;
+}
+@media screen and (max-width: 767px) {
+    .title{
+        margin: 1rem 8rem;
+    }
+    .body{
+        margin-left: 8rem;
+    }
+    .text_slide{
+        margin-left: 10rem;
+    }
+}
+/*small*/
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .title{
+        margin: 1rem 8rem;
+    }
+    .body{
+        margin-left: 8rem;
+    }
+    .video{
+        margin-left: 7rem;
+    }
+    .picture{
+        margin-left: 7rem;
+    }
+    .text_slide{
+        margin-left: 8rem;
+    }
+    .list_slide{
+        margin-left: 6rem;
+    }
+
+}
+/*medium*/
+@media (min-width: 992px) and (max-width: 1199px) {
+    .title{
+        margin: 1rem 14rem;
+    }
+    .body{
+        margin-left: 14rem;
+    }
+    .text_slide{
+        margin-left: 10rem;
+    }
+    .list_slide{
+        margin-left: 6rem;
+    }
+
+}
+/*large*/
+@media (min-width: 1200px) {
+    .title{
+        margin: 1rem 16rem;
+    }
+    .body{
+        margin-left: 16rem;
+    }
+    .text_slide{
+        margin-left: 10rem;
+    }
+    .list_slide{
+        margin-left: 13rem;
+    }
+
+}

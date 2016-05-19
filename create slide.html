@@ -118,6 +118,7 @@
             //you should write a jquery event here to call the function that send presentation json file to server
             $('#save-to-file').click(function (event) {
 
+                alert(7318262);
                 var json = JSON.stringify(presentation);
 
                 //this arguments should be given tu emit :
@@ -243,6 +244,8 @@
                     <button id="video-btn" type="button" onclick="videoFunction()"
                             class="bttn col-lg-2 col-md-2 col-sm-2 ">اضافه کردن فیلم
                     </button>
+                    <button id="save-to-file" type="button"
+                            class="bttn col-lg-2 col-md-2 col-sm-2 ">save</button>
                     <button id="text-btn" type="button" onclick="textFunction()"
                             class="bttn col-lg-2 col-md-2 col-sm-2 ">افزودن متن
                     </button>

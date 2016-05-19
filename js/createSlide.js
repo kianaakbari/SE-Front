@@ -27,7 +27,18 @@ var presentation = [];
 var slideNum=-1;
 presentation.push({
     id : 0,
-    title : "",
+    title : "a",
+    tmp : -1,
+    // 0 stands for uploaded slides. they only have image url.
+    imageUrl : "", //1
+    videoUrl : "",//2
+    hyperText : "", //3
+    listItems : [], //4
+    listItemsNum : 0
+});
+presentation.push({
+    id : 1,
+    title : "b",
     tmp : -1,
     // 0 stands for uploaded slides. they only have image url.
     imageUrl : "", //1
