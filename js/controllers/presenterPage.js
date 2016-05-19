@@ -1,6 +1,7 @@
 /**
  * Created by kiana on 5/12/16.
  */
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -17,8 +18,6 @@ function getCookie(cname) {
 }
 var auth = getCookie('auth');
 
-var presentationID = -1;
-
 function updateQueryStringParameter(uri, key, value) {
   var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
   var separator = uri.indexOf('?') !== -1 ? "&" : "?";
@@ -28,11 +27,6 @@ function updateQueryStringParameter(uri, key, value) {
   else {
     return uri + separator + key + "=" + value;
   }
-}
-
-function onEditClick(editBtn){
-    var url=updateQueryStringParameter(updateQueryStringParameter("create slide.html",'mode',1),'presentationID',presentationID); //0 stands for edit
-    window.location=url;
 }
 
 var app = angular.module("app", []);
@@ -56,23 +50,65 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
         })
 
                 .success(function (data, status, headers, config) {
+
+                    //-------------------------------------------------
+                    // var presentationID = -1;
+                    // presenter
+                    var modal = document.getElementById("myModal");
+
+                    var modalImg = document.getElementById("img01");
+
+                    var span = document.getElementsByClassName("close")[0];
+                    //end presenter
+
+                    //upload
+
+                    var modal_1 = document.getElementById("mymodal_1");
+
+                    // var upbtn = document.getElementById("clk_upload");
+
+                    //end upload
+
+                    // When the user clicks the button, open the modal , upload
+
+                    // upbtn.onclick = function() {
+                    //     modal_1.style.display = "block";
+                    // }
+
+
+                    //When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+                    //-------------------------------------------------
                     presentations = data;
                     var presentationsNum = Object.keys(presentations).length;
                        for(i=0; i<presentationsNum; i++) {
                            var presentationsList = document.getElementById("some");
                            var num = presentationsList.childElementCount;
                            var li = document.createElement("li");
-                           li.setAttribute('class', "preview col-xs-12 col-sm-6 col-md-4");
+                           li.setAttribute('class', "blocking preview col-xs-12 col-sm-6 col-md-4");
 
                            var div = document.createElement('div');
                            div.setAttribute('class',"image");
 
                            var img = document.createElement('img');
-                           img.src = '#';
+                           img.src = 'img/pear.jpg';
                            img.id = presentations[i].id;
+                           img.setAttribute('class', "presentationImg");
                            // img.onclick = onPresentationImgClick;
                            img.addEventListener("click", function(event) {
-                                presentationID = presentationImgID.id;
+                                presentationID= this.id;
+                                modal.style.display = "block";
+                                modalImg.src = this.src;
                                 event.preventDefault();
                             });
                            
@@ -89,6 +125,19 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
                 });
     }
 });
+
+
+function onEditClick(editBtn){
+    var url=updateQueryStringParameter(updateQueryStringParameter("create slide.html",'mode',1),'presentationID',presentationID); //0 stands for edit
+    window.location=url;
+}
+
+function onPrsntClick(editBtn){
+    var url=updateQueryStringParameter("presenter.html",'presentationID',presentationID);
+    window.location=url;
+}
+
+
 
 
 

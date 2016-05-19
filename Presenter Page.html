@@ -10,15 +10,17 @@
     <meta name="author" content="#">
 
     <title>Presenter</title>
+    <script src="js/lib/angular.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-    <<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="js/lib/angular.min.js"></script>
-    <script src="js/controllers/presenterPage.js"></script>
+    <link href="simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="js/controllers/presenterPage.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,7 +36,10 @@
 </div>-->
 
 <div class="container-fluid">
+
     <div class = "row">
+
+
         <nav class="nav-bar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -57,6 +62,13 @@
     <!-- Sidebar -->
 
 
+    <div class="row">
+         <div id = "clk_upload" class = "button-set">
+            <a class = "button button--white">بارگذاری</a>
+        </div>
+    </div>
+ 
+
 
     <div class="row-fluid">
         <!-- Page Content -->
@@ -65,18 +77,15 @@
                 <!--<div class="row">-->
                 <!--<div class="col-lg-12">-->
 
-                
-
                 <div class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8">
 
 
-                    
-                    
+
+
                         <ul class="row" id="some" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
+
                         </ul>
-
-
-
+                    
                 </div>
 
 
@@ -112,14 +121,98 @@
 </div>
 
 
-<!-- /#wrapper -->
+
+
+<!-- The Modal img presenter -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">X</span>
+    </div>
+
+
+    <div class="modal_dialog">
+        <div class="lo-deck-detail_top">
+            <div class="deck-detail">
+                <div class="deck-detail_preview">
+                    <div class="deck-detail_preview-img">
+                        <img id = "img01" class="image1" src="#">
+
+                    </div>
+                </div>
+                <div class="deck-detail_about">
+                    <h2 class="deck-detail_name">بدون عنوان</h2>
+                    <div class="deck-detail_time">... آخرین تغییر در </div>
+                    <div class="deck-deck_action">
+                        <div class="button-set--inline">
+                            <a href="#" class="button1 button--action-blue" onclick="onEditClick(this)">تغییر</a>
+                            <a href="#" class="button1 button--action-blue" onclick="onPrsntClick(this)">شروع ارائه</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lo-deck-detail_bottom">
+            <div class="sessions-message">
+                شما هیچ جلسه ارائه را شروع نکردید . هنگامی که یک جلسه ارائه را شروع و پاسخ های دانش آموزان را ذخیره کنید ، این جلسه در این لیست نشان داده خواهد شد
+            </div>
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- End Modal -->
+
+
+
+
+<!-- Modal upload -->
+
+<div id="myModal_1" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">X</span>
+    </div>
+
+    <div class = "jn-mo-eb jn-hi-eb">
+        
+        
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<!-- End Modal -->
+
+
+
 
 <!-- jQuery -->
 
-<!--<script src="js/jquery.js"></script>-->
+<script src="js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<!--<script src="js/bootstrap.min.js"></script>-->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- dialog javascript -->
+<script type="text/javascript" src="presenter_dialog.js"></script>
+
+
 
 <!-- Menu Toggle Script -->
 <!--<script>-->
