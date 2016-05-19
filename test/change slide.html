@@ -17,10 +17,17 @@
 
             ///////////////////////////socket initialization
             try {
+<<<<<<< HEAD
+                alert("yess1");
+                var socket = io.connect('http://localhost:8000/presentation');
+
+                alert("yess2");
+=======
                 console.log("yess1");
                 var socket = io.connect('http://localhost:8000/presentation');
 
                 console.log("yess2");
+>>>>>>> 84faf81a0649acc56ab63f8d150c2048e72a392e
             }
             catch (err) {
                 console.log(err);
@@ -30,6 +37,8 @@
 
             ///////////////////////////socket event listeners
 
+<<<<<<< HEAD
+=======
             //this event is not actually for this page
             //it should be moved to audience presentation page
             socket.on('page changed', function (msg) {
@@ -42,6 +51,7 @@
                 alert("session ended for audience");
             });
 
+>>>>>>> 84faf81a0649acc56ab63f8d150c2048e72a392e
 
             socket.on('my response', function (msg) {
                 console.log('yesssss');
@@ -61,13 +71,27 @@
 
             $('#prv').click(function (event) {
                 prvFunc();
+<<<<<<< HEAD
+                
+                //roomName should be stored somewhere in this file and then
+                //be replaced in below line
+                socket.emit('change page', {page: current, room_name: "roomName"});
+=======
                 socket.emit('change page', {page: current});
+>>>>>>> 84faf81a0649acc56ab63f8d150c2048e72a392e
                 return false;
             });
 
             $('#nxt').click(function (event) {
                 nxtFunc();
+<<<<<<< HEAD
+
+                //roomName should be stored somewhere in this file and then
+                //be replaced in below line
+                socket.emit('change page', {page: current, room_name: "roomName"});
+=======
                 socket.emit('change page', {page: current});
+>>>>>>> 84faf81a0649acc56ab63f8d150c2048e72a392e
                 return false;
             });
 

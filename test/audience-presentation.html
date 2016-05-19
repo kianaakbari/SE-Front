@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Slides</title>
+
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
+          rel="stylesheet" type="text/css"/>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        $(document).ready(function () {
+
+
+
+            ///////////////////////////socket initialization
+            try {
+                alert("yess1");
+                var socket = io.connect('http://localhost:8000/presentation');
+
+                //replace with the room name the name in the url
+                joinRoom("roomName");
+
+                alert("yess2");
+            }
+            catch (err) {
+                alert(err);
+            }
+
+
+            ///////////////////////////socket initialization
+
+
+            /////////////////////////////////////////////socket functions
+            function joinRoom(roomName) {
+                socket.emit('join', {room: roomName}, function (result) {
+
+                    if (result == 1) {
+                        // do what is needed in view when join session is not successful
+                        alert("join session finished properly");
+
+                        return false;
+
+                    } else if (result == 0) {
+                        // do what is needed in view when join session is not successful
+                        alert("join session not finished properly");
+
+                        return true;
+                    }
+
+
+                });
+            }
+
+
+            function leaveRoom(roomName) {
+                socket.emit('leave', {room: roomName}, function (result) {
+                    if (result == 1) {
+
+                        // do what is needed in view when leave session in successful
+                        alert("leave session finished properly");
+                        return true;
+                    } else if (result == 0) {
+                        alert("leave session not finished properly");
+                        return false;
+                    }
+
+                });
+
+                return false;
+            }
+
+            /////////////////////////////////////////////socket functions
+
+
+            ///////////////////////////socket event listeners
+
+
+            socket.on('init presentation', function (data) {
+                //fill view with json
+                //use 'page' to show specified page in this page .
+                alert(data.json);
+                alert(data.page);
+            });
+
+            socket.on('page changed', function (msg) {
+
+                alert(msg.page);
+            });
+
+
+            socket.on('session ended', function () {
+
+                alert("session ended for audience");
+            });
+
+
+            socket.on('my response', function (msg) {
+                console.log('yesssss audience');
+
+                //change this to append bellow msg somewhere in the view , it's for testing :
+                //  'Received #' + msg.data
+                $('#log').append('<br>' + $('<div/>').text('Received #' + msg.data).html());
+            });
+
+            socket.on('connect', function (msg) {
+                console.log('connected');
+                socket.emit('my event', {data: 'I\'m connected!'});
+            });
+
+            ///////////////////////////socket event listeners
+
+
+            $('#leave-room').click(function (event) {
+                //frontend stuff
+                leaveSession();
+                //replace with the room name the name in the url
+                leaveRoom("roomName");
+                return false;
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+<script>
+
+    var current = 0;
+
+    function nxtFunc() {
+        current++;
+    }
+
+    function prvFunc() {
+        current--;
+    }
+
+    function leaveSession() {
+
+    }
+
+
+</script>
+
+<button id="leave-room">leave room</button>
+
+</body>
+</html>
