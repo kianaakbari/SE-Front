@@ -101,7 +101,7 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
                            div.setAttribute('class',"image");
 
                            var img = document.createElement('img');
-                           img.src = 'img/pear.jpg';
+                           img.src = 'img/education.jpg';
                            img.id = presentations[i].id;
                            img.setAttribute('class', "presentationImg");
                            // img.onclick = onPresentationImgClick;

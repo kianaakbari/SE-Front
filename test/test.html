@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Demo</title>
+    <script src="angular.min.js"></script>
     <script src="test.js"></script>
-    <script src="../js/lib/jquery.js"></script>
-    <link rel="stylesheet" href="test.css">
-
-
-
+    <script src="test1.js"></script>
 </head>
 <body>
-<!--<button class = "btn" >click</button>-->
-<!--<button class = "btn">click1</button>-->
-<!--<button class = "btn">click2</button>-->
-<!--<button id = "btn1">click3</button>-->
-    <!--<script>-->
-        <!--//&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;this-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
-        <!--$('.btn').on('click', function() {-->
-            <!--var inp = $(this);-->
-            <!--alert(inp.text());-->
-<!--});-->
-    <!--</script>-->
-<!--<img class="tst" src="../img/pear.jpg" alt="">-->
-<!--<label id='s' for="img"><img class="img-label" id="img-label" src="../img/img.png" alt="choose your image"></label>-->
-<!--<script>var lable=document.getElementById('s');-->
-<!--var inp = lable.nextSibling;-->
-    <!--lable.setAttribute('for',inp);-->
-<!--</script>-->
-<input class="browse" id="img" type="file">
+
+
+
+<div ng-app="app1" ng-controller="HttpGetController1">
+    <p>PId: <input type="text" name="firstName" ng-model="pid" required /></p>
+
+    <button ng-click="SendData1()">Submit</button>
+    <hr />
+    {{ PostDataResponse }}
+</div>
+
+<div ng-app="app" ng-controller="HttpGetController" ng-init="SendData()">
+
+    <!--<p>Search Id: <input type="text" name="email" ng-model="email" required /></p>-->
+    <!--<button ng-click="SendData()">first click on this</button>-->
+    <button onclick="f()">show x value</button>
+    <hr />
+    <!--{{ PostDataResponse }}-->
+</div>
 
 </body>
 </html>

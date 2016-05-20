@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Demo</title>
-    <script src="js/lib/angular.min.js"></script>
-
-
-
-</head>
-<body>
-<h3 style="color:red;">Create session.</h3><hr />
-<script>
     var x;
     function getCookie(cname) {
         var name = cname + "=";
@@ -63,37 +51,9 @@
         return obj;
     });
 
-    app1.factory("factory2",function($http,$q){
-        var obj={};
-        obj.getResponse = function(index){
-            var myPromise = $q.defer();
-            var username = auth;
-            var password = '';
+    app1.controller("HttpGetController1", function ($scope, factory1) {
 
-            function make_base_auth(user, password) {
-                var tok = user + ':' + password;
-                var hash = btoa(tok);
-                return "Basic " + hash;
-            };
-            $http({
-                method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_presentation/' + index, headers: {
-                    'Authorization': make_base_auth(username, password)
-                }
-            })
-                    .success(function (data, status, headers, config) {
-                        myPromise.resolve(data);
-                    })
-                    .error(function (data, status) {
-                        myPromise.resolve(data);
-                    });
-            return ( myPromise.promise);
-        }
-        return obj;
-    });
-
-    app1.controller("HttpGetController", function ($scope, factory1) {
-
-        $scope.SendData = function () {
+        $scope.SendData1 = function () {
             var data = ({
                 pid: $scope.pid
             });
@@ -107,14 +67,3 @@
     function f() {
         alert(presentation[0].a);
     }
-
-</script>
-<div ng-app="app1" ng-controller="HttpGetController">
-    <p>PId: <input type="text" name="firstName" ng-model="pid" required /></p>
-
-    <button ng-click="SendData()">Submit</button>
-    <hr />
-    {{ PostDataResponse }}
-</div>
-</body>
-</html>
