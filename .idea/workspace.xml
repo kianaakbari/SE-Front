@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_Presenter Page.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/_simple-sidebar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/_presenter_dialog.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/presenter_dialog.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presenter Page.html" afterPath="$PROJECT_DIR$/Presenter Page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/simple-sidebar.css" afterPath="$PROJECT_DIR$/css/simple-sidebar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/presenterPage.js" afterPath="$PROJECT_DIR$/js/controllers/presenterPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/show_presentation.js" afterPath="$PROJECT_DIR$/js/show_presentation.js" />
-    </list>
+    <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="" />
     <ignored path="main project.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -250,7 +240,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../presentation-maker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../backup/SE-Front" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />

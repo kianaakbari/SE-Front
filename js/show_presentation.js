@@ -3,6 +3,16 @@
  */
 // var presentation = [{"id":0,"title":"a","tmp":1,"imageUrl":"img/pear.jpg","videoUrl":"","hyperText":"","listItems":[],"listItemsNum":0},{"id":1,"title":"b","tmp":4,"imageUrl":"","videoUrl":"","hyperText":"","listItems":['a',undefined,'c'],"listItemsNum":3}];
 //----------------------------------------------get presetation and session code--------------------------------------//
+
+///////////////////////////socket initialization
+try {
+    var socket = io.connect('http://localhost:8000/presentation');
+}
+catch (err) {
+    console.log(err);
+}
+///////////////////////////socket initialization
+
     function getURLParameter(name) {
       return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
     }
@@ -134,7 +144,7 @@ var current = -1;
         slide = presentation[current];
         console.log(slide);
         curTmp = slide.tmp;
-        //frestadane current ba socket
+        socket.emit('change page', {page: current, room_name: "roomName"});
         document.getElementById("prv").disabled = false;
         if (current == slidesNum - 1) document.getElementById("nxt").disabled = true;
         createSlide();
@@ -142,7 +152,7 @@ var current = -1;
 
     function prvFunc() {
         current--;
-        //frestadane current ba socket
+        socket.emit('change page', {page: current, room_name: "roomName"});
         document.getElementById("nxt").disabled = false;
         if (current == -1) document.getElementById("prv").disabled = true;
         else{

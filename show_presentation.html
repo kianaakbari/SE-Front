@@ -11,9 +11,93 @@
     <!--<script src="js/lib/angular.min.js"></script>-->
     <script src="js/lib/bootstrap.js"></script>
     <!--<script src="js/controllers/presentation.js"></script>-->
+
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
     <script src="js/show_presentation.js"></script>
 
-    <!--<script src="js/show_presentation_samane.js"></script>-->
+<script type="text/javascript" charset="utf-8">
+
+        $(document).ready(function () {
+
+
+
+
+            ///////////////////////////socket event listeners
+
+            //this event is not actually for this page
+            //it should be moved to audience presentation page
+            socket.on('page changed', function (msg) {
+                alert(msg.page);
+            });
+
+            //this event is not actually for this page
+            //it should be moved to audience presentation page
+            socket.on('session ended', function () {
+                alert("session ended for audience");
+            });
+
+
+            socket.on('my response', function (msg) {
+                console.log('yesssss');
+
+                //change this to append bellow msg somewhere in the view , it's for testing :
+                //  'Received #' + msg.data
+                $('#log').append('<br>' + $('<div/>').text('Received #' + msg.data).html());
+            });
+
+            socket.on('connect', function (msg) {
+                console.log('connected');
+                socket.emit('my event', {data: 'I\'m connected!'});
+            });
+
+            ///////////////////////////socket event listeners
+
+
+//            $('#prv').click(function (event) {
+//                prvFunc();
+//
+//
+//                //roomName should be stored somewhere in this file and then
+//                //be replaced in below line
+//                socket.emit('change page', {page: current, room_name: "roomName"});
+//
+//
+//                return false;
+//            });
+//
+//            $('#nxt').click(function (event) {
+//                nxtFunc();
+//
+//
+//                //roomName should be stored somewhere in this file and then
+//                //be replaced in below line
+//                socket.emit('change page', {page: current, room_name: "roomName"});
+//
+//                return false;
+//            });
+
+            $('#end-session').click(function (event) {
+
+                endSession();
+
+                socket.emit('end session', function (msg) {
+                    if (msg == 1) {
+                        // do what is needed in view when the session in ended
+                        alert("session finished properly");
+                    } else if (msg == 0) {
+                        alert("session not finished properly");
+                    }
+                });
+                return false;
+            });
+
+        });
+
+    </script>
 </head>
 
 <body id="slide-blue" class="slide-blue">
