@@ -280,9 +280,9 @@ textarea {
 
 }
 
-.browse{
-    visibility: hidden;
-}
+/*.browse{*/
+    /*visibility: hidden;*/
+/*}*/
 
 #img-label:hover{
     cursor: hand;
@@ -294,6 +294,7 @@ textarea {
     margin-top: 25rem;
     z-index: 1000;
 }
+
 .add-list{
 
 

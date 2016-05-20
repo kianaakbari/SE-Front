@@ -3,11 +3,14 @@
 <head>
     <title>Demo</title>
     <script src="js/lib/angular.min.js"></script>
+
+
+
 </head>
 <body>
+<h3 style="color:red;">Create session.</h3><hr />
 <script>
-    var presentation;
-    var PID = 1;
+    var x;
     function getCookie(cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
@@ -22,57 +25,68 @@
         }
         return "";
     }
-    var auth = getCookie('auth');
 
+    var auth = getCookie('auth');
     var app = angular.module("app", []);
-    app.factory("factoryName",function($http,$q){
-        var obj={};
-        obj.getResponse = function(index){
+    app.factory("factoryName",function($http,$q) {
+        var obj = {};
+        obj.getResponse = function (data) {
             var myPromise = $q.defer();
             var username = auth;
             var password = '';
+
 
             function make_base_auth(user, password) {
                 var tok = user + ':' + password;
                 var hash = btoa(tok);
                 return "Basic " + hash;
-            };
+            }
+
             $http({
-                method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_presentation/' + index, headers: {
-                    'Authorization': make_base_auth(username, password)
+                method: 'POST',
+                url: 'http://127.0.0.1:8000/api/v1/create_session',
+                data: JSON.stringify(data),
+                headers: {
+                    'Authorization': make_base_auth(username, password),
+                    'Content-Type': 'application/json'
                 }
             })
                     .success(function (data, status, headers, config) {
                         myPromise.resolve(data);
                     })
-                    .error(function (data, status) {
+                    .error(function (data, status, header, config) {
                         myPromise.resolve(data);
                     });
             return ( myPromise.promise);
-        }
+
+        };
         return obj;
     });
 
-    app.controller("HttpGetController", function ($scope,factoryName) {
+    app.controller("HttpGetController", function ($scope, factoryName) {
+
         $scope.SendData = function () {
-            factoryName.getResponse(PID).then(function(data){
-                presentation=data.slides;
+            var data = ({
+                pid: $scope.pid
+            });
+            factoryName.getResponse(data).then(function(data){
+                x=data; //
+                $scope.PostDataResponse=data;
             });
         };
     });
 
-    function f() {
-        alert(presentation[0].title);
+    function f(){
+        alert(x);
     }
 
 </script>
-<div ng-app="app" ng-controller="HttpGetController" ng-init="SendData()">
+<div ng-app="app" ng-controller="HttpGetController">
+    <p>PId: <input type="text" name="firstName" ng-model="pid" required /></p>
 
-    <!--<p>Search Id: <input type="text" name="email" ng-model="email" required /></p>-->
-    <!--<button ng-click="SendData()">first click on this</button>-->
-    <button onclick="f()">show x value</button>
+    <button ng-click="SendData()">Submit</button>
     <hr />
-    <!--{{ PostDataResponse }}-->
+    {{ PostDataResponse }}
 </div>
 </body>
 </html>
