@@ -98,8 +98,7 @@
             // these function should be called every time an image is uploaded
             $('.img').change(function () {
                  var inp = $(this);
-                 var slideID = slideNum;
-                 var slide = presentation[slideID];
+                 var slide = presentation[current];
                  slide.tmp = 1;
                  var fReader = new FileReader();
                  fReader.readAsDataURL(inp.files[0]);
