@@ -6,7 +6,7 @@ html{
 
 
 .slide-blue{
-	background-color: #344141;
+	background-color: #ffffff;
 }
 
 
@@ -42,11 +42,14 @@ html{
     padding: 2em 0;
     border: 1px solid #7a9494;
     border-radius: 1em;
+    margin-top: 35%;
+    margin-left: 44%;
+    margin-right: -25%;
 
 }
 
 .alpha-pa{
-	font-size: 70px;
+	font-size: 5vw;
 	color: #FFFFFF;
 	line-height: 1;
 	font-family: sans-serif;
@@ -67,6 +70,7 @@ html{
     font-family: sans-serif;
     font-weight: normal;
     font-style: normal;
+    margin-left: 26%;
 }
 
 .pnav{
@@ -89,10 +93,12 @@ html{
 }
 
 .pnav-btn{
-    height: 2.75em;
+    height: 2em;
     margin-top: 7px;
     margin-left: 1.5em;
     border-radius: 8px;
+    color: black;
+    font-size: 2rem;
 	
 }
 
@@ -135,4 +141,54 @@ li{
 .connect{
     text-align: center;
     margin-top: 10px;
+}
+
+#nxt{
+    margin-left: -32rem;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    body{
+        background-color: #8a6d3b;
+    }
+}
+/*small*/
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+}
+/*medium*/
+@media (min-width: 992px) and (max-width: 1799px) {
+    body{
+        background-color: rebeccapurple;
+    }
+    .alpha-step{
+        margin-left:45% ;
+        margin-right:-25% ;
+        margin-top: -71%;
+    }
+
+    #nxt{
+        margin-left: -26rem;
+    }
+    #prv{
+        margin-left: 1rem;
+    }
+    .alpha-pa1{
+        margin-left: 25%;
+    }
+
+}
+/*large*/
+@media (min-width: 1800px) {
+    body{
+        background-color: #030E33;
+    }
+
+    .alpha-step{
+        margin-top: -59%;
+    }
+
 }

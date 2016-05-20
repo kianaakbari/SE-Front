@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/test1.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_show_presentation.html" afterPath="$PROJECT_DIR$/_show_presentation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create slide.html" afterPath="$PROJECT_DIR$/create slide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/_show_presentation.js" afterPath="$PROJECT_DIR$/js/_show_presentation.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_show_presentation.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/_presenter_style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/_show_presentation.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/_show_presentation.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/presenter_style.css" afterPath="$PROJECT_DIR$/css/presenter_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/show_presentation.css" afterPath="$PROJECT_DIR$/css/show_presentation.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/show_presentation.js" afterPath="$PROJECT_DIR$/js/show_presentation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.html" afterPath="$PROJECT_DIR$/test/test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/show_presentation.html" afterPath="$PROJECT_DIR$/show_presentation.html" />
     </list>
     <ignored path="main project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,6 +31,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="show_presentation.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/show_presentation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="interactive presentation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interactive presentation.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -39,41 +51,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_show_presentation.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_show_presentation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="show_presentation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/show_presentation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="907">
-              <caret line="117" column="13" selection-start-line="106" selection-start-column="12" selection-end-line="117" selection-end-column="13" />
+            <state relative-caret-position="66">
+              <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_show_presentation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/_show_presentation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="386" column="13" selection-start-line="386" selection-start-column="13" selection-end-line="386" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="presentation.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="presentation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers/presentation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="120" column="7" selection-start-line="120" selection-start-column="7" selection-end-line="120" selection-end-column="7" />
+            <state relative-caret-position="184">
+              <caret line="112" column="7" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -145,7 +137,6 @@
         <option value="$PROJECT_DIR$/testing.html" />
         <option value="$PROJECT_DIR$/test/test.css" />
         <option value="$PROJECT_DIR$/simple-sidebar.css" />
-        <option value="$PROJECT_DIR$/show_presentation.html" />
         <option value="$PROJECT_DIR$/_create slide.html" />
         <option value="$PROJECT_DIR$/js/controllers/presenterPage.js" />
         <option value="$PROJECT_DIR$/GetPBy-id-2.html" />
@@ -157,9 +148,10 @@
         <option value="$PROJECT_DIR$/create slide.html" />
         <option value="$PROJECT_DIR$/js/controllers/presentation.js" />
         <option value="$PROJECT_DIR$/_show_presentation.html" />
-        <option value="$PROJECT_DIR$/js/show_presentation.js" />
         <option value="$PROJECT_DIR$/js/_show_presentation.js" />
         <option value="$PROJECT_DIR$/test/test.html" />
+        <option value="$PROJECT_DIR$/js/show_presentation.js" />
+        <option value="$PROJECT_DIR$/show_presentation.html" />
       </list>
     </option>
   </component>
@@ -724,34 +716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/show_presentation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/show_presentation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="907">
-          <caret line="117" column="13" selection-start-line="106" selection-start-column="12" selection-end-line="117" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/interactive presentation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/_show_presentation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="386" column="13" selection-start-line="386" selection-start-column="13" selection-end-line="386" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -774,8 +742,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/presentation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="120" column="7" selection-start-line="120" selection-start-column="7" selection-end-line="120" selection-end-column="7" />
+        <state relative-caret-position="184">
+          <caret line="112" column="7" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/_show_presentation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="386" column="13" selection-start-line="386" selection-start-column="13" selection-end-line="386" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/show_presentation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/show_presentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
           <folding />
         </state>
       </provider>

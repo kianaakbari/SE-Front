@@ -24,8 +24,8 @@
 }
 
 .picture {
-    margin-left: 14rem;
-    margin-top: 2rem;
+    margin-left: 38rem;
+    margin-top: 4rem;
     z-index: 0;
     max-height: 800px;
     max-width: 1000px;
@@ -99,7 +99,7 @@
 @media (min-width: 768px) and (max-width: 991px) {
 
     .title{
-        margin: 1rem 8rem;
+        margin: 3rem 8rem;
     }
     .body{
         margin-left: 8rem;
@@ -119,7 +119,7 @@
 
 }
 /*medium*/
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1799px) {
     .title{
         margin: 1rem 14rem;
     }
@@ -132,12 +132,15 @@
     .list_slide{
         margin-left: 6rem;
     }
+    .picture{
+        margin-left: 13rem;
+    }
 
 }
 /*large*/
-@media (min-width: 1200px) {
+@media (min-width: 1800px) {
     .title{
-        margin: 1rem 16rem;
+        margin: 3rem 16rem;
     }
     .body{
         margin-left: 16rem;
