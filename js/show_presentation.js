@@ -3,10 +3,12 @@
  */
 // var presentation = [{"id":0,"title":"a","tmp":1,"imageUrl":"img/pear.jpg","videoUrl":"","hyperText":"","listItems":[],"listItemsNum":0},{"id":1,"title":"b","tmp":4,"imageUrl":"","videoUrl":"","hyperText":"","listItems":['a',undefined,'c'],"listItemsNum":3}];
 //----------------------------------------------get presetation and session code--------------------------------------//
-    
+    function getURLParameter(name) {
+      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+    }
     var sessionCode;
     var presentation;
-    var PID = 1;
+    var PID = getURLParameter('presentationID');
     var slidesNum;
 
     function getCookie(cname) {
@@ -75,22 +77,6 @@
     });
 
 // angular.bootstrap(document.getElementById("App1"), ['app1']);
-
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return "";
-    }
-    var auth = getCookie('auth');
 
     var app = angular.module("app", []);
     app.factory("factoryName",function($http,$q){
@@ -342,8 +328,9 @@ var current = -1;
 
              var text = document.createElement('p');
              text.innerHTML=slide.hyperText;
+             // text.text=slide.hyperText;
              text.className="text";
-
+             text_slide.appendChild(text);
          }
 
          else  if (curTmp==4) { //list slide
@@ -374,9 +361,9 @@ var current = -1;
              list_slide.appendChild(list);
 
              var listItemsNum = slide.listItemsNum;
-            var i = 0;
-            var j = 0;
-            while (i<listItemsNum) {
+             var i = 0;
+             var j = 0;
+             while (i<listItemsNum) {
                 if(slide.listItems[j]!=null){
                     var list_item = document.createElement('p');
                     list_item.innerHTML = slide.listItems[j];
@@ -384,9 +371,7 @@ var current = -1;
                     i++;
                 }
                 j++;
-            }
-
-
+             }
          }
 
 

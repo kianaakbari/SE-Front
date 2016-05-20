@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_show_presentation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/_presenter_style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/_show_presentation.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/_show_presentation.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/presenter_style.css" afterPath="$PROJECT_DIR$/css/presenter_style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/show_presentation.css" afterPath="$PROJECT_DIR$/css/show_presentation.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_Presenter Page.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/_simple-sidebar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/_presenter_dialog.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/presenter_dialog.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presenter Page.html" afterPath="$PROJECT_DIR$/Presenter Page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/simple-sidebar.css" afterPath="$PROJECT_DIR$/css/simple-sidebar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/presenterPage.js" afterPath="$PROJECT_DIR$/js/controllers/presenterPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/show_presentation.js" afterPath="$PROJECT_DIR$/js/show_presentation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/show_presentation.html" afterPath="$PROJECT_DIR$/show_presentation.html" />
     </list>
     <ignored path="main project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,52 +32,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="show_presentation.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/show_presentation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="interactive presentation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interactive presentation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+            <state relative-caret-position="88">
+              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_presentation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/show_presentation.js">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
+            <state relative-caret-position="619">
+              <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="presentation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/controllers/presentation.js">
+      <file leaf-file-name="presenterPage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/controllers/presenterPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="112" column="7" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
+            <state relative-caret-position="551">
+              <caret line="115" column="55" selection-start-line="115" selection-start-column="55" selection-end-line="115" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test.html">
+      <file leaf-file-name="simple-sidebar.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/simple-sidebar.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="492">
+              <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+              <folding>
+                <marker date="1463775420664" expanded="true" signature="398:432" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="452:480" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="500:900" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="936:957" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="981:1048" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="1179:1298" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="1316:1415" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="1515:1567" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="1644:1742" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="1768:1799" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="1958:2023" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2120:2162" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2188:2608" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2203:2239" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2262:2294" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2317:2350" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2443:2501" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2546:2606" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2622:2665" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2681:2751" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="2760:3070" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="3080:3191" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="3201:3391" placeholder="{...}" />
+                <marker date="1463775420664" expanded="true" signature="3398:3499" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Presenter Page.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Presenter Page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/New folder/startbootstrap-simple-sidebar-1.0.5/css/simple-sidebar.css" />
         <option value="$PROJECT_DIR$/interactive-css.css" />
         <option value="$PROJECT_DIR$/bootstrap.css" />
         <option value="$PROJECT_DIR$/create slide.js" />
@@ -127,31 +154,32 @@
         <option value="$PROJECT_DIR$/test/index3-getall.html" />
         <option value="$PROJECT_DIR$/interactive presentation.html" />
         <option value="$PROJECT_DIR$/test/change slide.html" />
-        <option value="$PROJECT_DIR$/_Presenter Page.html" />
         <option value="$PROJECT_DIR$/js/presenter_dialog.js" />
         <option value="$PROJECT_DIR$/Presenter Page2.html" />
         <option value="$PROJECT_DIR$/presenter.html" />
         <option value="$PROJECT_DIR$/js/controllers/createSession.js" />
-        <option value="$PROJECT_DIR$/js/controllers/login.js" />
         <option value="$PROJECT_DIR$/css/simple-sidebar.css" />
         <option value="$PROJECT_DIR$/testing.html" />
         <option value="$PROJECT_DIR$/test/test.css" />
         <option value="$PROJECT_DIR$/simple-sidebar.css" />
         <option value="$PROJECT_DIR$/_create slide.html" />
-        <option value="$PROJECT_DIR$/js/controllers/presenterPage.js" />
         <option value="$PROJECT_DIR$/GetPBy-id-2.html" />
         <option value="$PROJECT_DIR$/index-post-create.html" />
         <option value="$PROJECT_DIR$/test/test.js" />
         <option value="$PROJECT_DIR$/test/test1.js" />
         <option value="$PROJECT_DIR$/js/createSlide.js" />
-        <option value="$PROJECT_DIR$/Presenter Page.html" />
         <option value="$PROJECT_DIR$/create slide.html" />
         <option value="$PROJECT_DIR$/js/controllers/presentation.js" />
         <option value="$PROJECT_DIR$/_show_presentation.html" />
         <option value="$PROJECT_DIR$/js/_show_presentation.js" />
         <option value="$PROJECT_DIR$/test/test.html" />
-        <option value="$PROJECT_DIR$/js/show_presentation.js" />
         <option value="$PROJECT_DIR$/show_presentation.html" />
+        <option value="$PROJECT_DIR$/js/show_presentation.js" />
+        <option value="$PROJECT_DIR$/js/controllers/presenterPage.js" />
+        <option value="$PROJECT_DIR$/css/_simple-sidebar.css" />
+        <option value="$PROJECT_DIR$/_Presenter Page.html" />
+        <option value="$PROJECT_DIR$/js/controllers/login.js" />
+        <option value="$PROJECT_DIR$/Presenter Page.html" />
       </list>
     </option>
   </component>
@@ -495,6 +523,26 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.01578354" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12859304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="147" y="163" width="486" height="921" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -521,20 +569,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/logo-nav.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/presenter.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rgs.html" />
     <entry file="file://$PROJECT_DIR$/ts.html?test=kia" />
     <entry file="file://$PROJECT_DIR$/ts.html" />
@@ -584,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/getQueryStringTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="36" selection-start-line="9" selection-start-column="4" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/crate-slide.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -598,18 +625,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_Presenter Page.html" />
-    <entry file="file://$PROJECT_DIR$/js/presenter_dialog.js" />
     <entry file="file://$PROJECT_DIR$/Presenter Page2.html" />
-    <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testing.html" />
-    <entry file="file://$PROJECT_DIR$/css/simple-sidebar.css" />
     <entry file="file://$PROJECT_DIR$/test/test.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -650,14 +667,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/_createSlide.js" />
     <entry file="file://$PROJECT_DIR$/_create slide.html" />
-    <entry file="file://$PROJECT_DIR$/js/controllers/presenterPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GetPBy-id-2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1624">
@@ -682,16 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Presenter Page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="212" column="36" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -704,22 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
           <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create slide.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="116" column="61" selection-start-line="116" selection-start-column="61" selection-end-line="116" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interactive presentation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -756,19 +739,134 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/create slide.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/presenter_dialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/getQueryStringTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="1" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/show_presentation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="88" column="13" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
+        <state relative-caret-position="348">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/show_presentation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        <state relative-caret-position="378">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/simple-sidebar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+          <folding>
+            <marker date="1463775420664" expanded="true" signature="398:432" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="452:480" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="500:900" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="936:957" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="981:1048" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="1179:1298" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="1316:1415" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="1515:1567" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="1644:1742" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="1768:1799" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="1958:2023" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2120:2162" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2188:2608" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2203:2239" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2262:2294" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2317:2350" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2443:2501" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2546:2606" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2622:2665" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2681:2751" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="2760:3070" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="3080:3191" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="3201:3391" placeholder="{...}" />
+            <marker date="1463775420664" expanded="true" signature="3398:3499" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/_simple-sidebar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="472" column="10" selection-start-line="472" selection-start-column="4" selection-end-line="472" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/_presenter_dialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1276">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="69" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/presenterPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="115" column="55" selection-start-line="115" selection-start-column="55" selection-end-line="115" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_Presenter Page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interactive presentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presenter Page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

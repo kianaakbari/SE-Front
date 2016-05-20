@@ -63,17 +63,21 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
 
                     //upload
 
-                    var modal_1 = document.getElementById("mymodal_1");
+                    var modal_1 = document.getElementById("myModal_1");
 
-                    // var upbtn = document.getElementById("clk_upload");
+                    var upbtn = document.getElementById("clk_upload");
+                    
+                    var span1 = document.getElementById("close1");
+                    
+                    
+                    upbtn.onclick = function(){
+                        modal_1.style.display = "block";
+                    }
+                    
+                    span1.onclick = function(){
+                        modal_1.style.display = "none";    
+                    }
 
-                    //end upload
-
-                    // When the user clicks the button, open the modal , upload
-
-                    // upbtn.onclick = function() {
-                    //     modal_1.style.display = "block";
-                    // }
 
 
                     //When the user clicks on <span> (x), close the modal
@@ -133,7 +137,7 @@ function onEditClick(editBtn){
 }
 
 function onPrsntClick(editBtn){
-    var url=updateQueryStringParameter("presenter.html",'presentationID',presentationID);
+    var url=updateQueryStringParameter("show_presentation.html",'presentationID',presentationID);
     window.location=url;
 }
 
