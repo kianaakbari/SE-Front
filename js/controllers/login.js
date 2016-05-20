@@ -30,7 +30,9 @@ app.controller("loginAppController", function ($scope, $http) {
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         setCookie('auth', data.token, 365);
-                        window.location="Presenter Page.html";
+                        // window.location="Presenter Page.html";
+                        window.location="_Presenter Page.html";
+
                     })
                     .error(function (data, status, header, config) {
                          if(status==404) {$scope.errtext = "نام کاربری معتبر نمیباشد";}
@@ -54,7 +56,8 @@ app.controller("loginAppController", function ($scope, $http) {
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         setCookie('auth', data.token, 365);
-                        window.location="Presenter Page.html";
+                        // window.location="Presenter Page.html";
+                        window.location="_Presenter Page.html";
                     })
                     .error(function (data, status, header, config) {
                          if(status==404) {$scope.errtext = "نام کاربری معتبر نمیباشد";}

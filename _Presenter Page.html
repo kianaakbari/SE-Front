@@ -19,6 +19,9 @@
     <link href="css/_simple-sidebar.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
+    <!--<link rel="stylesheet" href="js/_presenter_dialog.js">-->
+
+    <!--<script type="text/javascript" src="js/_presenter_dialog.js"></script>-->
     <script type="text/javascript" src="js/controllers/presenterPage.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -63,40 +66,20 @@
 
 
     <div class="row">
-         <div id = "clk_upload" class = "button-set">
+         <div role="button" id = "clk_upload" class = "button-set">
             <a class = "button button--white">بارگذاری</a>
+
         </div>
     </div>
-
+ 
 
 
     <div class="row-fluid">
-        <!-- Page Content -->
-        <!--<div id="page-content-wrapper">-->
-            <!--<div class="container-fluid">-->
-                <!--<div class="row">-->
-                <!--<div class="col-lg-12">-->
 
-                <div class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8">
-
-
-
-
-                        <ul class="row" id="some" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
-
-                        </ul>
-                    
-                </div>
-
-
-
-
-                <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    
+        <div class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8">
+            <ul class="row" id="some" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
+            </ul>
+        </div>
 
 
         <div class = "col-xs-5 col-sm-3 col-md-3 sidebar-nav" id="sidebar-wrapper">
@@ -185,10 +168,10 @@
 
     <div class = "jn-mo-eb jn-hi-eb">
         <div class = "jn-mo-no jn-lo-Zb-no">
-
+                    
             <div class = "jn-mo-no">
                 <div class = "jn-mo-eb jn-oo-eb">
-
+                            
                     <div class="jn-Fc-wk-xm-rv">یک فایل را اینجا قرار دهید</div>
                     <div class="blocking">
                         <div role="button" class="a-b-c d-u d-u-F">یک فایل را از کامپیوتر خود انتخاب کنید</div>
@@ -196,7 +179,7 @@
                 </div>
 
             </div>
-
+                 
         </div>
     </div>
 
@@ -207,10 +190,9 @@
 
 
 
-
-
-
 <!-- End Modal -->
+
+
 
 
 
@@ -223,7 +205,7 @@
 <!--<script src="js/lib/bootstrap.min.js"></script>-->
 
 <!-- dialog javascript -->
-<script type="text/javascript" src="js/presenter_dialog.js"></script>
+<!--<script type="text/javascript" src="js/_presenter_dialog.js"></script>-->
 
 
 
