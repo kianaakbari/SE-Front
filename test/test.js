@@ -1,60 +1,36 @@
 
-    var presentation;
-    var PID = 1;
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return "";
+    var shoppingCartModule = angular.module("shoppingCart", [])
+shoppingCartModule.controller("ShoppingCartController",
+  function($scope) {
+    $scope.items = [{
+      product_name: "Product 1",
+      price: 50
+    }, {
+      product_name: "Product 2",
+      price: 20
+    }, {
+      product_name: "Product 3",
+      price: 180
+    }];
+    $scope.remove = function(index) {
+      $scope.items.splice(index, 1);
     }
-    var auth = getCookie('auth');
-
-    var app = angular.module("app", []);
-    app.factory("factoryName",function($http,$q){
-        var obj={};
-        obj.getResponse = function(index){
-            var myPromise = $q.defer();
-            var username = auth;
-            var password = '';
-
-            function make_base_auth(user, password) {
-                var tok = user + ':' + password;
-                var hash = btoa(tok);
-                return "Basic " + hash;
-            };
-            $http({
-                method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_presentation/' + index, headers: {
-                    'Authorization': make_base_auth(username, password)
-                }
-            })
-                    .success(function (data, status, headers, config) {
-                        myPromise.resolve(data);
-                    })
-                    .error(function (data, status) {
-                        myPromise.resolve(data);
-                    });
-            return ( myPromise.promise);
-        }
-        return obj;
-    });
-
-    app.controller("HttpGetController", function ($scope,factoryName) {
-        $scope.SendData = function () {
-            factoryName.getResponse(PID).then(function(data){
-                presentation=data.slides;
-            });
-        };
-    });
-
-    function f() {
-        alert(presentation[0].title);
-    }
-
+  }
+);
+var namesModule = angular.module("namesList", [])
+namesModule.controller("NamesController",
+  function($scope) {
+    $scope.names = [{
+      username: "Nitin"
+    }, {
+      username: "Mukesh"
+    }];
+  }
+);
+//angular.bootstrap(document.getElementById("App2"), ['namesList']);
+//     angular.element(document).ready(function() {
+//   angular.bootstrap(document, ['App2']);
+// });
+$('#App2').ready(function() {
+  angular.bootstrap($('#App2'), ['namesList']);
+});

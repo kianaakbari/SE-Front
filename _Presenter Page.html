@@ -10,7 +10,6 @@
     <meta name="author" content="#">
 
     <title>Presenter</title>
-    <script src="js/lib/angular.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +18,9 @@
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <script type="text/javascript" src="js/controllers/presenterPage.js"></script>
+    <link rel="stylesheet" href="presenter_dialog.js">
+
+    <script type="text/javascript" src="js/_presenter_dialog.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,8 +64,9 @@
 
 
     <div class="row">
-         <div id = "clk_upload" class = "button-set">
+         <div role="button" id = "clk_upload" class = "button-set">
             <a class = "button button--white">بارگذاری</a>
+
         </div>
     </div>
  
@@ -80,9 +82,49 @@
                 <div class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8">
 
 
+                    
+                    
+                        <ul class="row">
+                            <li role="button" id = "myclk" class ="blocking preview col-xs-12 col-sm-6 col-md-4">
+                                <img  class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
 
+                            <li role="button" id = "myclk1" class ="blocking preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name and presentation id and date and teacher and so on </p>
+                            </li>
 
-                        <ul class="row" id="some" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
+                            <li role="button" id = "myclk2" class ="blocking preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
+
+                            <li role="button" id = "myclk" class ="preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
+
+                            <li role="button" id = "myclk" class ="preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
+                            <li role="button" id = "myclk" class ="preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
+                            <li role="button" id = "myclk" class ="preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
+                            <li role="button" id = "myclk" class ="preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
+                            <li role="button" id = "myclk" class ="preview col-xs-12 col-sm-6 col-md-4">
+                                <img class = "image" src="#">
+                                <p>presentation name</p>
+                            </li>
 
                         </ul>
                     
@@ -147,8 +189,8 @@
                     <div class="deck-detail_time">... آخرین تغییر در </div>
                     <div class="deck-deck_action">
                         <div class="button-set--inline">
-                            <a href="#" class="button1 button--action-blue" onclick="onEditClick(this)">تغییر</a>
-                            <a href="#" class="button1 button--action-blue" onclick="onPrsntClick(this)">شروع ارائه</a>
+                            <a href="#" class="button1 button--action-blue">تغییر</a>
+                            <a href="#" class="button1 button--action-blue">شروع ارائه</a>
                         </div>
                     </div>
                 </div>
@@ -179,12 +221,25 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close">X</span>
+      <span id= "close1" class="close">X</span>
+      <p class="upp">بارگذاری</p>
     </div>
 
     <div class = "jn-mo-eb jn-hi-eb">
-        
-        
+        <div class = "jn-mo-no jn-lo-Zb-no">
+                    
+            <div class = "jn-mo-no">
+                <div class = "jn-mo-eb jn-oo-eb">
+                            
+                    <div class="jn-Fc-wk-xm-rv">یک فایل را اینجا قرار دهید</div>
+                    <div class="blocking">
+                        <div role="button" class="a-b-c d-u d-u-F">یک فایل را از کامپیوتر خود انتخاب کنید</div>
+                    </div>
+                </div>
+
+            </div>
+                 
+        </div>
     </div>
 
 
@@ -194,23 +249,22 @@
 
 
 
-
-
-
 <!-- End Modal -->
+
+
 
 
 
 
 <!-- jQuery -->
 
-<script src="js/lib/jquery.js"></script>
+<script src="js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<!--<script src="js/lib/bootstrap.min.js"></script>-->
+<script src="js/bootstrap.min.js"></script>
 
 <!-- dialog javascript -->
-<script type="text/javascript" src="js/presenter_dialog.js"></script>
+<script type="text/javascript" src="presenter_dialog.js"></script>
 
 
 
