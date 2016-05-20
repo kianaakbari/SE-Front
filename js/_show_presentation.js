@@ -1,15 +1,152 @@
 /**
  * Created by samane on 13/05/2016.
  */
-var presentation = [{"id":0,"title":"a","tmp":1,"imageUrl":"img/pear.jpg","videoUrl":"","hyperText":"","listItems":[],"listItemsNum":0},{"id":1,"title":"b","tmp":4,"imageUrl":"","videoUrl":"","hyperText":"","listItems":['a',undefined,'c'],"listItemsNum":3}];
+// var presentation = [{"id":0,"title":"a","tmp":1,"imageUrl":"img/pear.jpg","videoUrl":"","hyperText":"","listItems":[],"listItemsNum":0},{"id":1,"title":"b","tmp":4,"imageUrl":"","videoUrl":"","hyperText":"","listItems":['a',undefined,'c'],"listItemsNum":3}];
+//----------------------------------------------get presetation and session code--------------------------------------//
+    
+    var sessionCode;
+    var presentation;
+    var PID = 1;
+    var slidesNum;
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
+
+    var auth = getCookie('auth');
+    var app1 = angular.module("app1", []);
+    app1.factory("factory1",function($http,$q) {
+        var obj = {};
+        obj.getResponse = function (data) {
+            var myPromise = $q.defer();
+            var username = auth;
+            var password = '';
+
+
+            function make_base_auth(user, password) {
+                var tok = user + ':' + password;
+                var hash = btoa(tok);
+                return "Basic " + hash;
+            }
+
+            $http({
+                method: 'POST',
+                url: 'http://127.0.0.1:8000/api/v1/create_session',
+                data: JSON.stringify(data),
+                headers: {
+                    'Authorization': make_base_auth(username, password),
+                    'Content-Type': 'application/json'
+                }
+            })
+                    .success(function (data, status, headers, config) {
+                        myPromise.resolve(data);
+                    })
+                    .error(function (data, status, header, config) {
+                        myPromise.resolve(data);
+                    });
+            return ( myPromise.promise);
+
+        };
+        return obj;
+    });
+
+    app1.controller("HttpGetController1", function ($scope, factory1) {
+
+        $scope.SendData1 = function () {
+            var data = ({
+                pid: PID
+            });
+            factory1.getResponse(data).then(function(data){
+                sessionCode=data.session_code;
+                createSlide();
+            });
+        };
+    });
+
+// angular.bootstrap(document.getElementById("App1"), ['app1']);
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
+    var auth = getCookie('auth');
+
+    var app = angular.module("app", []);
+    app.factory("factoryName",function($http,$q){
+        var obj={};
+        obj.getResponse = function(index){
+            var myPromise = $q.defer();
+            var username = auth;
+            var password = '';
+
+            function make_base_auth(user, password) {
+                var tok = user + ':' + password;
+                var hash = btoa(tok);
+                return "Basic " + hash;
+            };
+            $http({
+                method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_presentation/' + index, headers: {
+                    'Authorization': make_base_auth(username, password)
+                }
+            })
+                    .success(function (data, status, headers, config) {
+                        myPromise.resolve(data);
+                    })
+                    .error(function (data, status) {
+                        myPromise.resolve(data);
+                    });
+            return ( myPromise.promise);
+        }
+        return obj;
+    });
+
+    app.controller("HttpGetController", function ($scope,factoryName) {
+        $scope.SendData = function () {
+            factoryName.getResponse(PID).then(function(data){
+                presentation=data.slides;
+                slidesNum=presentation.length;
+                // alert(1);
+            });
+        }
+        // createSlide();
+    });
+
+
+
+$('#body').ready(function() {
+  angular.bootstrap($('#body'), ['app1']);
+});
+    
+//____________________________________________________________________________________________________________________//
 
 var current = -1;
 
-    var slidesNum = presentation.length;
     var curTmp;
     function nxtFunc() {
         current++;
         slide = presentation[current];
+        console.log(slide);
         curTmp = slide.tmp;
         //frestadane current ba socket
         document.getElementById("prv").disabled = false;
@@ -29,28 +166,40 @@ var current = -1;
         createSlide();
     }
 
- window.onload = function() {
-     createSlide();
- };
-
-
  function createSlide() {
+
      var body = document.getElementsByClassName('body');
      for (i = 0; i < body.length; i++) {
          //body[i].style.backgroundColor="red";
      }
      var slide_blue = document.getElementById("slide-blue");
      if (current==-1) {//
-//         //namayeshe safheye aval(safheye aghaye taheri k code namayesh dade mishe)
 
          var code_dive = document.getElementById("code");
 
-         alert(code_dive.childElementCount);
+         // alert(code_dive.childElementCount);
          if(code_dive.childElementCount>0){
 
              var lastChild =code_dive.lastElementChild;
              lastChild.parentNode.removeChild(lastChild);
          }
+
+         var body_code = document.getElementById("body");
+         // alert(body_code.childElementCount);
+         if(body_code.childElementCount>0){
+
+             var lastChild_body_code =body_code.lastElementChild;
+             lastChild_body_code.parentNode.removeChild(lastChild_body_code);
+         }
+
+         var title_code = document.getElementById("title");
+         //alert(title_title.childElementCount);
+         if(title_code.childElementCount>0){
+
+             var lastChild_code_title =title_code.lastElementChild;
+             lastChild_code_title.parentNode.removeChild(lastChild_code_title);
+         }
+
          slide_blue.style.backgroundColor="#2C4141";
          //for (i = 0; i < slide_blue.length; i++) {
          //    slide_blue[i].style.backgroundColor="#2C4141";
@@ -71,7 +220,7 @@ var current = -1;
 
          var code = document.createElement("p");
          code.className = "alpha-pa1";
-         code.innerHTML="code"
+         code.innerHTML=sessionCode;
          alpha_step.appendChild(code);
 
      }
@@ -112,13 +261,13 @@ var current = -1;
             //}
 
             var title_text = document.createElement("p");
-            title_text.innerHTML="عنوان";
+            title_text.innerHTML=slide.title;
             title.appendChild(title_text);
 
 
          if (curTmp == 1){ //image slide
              var code_img = document.getElementById("code");
-             alert(code_img.childElementCount);
+             // alert(code_img.childElementCount);
              if(code_img.childElementCount>0){
 
                  var lastChild_img_code =code_img.lastElementChild;
@@ -126,7 +275,7 @@ var current = -1;
              }
 
              var body_id = document.getElementById("body");
-             alert(body_id.childElementCount);
+             // alert(body_id.childElementCount);
              if(body_id.childElementCount>0){
 
                  var lastChild_body =body_id.lastElementChild;
@@ -135,7 +284,7 @@ var current = -1;
 
              var image = document.createElement('img');
              image.className="picture col-lg-10 col-sm-10 col-xs-10 col-md-10";
-             image.setAttribute('src', 'img/education.jpg');
+             image.setAttribute('src', slide.imageUrl);
              // image_slide.appendChild(image);
 
              for (i = 0; i < body.length; i++) {
@@ -145,7 +294,7 @@ var current = -1;
          }
          else  if (curTmp==2){ //video slide
              var code_video = document.getElementById("code");
-             alert(code_video.childElementCount);
+             // alert(code_video.childElementCount);
              if(code_video.childElementCount>0){
 
                  var lastChild_video_code =code_video.lastElementChild;
@@ -153,7 +302,7 @@ var current = -1;
              }
 
              var body_video = document.getElementById("body");
-             alert(body_video.childElementCount);
+             // alert(body_video.childElementCount);
              if(body_video.childElementCount>0){
 
                  var lastChild_body_video =body_video.lastElementChild;
@@ -170,7 +319,7 @@ var current = -1;
          else  if (curTmp==3) { //text slide
 
              var code_text = document.getElementById("code");
-             alert(code_text.childElementCount);
+             // alert(code_text.childElementCount);
              if(code_text.childElementCount>0){
 
                  var lastChild_text_code =code_text.lastElementChild;
@@ -178,7 +327,7 @@ var current = -1;
              }
 
              var body_text = document.getElementById("body");
-             alert(body_text.childElementCount);
+             // alert(body_text.childElementCount);
              if(body_text.childElementCount>0){
 
                  var lastChild_body_text =body_text.lastElementChild;
@@ -199,7 +348,7 @@ var current = -1;
 
          else  if (curTmp==4) { //list slide
              var code_list = document.getElementById("code");
-             alert(code_list.childElementCount);
+             // alert(code_list.childElementCount);
              if(code_list.childElementCount>0){
 
                  var lastChild_list_code =code_list.lastElementChild;
@@ -207,7 +356,7 @@ var current = -1;
              }
 
              var body_list = document.getElementById("body");
-             alert(body_list.childElementCount);
+             // alert(body_list.childElementCount);
              if(body_list.childElementCount>0){
 
                  var lastChild_body_list =body_list.lastElementChild;
@@ -225,16 +374,17 @@ var current = -1;
              list_slide.appendChild(list);
 
              var listItemsNum = slide.listItemsNum;
-             var listItemsLength = slide.listItems.length;
-             var i = 0;
-             while (i<Math.min(listItemsNum,listItemsLength)) {
-                 if(slide.listItems[i]!=null){
-                     var list_item = document.createElement('p');
-                     list_item.innerHTML = slide.listItems[i];
-                     list.appendChild(list_item);
-                 }
-                 i++;
-             }
+            var i = 0;
+            var j = 0;
+            while (i<listItemsNum) {
+                if(slide.listItems[j]!=null){
+                    var list_item = document.createElement('p');
+                    list_item.innerHTML = slide.listItems[j];
+                    list.appendChild(list_item);
+                    i++;
+                }
+                j++;
+            }
 
 
          }

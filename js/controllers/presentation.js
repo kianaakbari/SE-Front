@@ -1,4 +1,4 @@
-    var x;
+    var code;
     var presentation;
     var PID = 1;
     function getCookie(cname) {
@@ -60,7 +60,7 @@
                 pid: PID
             });
             factory1.getResponse(data).then(function(data){
-                x=data.session_code;
+                code=data.session_code;
             });
         };
     });
@@ -122,12 +122,12 @@
 
 
 
-$('#App1').ready(function() {
-  angular.bootstrap($('#App1'), ['app1']);
+$('#body').ready(function() {
+  angular.bootstrap($('#body'), ['app1']);
 });
 
 function g() {
-    alert(x);
+    alert(code);
 }
 
 function f(){

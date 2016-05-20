@@ -4,9 +4,9 @@
     <title>Demo</title>
     <!--<script src="../js/lib/angular.min.js"></script>-->
     <script src="../js/lib/jquery.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="../js/lib/bootstrap.js"></script>
-    <script src="test1.js"></script>
+    <script src="../js/controllers/presentation.js"></script>
     <!--<script src="test.js"></script>-->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
 </head>
@@ -21,7 +21,7 @@
     <!--{{ PostDataResponse }}-->
 </div>
 
-<div id="App1" ng-app="app1" ng-controller="HttpGetController1" ng-init="SendData1()">
+<div id="title" ng-app="app1" ng-controller="HttpGetController1" ng-init="SendData1()">
     <!--<p>PId: <input type="text" name="firstName" ng-model="pid" required /></p>-->
 
     <button onclick="g()">Submit</button>
@@ -31,4 +31,22 @@
 
 
 </body>
+<!--<body id="slide-blue" class="slide-blue">-->
+    <!--<div id="title" ng-app="app" ng-controller="HttpGetController" ng-init="SendData()"></div>-->
+    <!--<div id="body" ng-app="app1" ng-controller="HttpGetController1" ng-init="SendData1()" class="body col-lg-10 col-sm-10 col-xs-10 col-md-10 " >-->
+    <!--</div>-->
+    <!--<div id="code"></div>-->
+    <!--<ui class = "pnav">-->
+        <!--<div class = "container-fluid">-->
+            <!--<div class = "row">-->
+                <!--<li class = "col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">-->
+                    <!--<button class = "col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="prv" disabled=true onclick="prvFunc()">قبلی</button>-->
+                <!--</li>-->
+                <!--<li class = "col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">-->
+                    <!--<button class = "col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="nxt" onclick="nxtFunc()">بعدی</button>-->
+                <!--</li>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</ui>-->
+<!--</body>-->
 </html>

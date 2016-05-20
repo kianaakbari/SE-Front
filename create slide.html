@@ -114,7 +114,7 @@
                 //this arguments should be given tu emit :
                 //  presentation json file, user_id, presentation_id
                 //values are hardcoded now!
-                socket.emit('update presentation', json, 2, 2, function (res) {
+                socket.emit('update presentation', json, 1, 1, function (res) {
                     if (res == 0) {
                         console.log("file not saved");
                     } else if (res == 1) {
