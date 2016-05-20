@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create slide.html" afterPath="$PROJECT_DIR$/create slide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index-post-create.html" afterPath="$PROJECT_DIR$/index-post-create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/presenterPage.js" afterPath="$PROJECT_DIR$/js/controllers/presenterPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.html" afterPath="$PROJECT_DIR$/test/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
-    </list>
+    <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="" />
     <ignored path="main project.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -52,8 +45,8 @@
       <file leaf-file-name="createSlide.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/createSlide.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-160">
-              <caret line="417" column="14" selection-start-line="417" selection-start-column="8" selection-end-line="417" selection-end-column="14" />
+            <state relative-caret-position="12470">
+              <caret line="430" column="42" selection-start-line="430" selection-start-column="42" selection-end-line="430" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -240,7 +233,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../work" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -793,8 +786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/createSlide.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
-          <caret line="417" column="14" selection-start-line="417" selection-start-column="8" selection-end-line="417" selection-end-column="14" />
+        <state relative-caret-position="12470">
+          <caret line="430" column="42" selection-start-line="430" selection-start-column="42" selection-end-line="430" selection-end-column="42" />
           <folding />
         </state>
       </provider>
