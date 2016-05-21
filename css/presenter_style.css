@@ -70,7 +70,7 @@ html{
     font-family: sans-serif;
     font-weight: normal;
     font-style: normal;
-    margin-left: 26%;
+    margin-left: 10%;
 }
 
 .pnav{
@@ -157,7 +157,14 @@ li{
 /*small*/
 @media (min-width: 768px) and (max-width: 991px) {
 
-
+#nxt{
+        margin-left: -17rem;
+    }
+    .alpha-step{
+        margin-top: -50%;
+        margin-left: 28%;
+        margin-right: -7%;
+    }
 }
 /*medium*/
 @media (min-width: 992px) and (max-width: 1799px) {

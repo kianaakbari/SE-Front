@@ -40,7 +40,6 @@
 .text_slide {
 
     /*width: 95%;*/
-    border: 3px dotted #28AADC !important;
     border-radius: 0 !important;
     font-size: 2rem;
     text-align: right;

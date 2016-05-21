@@ -35,13 +35,13 @@
             //this event is not actually for this page
             //it should be moved to audience presentation page
             socket.on('page changed', function (msg) {
-                alert(msg.page);
+//                alert(msg.page);
             });
 
             //this event is not actually for this page
             //it should be moved to audience presentation page
             socket.on('session ended', function () {
-                alert("session ended for audience");
+//                alert("session ended for audience");
             });
 
 
@@ -91,9 +91,9 @@
                 socket.emit('end session', function (msg) {
                     if (msg == 1) {
                         // do what is needed in view when the session in ended
-                        alert("session finished properly");
+//                        alert("session finished properly");
                     } else if (msg == 0) {
-                        alert("session not finished properly");
+//                        alert("session not finished properly");
                     }
                 });
                 return false;

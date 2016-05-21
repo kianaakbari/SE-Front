@@ -260,9 +260,10 @@ textarea {
     border-right: none;
     border-left: none;
     border-top: none;
-    margin-left: 18.5rem;
-    margin-top:5rem;
+    margin-left: 34rem;
+    margin-top:7rem;
     border-color: #4392B9;
+    text-align: right;
 }
 
 .add-list input:focus{
@@ -280,9 +281,9 @@ textarea {
 
 }
 
-/*.browse{*/
-    /*visibility: hidden;*/
-/*}*/
+.browse{
+    visibility: hidden;
+}
 
 #img-label:hover{
     cursor: hand;
@@ -294,7 +295,6 @@ textarea {
     margin-top: 25rem;
     z-index: 1000;
 }
-
 .add-list{
 
 
@@ -431,9 +431,13 @@ textarea {
     .acc-add{
         margin-left: 40rem;
     }
+
 }
 /*small*/
 @media (min-width: 768px) and (max-width: 991px) {
+    body{
+
+    }
 
     #std_view{
         height: 20rem;
@@ -469,21 +473,34 @@ textarea {
         margin-left: 41%;
         border-top: 1px solid black;
     }
-
+    .add-list input{
+        margin-left: 14rem;
+        margin-top: 2rem;
+    }
+    .add-list-btn {
+        margin-left: 55%;
+    }
 }
 /*medium*/
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1799px) {
     body{
-        /*background-color: #9d9d9d;*/
     }
     .acc-add{
         margin-left: 40rem;
     }
+    .container1 {
+        width: 1170px;
+        margin-left: -32rem;
+    }
+
 }
 /*large*/
-@media (min-width: 1200px) {
+@media (min-width: 1800px) {
     body{
-        /*background-color: #030E33;*/
+    }
+    .container1 {
+        width: 1170px;
+        margin-left: -2rem;
     }
     /*.acc-add{*/
         /*margin-left: 54%;*/

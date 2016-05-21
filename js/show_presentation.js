@@ -7,9 +7,9 @@
 
 ///////////////////////////socket initialization
 try {
-    alert("yess1");
+    // alert("yess1");
     var socket = io.connect('http://localhost:8000/presentation');
-    alert("yess2");
+    // alert("yess2");
 }
 catch (err) {
     console.log(err);
@@ -20,7 +20,10 @@ catch (err) {
 var sessionCode;
 var presentation;
 var PID = 1;
-var slidesNum;
+var slidesNum = 0;
+var preLength;
+var first;
+var last;
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -138,8 +141,18 @@ app.controller("HttpGetController", function ($scope, factoryName) {
     $scope.SendData = function () {
         factoryName.getResponse(PID).then(function (data) {
             presentation = data.slides;
-            slidesNum = presentation.length;
-            // alert(1);
+            preLength = presentation.length;
+            var findFirst = 0 ;
+            for(i=0;i<preLength;i++){
+                if(presentation[i]!=null){
+                    if(!findFirst){
+                        findFirst = 1;
+                        first = i;
+                    }
+                    last = i;
+                    // slidesNum++;
+                }
+            }
         });
     }
     // createSlide();
@@ -155,35 +168,39 @@ $('#body').ready(function () {
 var current = -1;
 
 var curTmp;
+
 function nxtFunc() {
-
     current++;
+
     slide = presentation[current];
-    console.log(slide);
+
+    while(slide==null){
+        current++;
+        slide=presentation[current];
+    }
+
     curTmp = slide.tmp;
-
-    //roomName should be stored somewhere in this file and then
-    //be replaced in below line
+    if (current == last) document.getElementById("nxt").disabled = true;
     socket.emit('change page', {page: current, room_name: "roomName"});
-
     document.getElementById("prv").disabled = false;
-    if (current == slidesNum - 1) document.getElementById("nxt").disabled = true;
     createSlide();
 }
 
 function prvFunc() {
-    current--;
-
-    //roomName should be stored somewhere in this file and then
-    //be replaced in below line
-    socket.emit('change page', {page: current, room_name: "roomName"});
-
-    document.getElementById("nxt").disabled = false;
-    if (current == -1) document.getElementById("prv").disabled = true;
-    else {
+    if (current == first) current = -1;
+    else if(current!=-1) {
+        current--;
         slide = presentation[current];
+        while (slide == null) {
+            current--;
+            slide = presentation[current];
+        }
         curTmp = slide.tmp;
     }
+    if (current == -1) document.getElementById("prv").disabled = true;
+    document.getElementById("nxt").disabled = false;
+    socket.emit('change page', {page: current, room_name: "roomName"});
+
     createSlide();
 }
 

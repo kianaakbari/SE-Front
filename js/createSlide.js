@@ -124,6 +124,7 @@ function addSlide() {
     oImg.addEventListener("click", function (event) {
         var num = this.id;
         var last = current;
+        delete(presentation[num]);
         if (num == min) {
             if (min != max) {
                 var tmp1 = this.nextSibling;
