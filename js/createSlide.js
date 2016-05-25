@@ -293,7 +293,7 @@ function updateSlide() {
         });
 
         function closeTitleFunction(node, btn) {
-
+            header_input.innerHTML = "";
             node.style.visibility = 'hidden';
 
             btn.style.visibility = "visible";
