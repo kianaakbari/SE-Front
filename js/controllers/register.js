@@ -19,7 +19,6 @@
 
             $http.post('http://127.0.0.1:8000/api/v1/register', (data), config)
                     .success(function (data, status, headers, config) {
-                        // window.location="Presenter Page.html";
                     })
                     .error(function (data, status, header, config) {
                          if(status==406) {$scope.errtext = "شما قبلا در سایت عضو شده اید";}

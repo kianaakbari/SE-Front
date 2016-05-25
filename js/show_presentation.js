@@ -16,14 +16,16 @@ catch (err) {
 }
 ///////////////////////////socket initialization
 
-
+var PID;
 var sessionCode;
 var presentation;
-var PID = 1;
-var slidesNum = 0;
 var preLength;
 var first;
 var last;
+
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -90,26 +92,9 @@ app1.controller("HttpGetController1", function ($scope, factory1) {
     };
 });
 
-// angular.bootstrap(document.getElementById("App1"), ['app1']);
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-var auth = getCookie('auth');
-
 var app = angular.module("app", []);
 app.factory("factoryName", function ($http, $q) {
+    PID = getURLParameter('presentationID');
     var obj = {};
     obj.getResponse = function (index) {
         var myPromise = $q.defer();
@@ -141,6 +126,7 @@ app.controller("HttpGetController", function ($scope, factoryName) {
     $scope.SendData = function () {
         factoryName.getResponse(PID).then(function (data) {
             presentation = data.slides;
+            console.log(presentation);
             preLength = presentation.length;
             var findFirst = 0 ;
             for(i=0;i<preLength;i++){
