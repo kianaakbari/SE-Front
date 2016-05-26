@@ -281,10 +281,6 @@ textarea {
 
 }
 
-.browse{
-    visibility: hidden;
-}
-
 #img-label:hover{
     cursor: hand;
     cursor: pointer;

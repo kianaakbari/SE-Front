@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="css/lib/bootstrap.css">
     <link rel="stylesheet" href="css/presenter_style.css">
     <script src="js/lib/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <!--<script src="js/lib/angular.min.js"></script>-->
+    <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/bootstrap.js"></script>
-    <!--<script src="js/controllers/presentation.js"></script>-->
 
-
-    <!--<script src="js/show_presentation_samane.js"></script>-->
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
@@ -46,7 +42,6 @@
 
 
             socket.on('my response', function (msg) {
-                console.log('yesssss');
 
                 //change this to append bellow msg somewhere in the view , it's for testing :
                 //  'Received #' + msg.data
@@ -54,7 +49,6 @@
             });
 
             socket.on('connect', function (msg) {
-                console.log('connected');
                 socket.emit('my event', {data: 'I\'m connected!'});
             });
 

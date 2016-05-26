@@ -7,16 +7,15 @@
 
 ///////////////////////////socket initialization
 try {
-    // alert("yess1");
     var socket = io.connect('http://localhost:8000/presentation');
-    // alert("yess2");
 }
 catch (err) {
     console.log(err);
 }
 ///////////////////////////socket initialization
 
-var PID;
+var PID = getURLParameter("presentationID");
+var auth = getCookie('auth');
 var sessionCode;
 var presentation;
 var preLength;
@@ -42,7 +41,6 @@ function getCookie(cname) {
     return "";
 }
 
-var auth = getCookie('auth');
 var app1 = angular.module("app1", []);
 app1.factory("factory1", function ($http, $q) {
     var obj = {};
@@ -94,7 +92,6 @@ app1.controller("HttpGetController1", function ($scope, factory1) {
 
 var app = angular.module("app", []);
 app.factory("factoryName", function ($http, $q) {
-    PID = getURLParameter('presentationID');
     var obj = {};
     obj.getResponse = function (index) {
         var myPromise = $q.defer();
@@ -126,7 +123,6 @@ app.controller("HttpGetController", function ($scope, factoryName) {
     $scope.SendData = function () {
         factoryName.getResponse(PID).then(function (data) {
             presentation = data.slides;
-            console.log(presentation);
             preLength = presentation.length;
             var findFirst = 0 ;
             for(i=0;i<preLength;i++){
@@ -136,12 +132,10 @@ app.controller("HttpGetController", function ($scope, factoryName) {
                         first = i;
                     }
                     last = i;
-                    // slidesNum++;
                 }
             }
         });
     }
-    // createSlide();
 });
 
 
@@ -152,7 +146,6 @@ $('#body').ready(function () {
 //____________________________________________________________________________________________________________________//
 
 var current = -1;
-
 var curTmp;
 
 function nxtFunc() {
@@ -261,7 +254,6 @@ function createSlide() {
         var code_title = document.getElementById("code");
         //alert(code_title.childElementCount);
         if (code_title.childElementCount > 0) {
-
             var lastChild_title_code = code_title.lastElementChild;
             lastChild_title_code.parentNode.removeChild(lastChild_title_code);
         }
@@ -284,7 +276,8 @@ function createSlide() {
         //}
 
         var title_text = document.createElement("p");
-        title_text.innerHTML = slide.title;
+        if(slide.hasTitle) title_text.innerHTML = slide.title;
+        else title_text.innerHTML = "";
         title.appendChild(title_text);
 
 
