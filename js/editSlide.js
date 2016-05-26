@@ -86,6 +86,8 @@ app.controller("HttpGetController", function ($scope, factoryName) {
                  document.getElementById("top-content" + min).style.display = "block";
                  max = counter;
                  counter = preLength-1;
+                 var smallDiv = document.getElementById(min);
+                 smallDiv.style.border = "3px solid #337AB7";
              }
 
         });
