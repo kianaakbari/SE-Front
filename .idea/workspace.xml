@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/crate-slide.css" afterPath="$PROJECT_DIR$/css/crate-slide.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edit slide.html" afterPath="$PROJECT_DIR$/edit slide.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interactive presentation.html" afterPath="$PROJECT_DIR$/interactive presentation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/presenterPage.js" afterPath="$PROJECT_DIR$/js/controllers/presenterPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/createSlide.js" afterPath="$PROJECT_DIR$/js/createSlide.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/editSlide.js" afterPath="$PROJECT_DIR$/js/editSlide.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/show_presentation.js" afterPath="$PROJECT_DIR$/js/show_presentation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/show_presentation.html" afterPath="$PROJECT_DIR$/show_presentation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.html" afterPath="$PROJECT_DIR$/test/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.js" afterPath="$PROJECT_DIR$/test/test.js" />
     </list>
     <ignored path="main project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,27 +26,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="interactive presentation.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/interactive presentation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29">
+              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="editSlide.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/editSlide.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="1111" column="22" selection-start-line="1111" selection-start-column="13" selection-end-line="1111" selection-end-column="22" />
+            <state relative-caret-position="371">
+              <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
               <folding>
                 <element signature="e#53#128#0" expanded="false" />
                 <element signature="e#141#166#0" expanded="false" />
                 <element signature="n#!!block;n#getURLParameter#0" expanded="false" />
                 <element signature="n#!!block;n#getCookie#0" expanded="false" />
                 <element signature="e#1016#1838#0" expanded="false" />
-                <element signature="e#1909#2739#0" expanded="false" />
-                <element signature="n#!!block;n#createSlide#0" expanded="false" />
+                <element signature="n#!!block;n#fillSlide#0" expanded="false" />
                 <element signature="n#!!block;n#addFields#0;n#!!block;n#fillSlide#0" expanded="false" />
                 <element signature="n#!!block;n#addListField#0;n#!!block;n#fillSlide#0" expanded="false" />
                 <element signature="n#!!block;n#setURL#0" expanded="false" />
                 <element signature="n#!!block;n#readURL#0" expanded="false" />
                 <element signature="n#!!block;n#addSlide#0" expanded="false" />
-                <element signature="e#23183#23590#0" expanded="false" />
-                <element signature="e#23646#24818#0" expanded="false" />
                 <element signature="n#!!block;n#del#0;n#!!block;n#addSlide#0" expanded="false" />
+                <element signature="n#!!block;n#updateSlide#0" expanded="false" />
+                <element signature="n#!!block;n#addFields#0;n#!!block;n#updateSlide#0" expanded="false" />
                 <element signature="n#!!block;n#activeText#0" expanded="false" />
                 <element signature="n#!!block;n#activeNumber#0" expanded="false" />
               </folding>
@@ -62,14 +63,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createSlide.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createSlide.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/createSlide.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="488" column="17" selection-start-line="488" selection-start-column="13" selection-end-line="488" selection-end-column="17" />
+            <state relative-caret-position="336">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="52" selection-end-column="5" />
               <folding>
                 <element signature="n#!!block;n#activeText#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create slide.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/create slide.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="207" column="14" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,8 +154,8 @@
         <option value="$PROJECT_DIR$/js/show_presentation.js" />
         <option value="$PROJECT_DIR$/edit slide.html" />
         <option value="$PROJECT_DIR$/css/crate-slide.css" />
-        <option value="$PROJECT_DIR$/js/editSlide.js" />
         <option value="$PROJECT_DIR$/js/createSlide.js" />
+        <option value="$PROJECT_DIR$/js/editSlide.js" />
       </list>
     </option>
   </component>
@@ -207,6 +218,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -256,7 +268,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -751,55 +762,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/interactive presentation.html">
+    <entry file="file://$PROJECT_DIR$/create slide.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+        <state relative-caret-position="91">
+          <caret line="207" column="14" selection-start-line="207" selection-start-column="14" selection-end-line="207" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create slide.html">
+    <entry file="file://$PROJECT_DIR$/js/createSlide.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="211" column="25" selection-start-line="211" selection-start-column="24" selection-end-line="211" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="336">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="52" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!block;n#activeText#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/editSlide.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="1111" column="22" selection-start-line="1111" selection-start-column="13" selection-end-line="1111" selection-end-column="22" />
+        <state relative-caret-position="371">
+          <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
           <folding>
             <element signature="e#53#128#0" expanded="false" />
             <element signature="e#141#166#0" expanded="false" />
             <element signature="n#!!block;n#getURLParameter#0" expanded="false" />
             <element signature="n#!!block;n#getCookie#0" expanded="false" />
             <element signature="e#1016#1838#0" expanded="false" />
-            <element signature="e#1909#2739#0" expanded="false" />
-            <element signature="n#!!block;n#createSlide#0" expanded="false" />
+            <element signature="n#!!block;n#fillSlide#0" expanded="false" />
             <element signature="n#!!block;n#addFields#0;n#!!block;n#fillSlide#0" expanded="false" />
             <element signature="n#!!block;n#addListField#0;n#!!block;n#fillSlide#0" expanded="false" />
             <element signature="n#!!block;n#setURL#0" expanded="false" />
             <element signature="n#!!block;n#readURL#0" expanded="false" />
             <element signature="n#!!block;n#addSlide#0" expanded="false" />
-            <element signature="e#23183#23590#0" expanded="false" />
-            <element signature="e#23646#24818#0" expanded="false" />
             <element signature="n#!!block;n#del#0;n#!!block;n#addSlide#0" expanded="false" />
+            <element signature="n#!!block;n#updateSlide#0" expanded="false" />
+            <element signature="n#!!block;n#addFields#0;n#!!block;n#updateSlide#0" expanded="false" />
             <element signature="n#!!block;n#activeText#0" expanded="false" />
             <element signature="n#!!block;n#activeNumber#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/createSlide.js">
+    <entry file="file://$PROJECT_DIR$/interactive presentation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="488" column="17" selection-start-line="488" selection-start-column="13" selection-end-line="488" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!block;n#activeText#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="29">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

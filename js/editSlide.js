@@ -118,14 +118,14 @@ function createSlide() {
 
     container.appendChild(oImg);
 
-    div.addEventListener("click", function (event) {
+    div.addEventListener("click",function(event){
         div.style.border = "3px solid #337AB7";
-        document.getElementById("top-content" + current).style.display = "block";
-        var pre = document.getElementById("top-content" + current);
-        pre.style.display = "none";
-        current = this.id;
-        var crnt = document.getElementById("top-content" + current);
-        crnt.style.display = "block";
+        var border_count =container.childElementCount;
+        for(i=1 ;i<border_count+1 ;i=i+2) {
+            var child = container.childNodes[i];
+            if (this.id != child.id)
+                child.style.border = "none";
+        }
         event.preventDefault();
     });
     
@@ -669,6 +669,13 @@ function addSlide() {
     div.style.paddingTop = "5rem";
     div.style.margin = "5rem auto";
     div.style.backgroundColor = "#ffffff";
+    div.style.border = "3px solid #337AB7";
+    var border_count =container.childElementCount;
+    for(i=1 ;i<border_count+1 ;i=i+2) {
+        var child = container.childNodes[i];
+        if (this.id != child.id)
+            child.style.border = "none";
+    }
 
     counter++;
     div.id = counter;
@@ -703,14 +710,14 @@ function addSlide() {
 
     container.appendChild(oImg);
 
-    div.addEventListener("click", function (event) {
+    div.addEventListener("click",function(event){
         div.style.border = "3px solid #337AB7";
-        document.getElementById("top-content" + current).style.display = "block";
-        var pre = document.getElementById("top-content" + current);
-        pre.style.display = "none";
-        current = this.id;
-        var crnt = document.getElementById("top-content" + current);
-        crnt.style.display = "block";
+        var border_count =container.childElementCount;
+        for(i=1 ;i<border_count+1 ;i=i+2) {
+            var child = container.childNodes[i];
+            if (this.id != child.id)
+                child.style.border = "none";
+        }
         event.preventDefault();
     });
 
