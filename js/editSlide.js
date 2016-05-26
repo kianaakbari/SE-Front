@@ -126,6 +126,12 @@ function createSlide() {
             if (this.id != child.id)
                 child.style.border = "none";
         }
+        document.getElementById("top-content" + current).style.display = "block";
+        var pre = document.getElementById("top-content" + current);
+        pre.style.display = "none";
+        current = this.id;
+        var crnt = document.getElementById("top-content" + current);
+        crnt.style.display = "block";
         event.preventDefault();
     });
     
@@ -718,6 +724,12 @@ function addSlide() {
             if (this.id != child.id)
                 child.style.border = "none";
         }
+        document.getElementById("top-content" + current).style.display = "block";
+        var pre = document.getElementById("top-content" + current);
+        pre.style.display = "none";
+        current = this.id;
+        var crnt = document.getElementById("top-content" + current);
+        crnt.style.display = "block";
         event.preventDefault();
     });
 
