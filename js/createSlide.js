@@ -16,19 +16,18 @@ var counter = -1;
 var min = -1;
 var max = -1;
 
-function readURL(input) {
+function readURL(input,image) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('.blah')
-                .attr('src',e.target.result)
+           image.setAttribute("src", e.target.result);
+            image.style.visibility="visible";
         };
         reader.readAsDataURL(input.files[0]);
-        var blah =document.getElementsByClassName("blah");
-        for(i=0;i<blah.length;i++) {
-            blah[i].style.visibility = "visible";
-        }
+
+
+
     }
 }
 
@@ -232,20 +231,20 @@ function updateSlide() {
         close_title.id = "close-title" + counter;
         close_title.className = "close-title";
         title.appendChild(close_title);
+
+        var close = btn.parentNode.childNodes[1].childNodes[1];
         close_title.addEventListener("click", function (event) {
-            closeTitleFunction(node, btn);
+            closeTitleFunction(node, btn,close);
             event.preventDefault();
         });
 
-        function closeTitleFunction(node, btn) {
+
+        function closeTitleFunction(node, btn,close) {
             var slide = presentation[current];
             slide.hasTitle = 0;
             node.style.visibility = 'hidden';
             btn.style.visibility = "visible";
-            var cls_btn = document.getElementsByClassName('close-title');
-            for (i = 0; i < cls_btn.length; i++) {
-                cls_btn[i].style.visibility = 'hidden';
-            }
+            close.style.visibility="hidden";
         }
     }
 
@@ -330,10 +329,16 @@ function updateSlide() {
     close_img.setAttribute('src', 'img/close_blue%20(11).png');
     close_img.addEventListener("click", function (event) {
 
-        closeFunction(this);
+        var parent=this.parentNode.parentNode;//row-title
+        var showBtns =parent.childNodes[1]; //etc
+        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+
+        closeFunction(thirdChild,showBtns,this);
         event.preventDefault();
     });
     etc.appendChild(close_img);
+
+
 
     var row2 = document.createElement('div');
     row2.className = "row";
@@ -350,21 +355,33 @@ function updateSlide() {
 
     var img_place = document.createElement('img');
     img_place.className="blah";
-    img_place.setAttribute('src', '#');
+    img_place.setAttribute('src', '');
     add_img.appendChild(img_place);
 
+    // var slide = presentation[current];
+    // if(slide.imageUrl!=""){
+    //     img_place.style.visibility="visible";
+    // }
 
     browse.addEventListener("change", function (event) {
-        readURL(this);
+
+        //var blah =document.getElementsByClassName("blah");
+        //for(i=0;i<blah.length;i++) {
+        //    blah[i].style.visibility = "visible";
+        //}
+        var parent = this. parentNode;//add-img
+        var show_image = parent.childNodes[0];//blah
+
+        readURL(this,show_image);
         var slide = presentation[current];
         var fReader = new FileReader();
         fReader.readAsDataURL(browse.files[0]);
         fReader.onloadend = function (event) {
             browse.src = event.target.result;
-            socket.emit('save image', {data: browse.src}, function (response) {
-                //you should use response.data to get url of saved image :)
-                slide.imageUrl = response.data;
-            });
+            //socket.emit('save image', {data: browse.src}, function (response) {
+            //    //you should use response.data to get url of saved image :)
+            //    slide.imageUrl = response.data;
+            //});
         };
         event.preventDefault();
     });
@@ -418,7 +435,6 @@ function updateSlide() {
     fill_details.innerHTML = "افزودن لیست ";
     fill_details.addEventListener("click", function (event) {
         var parent = this.parentNode;//add-list
-        var hideBtns = parent.childNodes[1]; //bttn
         var thirdChild = parent.childNodes[2]; //container
         addFields(thirdChild);
         event.preventDefault();
@@ -426,7 +442,7 @@ function updateSlide() {
     add_list.appendChild(fill_details);
 
     var container = document.createElement('div');
-    container.className = "container";
+    container.className = "container1";
     add_list.appendChild(container);
 
     function imgFunction(node,btn){
@@ -438,6 +454,7 @@ function updateSlide() {
             btn.childNodes[i].style.visibility = 'hidden';
         }
         btn.childNodes[4].style.visibility="visible";
+        node.firstChild.style.visibility = "visible";
         node.style.visibility="visible";
     }
 
@@ -466,35 +483,26 @@ function updateSlide() {
 
     }
 
-    function closeFunction(closeImg) {
-        var btn = document.getElementsByClassName('gp-btn');
-        for (i = 0; i < btn.length; i++) {
-            btn[i].style.visibility = 'visible';
+    function closeFunction(node,btns,closeImg) {
+        for (i = 0; i <4; i++) {
+            btns.childNodes[i].style.visibility = 'visible';
         }
-        var div = document.getElementsByClassName('add-img');
-        for (i = 0; i < div.length; i++) {
-            div[i].style.visibility = 'hidden';
+        for (i = 0; i <4; i++) {
+            node.childNodes[i].style.visibility = 'hidden';
         }
+        btns.childNodes[4].style.visibility="hidden";
 
-        var div_video = document.getElementsByClassName('add-video');
-        for (i = 0; i < div_video.length; i++) {
-            div_video[i].style.visibility = 'hidden';
-        }
-
-        var div_text = document.getElementsByClassName('add-text');
-        for (i = 0; i < div_text.length; i++) {
-            div_text[i].style.visibility = 'hidden';
-        }
-
-        var div_list = document.getElementsByClassName('add-list');
-        for (i = 0; i < div_list.length; i++) {
-            div_list[i].style.visibility = 'hidden';
-        }
-
-        var close = document.getElementsByClassName('close-img');
-        for (i = 0; i < close.length; i++) {
-            close[i].style.visibility = 'hidden';
-        }
+        var parent = closeImg.parentNode.parentNode;//row-title
+        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+        var add_img = thirdChild.childNodes[0]; //add-image
+        var blah = add_img.childNodes[0];//blah
+        // var file = add_img.childNodes[1];//file
+        //blah.src="#";
+        //kiana
+        blah.style.visibility="hidden";
+        //-----
+        //file.src="";
+        //browse.value="";
         var slide = presentation[current];
         slide.tmp = -1;
     }
@@ -555,4 +563,23 @@ function activeNumber() {
     document.getElementById("long-answer-preview").style.visibility = "hidden";
     document.getElementById("short-answer-preview").style.visibility = "visible";
     document.getElementById("acc-btn-preview").style.visibility = "visible";
+}
+
+function activeMultipleChoice(){
+    document.getElementById("acc-btn-preview").style.visibility = "hidden";
+    document.getElementById("short-answer-preview").style.visibility = "hidden";
+    document.getElementById("long-answer-preview").style.visibility = "hidden";
+    document.getElementById("add-choice").style.visibility = "visible";
+
+
+}
+
+function addChoice(){
+    var choices = document.getElementById("choices");
+    var childCount = choices.childElementCount;
+    childCount++;
+    var input = document.createElement("input");
+    input.className="input-choice";
+    input.placeholder="گزینه " + childCount;
+    choices.appendChild(input);
 }

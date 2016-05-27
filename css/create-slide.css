@@ -1,3 +1,8 @@
+body{
+    overflow-x: hidden;
+}
+
+
 .slide-creator{
 
     /*background-color: #CFD2DA;*/
@@ -68,10 +73,10 @@ textarea {
 
 .content{
     /*width: 100%;*/
-    position: absolute;
+    position: fixed;
     height: 81rem;
     top: 1rem;
-    left:-1.6rem;
+    left:26rem;
     float: none;
     margin: 8rem auto;
     border: 2px solid #9CA2A7;
@@ -281,6 +286,10 @@ textarea {
 
 }
 
+.browse{
+    visibility: hidden;
+}
+
 #img-label:hover{
     cursor: hand;
     cursor: pointer;
@@ -322,7 +331,7 @@ textarea {
 
 .blah{
     margin-right: -17rem;
-    margin-top: -29rem;
+    margin-top: 6rem;
     z-index: 0;
     visibility: hidden;
     max-height: 500px;
@@ -418,6 +427,8 @@ textarea {
 }
 
 
+
+
 /***********************************************************************************************************************************************************************/
 
 @media screen and (max-width: 767px) {
@@ -427,12 +438,26 @@ textarea {
     .acc-add{
         margin-left: 40rem;
     }
+    .slide-creator{
+        width: 16rem;
+    }
+    #std_view{
+        width:15rem ;
+    }
+    .dropbtn{
+        width: 16rem;
+    }
+    .content{
+
+        width: 50rem;
+        margin-top: -10rem;
+    }
 
 }
 /*small*/
 @media (min-width: 768px) and (max-width: 991px) {
     body{
-
+        background-color: #761c19;
     }
 
     #std_view{
@@ -449,11 +474,12 @@ textarea {
     }
     .content{
         left:0.6rem;
-        margin-left: 8rem;
-        margin-right: 1rem;
+        /*margin-left: 8rem;*/
+        /*margin-right: 1rem;*/
         width:73% ;
         position: absolute;
         top:1.1rem;
+        margin: 8rem 11% !important;
     }
     .slide-preview{
         width: 25%;
@@ -478,27 +504,50 @@ textarea {
     }
 }
 /*medium*/
-@media (min-width: 992px) and (max-width: 1799px) {
+@media (min-width: 992px) and (max-width: 1199px) {
     body{
+        background-color: rebeccapurple;
     }
     .acc-add{
         margin-left: 40rem;
     }
     .container1 {
-        width: 1170px;
-        margin-left: -32rem;
+        margin-left: -16rem;
+    }
+    .content{
+        margin-left: -3%;
+        width: 64%;
+    }
+
+}
+/*mediom 2*/
+@media (min-width: 1200px) and (max-width: 1799px) {
+    body{
+        background-color:#2b542c;
+    }
+    .acc-add{
+        margin-left: 40rem;
+    }
+    .container1 {
+        margin-left: -17rem;
+    }
+    .content{
+        margin-left: -3%;
+        width: 64%;
     }
 
 }
 /*large*/
 @media (min-width: 1800px) {
     body{
+        background-color: #030E33;
     }
     .container1 {
-        width: 1170px;
-        margin-left: -2rem;
+        margin-left: -5rem;
     }
-    /*.acc-add{*/
-        /*margin-left: 54%;*/
-    /*}*/
+
+    .content{
+        margin-left: 0%;
+        width: 64%;
+    }
 }

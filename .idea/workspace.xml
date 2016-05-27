@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/_simple-sidebar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/crate-slide.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/simple-sidebar.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Presenter Page.html" afterPath="$PROJECT_DIR$/Presenter Page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/create slide.html" afterPath="$PROJECT_DIR$/create slide.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/edit slide.html" afterPath="$PROJECT_DIR$/edit slide.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/createSlide.js" afterPath="$PROJECT_DIR$/js/createSlide.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/editSlide.js" afterPath="$PROJECT_DIR$/js/editSlide.js" />
     </list>
@@ -39,39 +45,43 @@
       <file leaf-file-name="editSlide.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/editSlide.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2506">
-              <caret line="665" column="20" selection-start-line="665" selection-start-column="20" selection-end-line="665" selection-end-column="20" />
+            <state relative-caret-position="7076">
+              <caret line="404" column="9" selection-start-line="404" selection-start-column="4" selection-end-line="404" selection-end-column="9" />
               <folding>
                 <element signature="e#53#128#0" expanded="false" />
                 <element signature="e#141#166#0" expanded="false" />
-                <element signature="n#!!block;n#getURLParameter#0" expanded="false" />
-                <element signature="n#!!block;n#getCookie#0" expanded="false" />
-                <element signature="e#1016#1838#0" expanded="false" />
-                <element signature="e#1909#2863#0" expanded="false" />
-                <element signature="n#!!block;n#fillSlide#0" expanded="false" />
-                <element signature="n#!!block;n#addFields#0;n#!!block;n#fillSlide#0" expanded="false" />
-                <element signature="n#!!block;n#addListField#0;n#!!block;n#fillSlide#0" expanded="false" />
                 <element signature="n#!!block;n#setURL#0" expanded="false" />
                 <element signature="n#!!block;n#readURL#0" expanded="false" />
                 <element signature="n#!!block;n#addSlide#0" expanded="false" />
-                <element signature="n#!!block;n#del#0;n#!!block;n#addSlide#0" expanded="false" />
-                <element signature="n#!!block;n#updateSlide#0" expanded="false" />
-                <element signature="n#!!block;n#addFields#0;n#!!block;n#updateSlide#0" expanded="false" />
-                <element signature="n#!!block;n#activeText#0" expanded="false" />
+                <element signature="e#25302#25329#0" expanded="false" />
                 <element signature="n#!!block;n#activeNumber#0" expanded="false" />
+                <marker date="1464375701910" expanded="false" signature="411:562" placeholder="{...}" />
+                <marker date="1464375701910" expanded="false" signature="590:928" placeholder="{...}" />
+                <marker date="1464375701910" expanded="false" signature="1016:1838" placeholder="{...}" />
+                <marker date="1464375701910" expanded="false" signature="1909:2863" placeholder="{...}" />
+                <marker date="1464375701910" expanded="false" signature="2890:5641" placeholder="{...}" />
+                <marker date="1464375701910" expanded="false" signature="40236:40479" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createSlide.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/createSlide.js">
+      <file leaf-file-name="Presenter Page.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Presenter Page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="52" selection-end-column="5" />
-              <folding>
-                <element signature="n#!!block;n#activeText#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_create slide.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_create slide.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4698">
+              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,8 +89,18 @@
       <file leaf-file-name="create slide.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create slide.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6061">
-              <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+            <state relative-caret-position="813">
+              <caret line="164" column="0" selection-start-line="19" selection-start-column="4" selection-end-line="164" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit slide.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edit slide.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -106,8 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/login-style.css" />
-        <option value="$PROJECT_DIR$/register.html" />
         <option value="$PROJECT_DIR$/createSlide.js" />
         <option value="$PROJECT_DIR$/test js.html" />
         <option value="$PROJECT_DIR$/crate-slide.css" />
@@ -133,7 +151,6 @@
         <option value="$PROJECT_DIR$/testing.html" />
         <option value="$PROJECT_DIR$/test/test.css" />
         <option value="$PROJECT_DIR$/simple-sidebar.css" />
-        <option value="$PROJECT_DIR$/_create slide.html" />
         <option value="$PROJECT_DIR$/GetPBy-id-2.html" />
         <option value="$PROJECT_DIR$/index-post-create.html" />
         <option value="$PROJECT_DIR$/test/test.js" />
@@ -144,19 +161,22 @@
         <option value="$PROJECT_DIR$/test/test.html" />
         <option value="$PROJECT_DIR$/css/_simple-sidebar.css" />
         <option value="$PROJECT_DIR$/_Presenter Page.html" />
-        <option value="$PROJECT_DIR$/Presenter Page.html" />
         <option value="$PROJECT_DIR$/show_presentation.html" />
-        <option value="$PROJECT_DIR$/create slide.html" />
         <option value="$PROJECT_DIR$/css/show_presentation.css" />
         <option value="$PROJECT_DIR$/css/presenter_style.css" />
         <option value="$PROJECT_DIR$/js/controllers/register.js" />
         <option value="$PROJECT_DIR$/js/controllers/login.js" />
         <option value="$PROJECT_DIR$/js/controllers/presenterPage.js" />
         <option value="$PROJECT_DIR$/js/show_presentation.js" />
-        <option value="$PROJECT_DIR$/edit slide.html" />
         <option value="$PROJECT_DIR$/css/crate-slide.css" />
-        <option value="$PROJECT_DIR$/js/editSlide.js" />
         <option value="$PROJECT_DIR$/js/createSlide.js" />
+        <option value="$PROJECT_DIR$/saman/_create slide.html" />
+        <option value="$PROJECT_DIR$/saman/_createSlide (2).js" />
+        <option value="$PROJECT_DIR$/js/editSlide.js" />
+        <option value="$PROJECT_DIR$/Presenter Page.html" />
+        <option value="$PROJECT_DIR$/edit slide.html" />
+        <option value="$PROJECT_DIR$/create slide.html" />
+        <option value="$PROJECT_DIR$/_create slide.html" />
       </list>
     </option>
   </component>
@@ -169,8 +189,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
     <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="1084" />
+    <option name="width" value="1983" />
+    <option name="height" value="1156" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -219,8 +239,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,26 +267,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SE-Front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -523,13 +529,14 @@
     <option name="totallyTimeSpent" value="13645000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1983" height="1156" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12830189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12002017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.01578354" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="147" y="163" width="486" height="921" />
@@ -541,7 +548,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -556,7 +562,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12830189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12002017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -591,14 +597,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/WebstormProjects/testing/edit_presentation_test.html" />
     <entry file="file://$PROJECT_DIR$/js/create slide.js" />
     <entry file="file://$PROJECT_DIR$/forget.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -642,7 +640,6 @@
     <entry file="file://$PROJECT_DIR$/test/change slide.html" />
     <entry file="file://$PROJECT_DIR$/presenter.html" />
     <entry file="file://$PROJECT_DIR$/js/_createSlide.js" />
-    <entry file="file://$PROJECT_DIR$/_create slide.html" />
     <entry file="file://$PROJECT_DIR$/GetPBy-id-2.html" />
     <entry file="file://$PROJECT_DIR$/index-post-create.html" />
     <entry file="file://$PROJECT_DIR$/test/test.js">
@@ -709,13 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Presenter Page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="68" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/presenterPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1131">
@@ -745,18 +735,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit slide.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/show_presentation.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
           <caret line="399" column="28" selection-start-line="399" selection-start-column="28" selection-end-line="399" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/createSlide.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="469" column="22" selection-start-line="468" selection-start-column="13" selection-end-line="468" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saman/_create slide.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saman/_createSlide (2).js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="356" column="29" selection-start-line="356" selection-start-column="25" selection-end-line="356" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Presenter Page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/editSlide.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7076">
+          <caret line="404" column="9" selection-start-line="404" selection-start-column="4" selection-end-line="404" selection-end-column="9" />
+          <folding>
+            <element signature="e#53#128#0" expanded="false" />
+            <element signature="e#141#166#0" expanded="false" />
+            <element signature="n#!!block;n#setURL#0" expanded="false" />
+            <element signature="n#!!block;n#readURL#0" expanded="false" />
+            <element signature="n#!!block;n#addSlide#0" expanded="false" />
+            <element signature="e#25302#25329#0" expanded="false" />
+            <element signature="n#!!block;n#activeNumber#0" expanded="false" />
+            <marker date="1464375701910" expanded="false" signature="411:562" placeholder="{...}" />
+            <marker date="1464375701910" expanded="false" signature="590:928" placeholder="{...}" />
+            <marker date="1464375701910" expanded="false" signature="1016:1838" placeholder="{...}" />
+            <marker date="1464375701910" expanded="false" signature="1909:2863" placeholder="{...}" />
+            <marker date="1464375701910" expanded="false" signature="2890:5641" placeholder="{...}" />
+            <marker date="1464375701910" expanded="false" signature="40236:40479" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit slide.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -769,47 +813,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/editSlide.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2506">
-          <caret line="665" column="20" selection-start-line="665" selection-start-column="20" selection-end-line="665" selection-end-column="20" />
-          <folding>
-            <element signature="e#53#128#0" expanded="false" />
-            <element signature="e#141#166#0" expanded="false" />
-            <element signature="n#!!block;n#getURLParameter#0" expanded="false" />
-            <element signature="n#!!block;n#getCookie#0" expanded="false" />
-            <element signature="e#1016#1838#0" expanded="false" />
-            <element signature="e#1909#2863#0" expanded="false" />
-            <element signature="n#!!block;n#fillSlide#0" expanded="false" />
-            <element signature="n#!!block;n#addFields#0;n#!!block;n#fillSlide#0" expanded="false" />
-            <element signature="n#!!block;n#addListField#0;n#!!block;n#fillSlide#0" expanded="false" />
-            <element signature="n#!!block;n#setURL#0" expanded="false" />
-            <element signature="n#!!block;n#readURL#0" expanded="false" />
-            <element signature="n#!!block;n#addSlide#0" expanded="false" />
-            <element signature="n#!!block;n#del#0;n#!!block;n#addSlide#0" expanded="false" />
-            <element signature="n#!!block;n#updateSlide#0" expanded="false" />
-            <element signature="n#!!block;n#addFields#0;n#!!block;n#updateSlide#0" expanded="false" />
-            <element signature="n#!!block;n#activeText#0" expanded="false" />
-            <element signature="n#!!block;n#activeNumber#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/create slide.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6061">
-          <caret line="209" column="0" selection-start-line="209" selection-start-column="0" selection-end-line="209" selection-end-column="0" />
+        <state relative-caret-position="813">
+          <caret line="164" column="0" selection-start-line="19" selection-start-column="4" selection-end-line="164" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/createSlide.js">
+    <entry file="file://$PROJECT_DIR$/_create slide.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!block;n#activeText#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="4698">
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

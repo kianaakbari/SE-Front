@@ -236,8 +236,7 @@ function fillSlide(i,savedslide) {
     header_input.setAttribute('ng-model', 'namein');
     header_input.placeholder = "متن خودرا اینجا بنویسید";
     header_input.addEventListener("change", function (event) {
-        var slide = presentation[current];
-        slide.title = this.value;
+        savedslide.title = this.value;
         event.preventDefault();
     });
 
@@ -246,6 +245,7 @@ function fillSlide(i,savedslide) {
         title.appendChild(header_input);
         titleFunction(header_input, button);
     }
+    else title.appendChild(header_input);
     
     button.addEventListener("click", function (event) {
         savedslide.hasTitle = 1;
@@ -270,20 +270,18 @@ function fillSlide(i,savedslide) {
         close_title.id = "close-title" + counter;
         close_title.className = "close-title";
         title.appendChild(close_title);
+
+        var close = btn.parentNode.childNodes[1].childNodes[1];
         close_title.addEventListener("click", function (event) {
-            closeTitleFunction(node, btn);
+            closeTitleFunction(node, btn, close);
             event.preventDefault();
         });
 
-        function closeTitleFunction(node, btn) {
-            var slide = presentation[current];
-            slide.hasTitle = 0;
+        function closeTitleFunction(node, btn,close) {
+            savedslide.hasTitle = 0;
             node.style.visibility = 'hidden';
             btn.style.visibility = "visible";
-            var cls_btn = document.getElementsByClassName('close-title');
-            for (i = 0; i < cls_btn.length; i++) {
-                cls_btn[i].style.visibility = 'hidden';
-            }
+            close.style.visibility="hidden";
         }
     }
 
@@ -336,7 +334,6 @@ function fillSlide(i,savedslide) {
         var hideBtns = parent.childNodes[1]; //etc
         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
         var showText = thirdChild.childNodes[2]; //add-TEXT
-        alert(showText.className);
         textFunction(showText, hideBtns);
         event.preventDefault();
     });
@@ -362,10 +359,14 @@ function fillSlide(i,savedslide) {
     close_img.className = "close-img";
     close_img.setAttribute('src', 'img/close_blue%20(11).png');
     close_img.addEventListener("click", function (event) {
-        closeFunction(this);
+        var parent=this.parentNode.parentNode;//row-title
+        var showBtns =parent.childNodes[1]; //etc
+        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+        closeFunction(thirdChild,showBtns,this);
         event.preventDefault();
     });
     etc.appendChild(close_img);
+    close_img.style.visibility = "hidden";
 
     var row2 = document.createElement('div');
     row2.className = "row";
@@ -381,7 +382,7 @@ function fillSlide(i,savedslide) {
 
     var img_place = document.createElement('img');
     img_place.className="blah";
-    img_place.setAttribute('src', '#');
+    img_place.setAttribute('src', '');
     add_img.appendChild(img_place);
 
 
@@ -437,8 +438,7 @@ function fillSlide(i,savedslide) {
     text_area.style.height = "76px";
     text_area.style.overflow = "hidden";
     text_area.addEventListener("change", function (event) {
-        var slide = presentation[current];
-        slide.hyperText = this.value;
+        savedslide.hyperText = this.value;
         event.preventDefault();
     });
     row2.appendChild(text_area);
@@ -496,6 +496,7 @@ function fillSlide(i,savedslide) {
             btn.childNodes[i].style.visibility = 'hidden';
         }
         btn.childNodes[4].style.visibility="visible";
+        node.firstChild.style.visibility = "visible";
         node.style.visibility="visible";
     }
 
@@ -524,37 +525,21 @@ function fillSlide(i,savedslide) {
 
     }
 
-    function closeFunction(closeImg) {
-        var btn = document.getElementsByClassName('gp-btn');
-        for (i = 0; i < btn.length; i++) {
-            btn[i].style.visibility = 'visible';
+    function closeFunction(node,btns,closeImg) {
+        for (i = 0; i <4; i++) {
+            btns.childNodes[i].style.visibility = 'visible';
         }
-        var div = document.getElementsByClassName('add-img');
-        for (i = 0; i < div.length; i++) {
-            div[i].style.visibility = 'hidden';
+        for (i = 0; i <4; i++) {
+            node.childNodes[i].style.visibility = 'hidden';
         }
+        btns.childNodes[4].style.visibility="hidden";
 
-        var div_video = document.getElementsByClassName('add-video');
-        for (i = 0; i < div_video.length; i++) {
-            div_video[i].style.visibility = 'hidden';
-        }
-
-        var div_text = document.getElementsByClassName('add-text');
-        for (i = 0; i < div_text.length; i++) {
-            div_text[i].style.visibility = 'hidden';
-        }
-
-        var div_list = document.getElementsByClassName('add-list');
-        for (i = 0; i < div_list.length; i++) {
-            div_list[i].style.visibility = 'hidden';
-        }
-
-        var close = document.getElementsByClassName('close-img');
-        for (i = 0; i < close.length; i++) {
-            close[i].style.visibility = 'hidden';
-        }
-        var slide = presentation[current];
-        slide.tmp = -1;
+        var parent = closeImg.parentNode.parentNode;//row-title
+        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+        var add_img = thirdChild.childNodes[0]; //add-image
+        var blah = add_img.childNodes[0];//blah
+        blah.style.visibility="hidden";
+        savedslide.tmp = -1;
     }
 
     function addFields(node) {
@@ -576,11 +561,10 @@ function fillSlide(i,savedslide) {
             oImg.setAttribute('margin-left', '20%');
             oImg.id = id;
             oImg.addEventListener("click", function (event) {
-                var slide = presentation[current];
-                delete (slide.listItems)[this.id];
-                slide.listItemsNum--;
-                if (slide.listItemsNum == 0) {
-                    slide.listItems = [];
+                delete (savedslide.listItems)[this.id];
+                savedslide.listItemsNum--;
+                if (savedslide.listItemsNum == 0) {
+                    savedslide.listItems = [];
                 }
 
                 var deletedInput = this.previousSibling;
@@ -593,9 +577,8 @@ function fillSlide(i,savedslide) {
             node.appendChild(input);
             node.appendChild(oImg);
 
-            var slide = presentation[current];
-            slide.listItems.push("");
-            slide.listItemsNum++;
+            savedslide.listItems.push("");
+            savedslide.listItemsNum++;
         }
     }
 
@@ -781,397 +764,391 @@ function addSlide() {
     }
 }
 
-function updateSlide() {
-    bdy = document.getElementById("row");
-    var num = current;
-
-    top_content = document.createElement('div');
-    top_content.id = "top-content" + num;
-    top_content.style.display = "none";
-    bdy.appendChild(top_content);
-
-    var content = document.createElement('div');
-    content.id = "content3";
-    content.className = "content col-lg-12 col-sm-10";
-
-    if (num > 2) {
-        var cnt = document.getElementsByClassName('content');
-        for (i = 0; i < cnt.length; i++) {
-            cnt[i].style.margin = '-40rem auto';
-        }
-    }
-    if (num > 2) {
-        var cntt = document.getElementsByClassName('content');
-        for (i = 0; i < cnt.length; i++) {
-            cnt[i].style.top = '49rem';
-        }
-
-    }
-    top_content.appendChild(content);
-
-    var slide = document.createElement('div');
-    slide.className = "slide  col-lg-12 col-sm-10";
-    content.appendChild(slide);
-
-    var row_title = document.createElement('div');
-    slide.className = "row-title";
-    slide.appendChild(row_title);
-
-    var button = document.createElement('button');
-    button.className = "bttn title-btn col-lg-2 col-md-2 col-sm-2 ttl";
-    button.type = "button";
-    button.innerHTML = "عنوان";
-    row_title.appendChild(button);
-
-    var title = document.createElement('div');
-    title.className = "title";
-    row_title.appendChild(title);
-
-    var header_input = document.createElement('textarea');
-    header_input.className = "col-lg-10 col-sm-8 title-text header-input ng-pristine ng-valid ng-touched";
-    header_input.type = "text";
-    header_input.setAttribute('ng-model', 'namein');
-    header_input.placeholder = "متن خودرا اینجا بنویسید";
-    header_input.addEventListener("change", function (event) {
-        var slide = presentation[current];
-        slide.title = this.value;
-        event.preventDefault();
-    });
-    title.appendChild(header_input);
-
-    button.addEventListener("click", function (event) {
-        var slide = presentation[current];
-        slide.hasTitle = 1;
-        var parent = this.parentNode.parentNode;//row-title
-        var firstChild = parent.childNodes[0]; //
-        var hideBtn = firstChild.firstChild;//btn
-
-        var showtitle = firstChild.childNodes[1].firstChild; //add-list
-        titleFunction(showtitle, hideBtn);
-        event.preventDefault();
-    });
-
-    function titleFunction(node, btn) {
-        node.style.visibility = 'visible';
-        btn.style.visibility = "hidden";
-
-        var close_title = document.createElement('img');
-        close_title.setAttribute('src', 'img/close_blue%20(11).png');
-        close_title.setAttribute('alt', 'na');
-        close_title.setAttribute('margin-left', '20%');
-        close_title.setAttribute('visibility', 'visible');
-        close_title.id = "close-title" + counter;
-        close_title.className = "close-title";
-        title.appendChild(close_title);
-        close_title.addEventListener("click", function (event) {
-            closeTitleFunction(node, btn);
-            event.preventDefault();
-        });
-
-        function closeTitleFunction(node, btn) {
-            var slide = presentation[current];
-            slide.hasTitle = 0;
-            node.style.visibility = 'hidden';
-            btn.style.visibility = "visible";
-            var cls_btn = document.getElementsByClassName('close-title');
-            for (i = 0; i < cls_btn.length; i++) {
-                cls_btn[i].style.visibility = 'hidden';
-            }
-        }
-    }
-
-    var etc = document.createElement('div');
-    etc.className = 'etc row';
-    slide.appendChild(etc);
-
-    var img_btn = document.createElement('button');
-    img_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
-    img_btn.id = "add-img" + num;
-    img_btn.innerHTML = 'اضافه کردن تصویر';
-    img_btn.type = "button";
-
-    img_btn.addEventListener("click", function (event) {
-        var slide = presentation[current];
-        slide.tmp = 1;
-        var parent = this.parentNode.parentNode;//row-title
-        var hideBtns = parent.childNodes[1]; //etc
-        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
-        var showImage = thirdChild.firstChild; //add-image
-        imgFunction(showImage, hideBtns);
-        event.preventDefault();
-    });
-    etc.appendChild(img_btn);
-
-    var video_btn = document.createElement('button');
-    video_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
-    video_btn.innerHTML = 'اضافه کردن فیلم';
-    video_btn.type = "button";
-
-    video_btn.addEventListener("click", function (event) {
-        var slide = presentation[current];
-        slide.tmp = 2;
-        var parent = this.parentNode.parentNode;//row-title
-        var hideBtns = parent.childNodes[1]; //etc
-        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
-        var showvideo = thirdChild.childNodes[1]; //add-video
-
-        videoFunction(showvideo, hideBtns);
-
-        event.preventDefault();
-    });
-    etc.appendChild(video_btn);
-
-    var text_btn = document.createElement('button');
-    text_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
-    text_btn.innerHTML = 'اضافه کردن متن';
-    text_btn.type = "button";
-
-    text_btn.addEventListener("click", function (event) {
-        var slide = presentation[current];
-        slide.tmp = 3;
-        var parent = this.parentNode.parentNode;//row-title
-        var hideBtns = parent.childNodes[1]; //etc
-        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
-        var showText = thirdChild.childNodes[2]; //add-TEXT
-
-        textFunction(showText, hideBtns);
-        event.preventDefault();
-    });
-    etc.appendChild(text_btn);
-
-    var list_btn = document.createElement('button');
-    list_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
-    list_btn.innerHTML = "اضافه کردن لیست";
-    list_btn.type = "button";
-    list_btn.addEventListener("click", function (event) {
-        var slide = presentation[current];
-        slide.tmp = 4;
-        var parent = this.parentNode.parentNode;//row-title
-        var hideBtns = parent.childNodes[1]; //etc
-        var thirdChild = parent.childNodes[2]; //row (add-image , ..)
-        var showList = thirdChild.childNodes[3]; //add-list
-
-        listFunction(showList, hideBtns);
-        event.preventDefault();
-    });
-    etc.appendChild(list_btn);
-
-    var close_img = document.createElement('img');
-    close_img.className = "close-img";
-    close_img.setAttribute('src', 'img/close_blue%20(11).png');
-    close_img.addEventListener("click", function (event) {
-
-        closeFunction(this);
-        event.preventDefault();
-    });
-    etc.appendChild(close_img);
-
-    var row2 = document.createElement('div');
-    row2.className = "row";
-    slide.appendChild(row2);
-
-    var add_img = document.createElement('div');
-    add_img.className = "add-img col-lg-12 col-centered";
-    row2.appendChild(add_img);
-
-    var browse = document.createElement('input');
-    // browse.className = "img";
-    browse.type='file';
-    add_img.appendChild(browse);
-
-    var img_place = document.createElement('img');
-    img_place.className="blah";
-    img_place.setAttribute('src', '#');
-    add_img.appendChild(img_place);
-
-
-    browse.addEventListener("change", function (event) {
-        readURL(this);
-        var slide = presentation[current];
-        var fReader = new FileReader();
-        fReader.readAsDataURL(browse.files[0]);
-        fReader.onloadend = function (event) {
-            browse.src = event.target.result;
-            socket.emit('save image', {data: browse.src}, function (response) {
-                //you should use response.data to get url of saved image :)
-                slide.imageUrl = response.data;
-            });
-        };
-        event.preventDefault();
-    });
-
-    add_img.appendChild(browse);
-
-    var add_video = document.createElement('div');
-    add_video.className = "add-video col-lg-12 col-centered";
-    row2.appendChild(add_video);
-
-    var url_input = document.createElement('input');
-    url_input.type = "text";
-    url_input.className = "video-url";
-    add_video.appendChild(url_input);
-
-    var video_url_btn = document.createElement('button');
-    video_url_btn.className = "bttn acc-add col-lg-2 col-md-2 col-sm-4 ttl  ";
-    video_url_btn.innerHTML = "تایید ادرس";
-    video_url_btn.type = "button";
-    video_url_btn.addEventListener("click", function (event) {
-        var slide = presentation[current];
-        var val = this.previousSibling.value;
-        slide.videoUrl = val;
-        event.preventDefault();
-    });
-    add_video.appendChild(video_url_btn);
-
-    var text_area = document.createElement('textarea');
-    text_area.type = "text";
-    text_area.className = "add-text hyper-text header-input col-lg-11 col-md-11 col-sm-11 ng-pristine ng-valid ng-touched";
-    text_area.style.height = "76px";
-    text_area.style.overflow = "hidden";
-    text_area.addEventListener("change", function (event) {
-        var slide = presentation[current];
-        slide.hyperText = this.value;
-        event.preventDefault();
-    });
-    row2.appendChild(text_area);
-
-    var add_list = document.createElement("div");
-    add_list.className = "add-list col-lg-12 col-centered";
-    row2.appendChild(add_list);
-
-    var row_list = document.createElement('div');
-    row_list.className = "row_list";
-    add_list.appendChild(row_list);
-
-    var fill_details = document.createElement('button');
-    fill_details.className = "bttn add-list-btn col-lg-4 col-md-4 col-sm-6 col-centered";
-    fill_details.type = "button";
-    fill_details.innerHTML = "افزودن لیست ";
-    fill_details.addEventListener("click", function (event) {
-        var parent = this.parentNode;//add-list
-        var hideBtns = parent.childNodes[1]; //bttn
-        var thirdChild = parent.childNodes[2]; //container
-        addFields(thirdChild);
-        event.preventDefault();
-    })
-    add_list.appendChild(fill_details);
-
-    var container = document.createElement('div');
-    container.className = "container";
-    add_list.appendChild(container);
-
-    function imgFunction(node,btn){
-        var brows =document.getElementsByClassName("browse");
-        for(i=0;i<brows.length;i++) {
-           brows[i].style.visibility = "visible";
-        }
-        for (i = 0; i <4; i++) {
-            btn.childNodes[i].style.visibility = 'hidden';
-        }
-        btn.childNodes[4].style.visibility="visible";
-        node.style.visibility="visible";
-    }
-
-    function videoFunction(node, btn) {
-        for (i = 0; i < 4; i++) {
-            btn.childNodes[i].style.visibility = 'hidden';
-        }
-        btn.childNodes[4].style.visibility = "visible";
-        node.style.visibility = "visible";
-    }
-
-    function textFunction(node, btn) {
-        for (i = 0; i < 4; i++) {
-            btn.childNodes[i].style.visibility = 'hidden';
-        }
-        btn.childNodes[4].style.visibility = "visible";
-        node.style.visibility = "visible";
-    }
-
-    function listFunction(node, btn) {
-        for (i = 0; i < 4; i++) {
-            btn.childNodes[i].style.visibility = 'hidden';
-        }
-        btn.childNodes[4].style.visibility = "visible";
-        node.style.visibility = "visible";
-
-    }
-
-    function closeFunction(closeImg) {
-        var btn = document.getElementsByClassName('gp-btn');
-        for (i = 0; i < btn.length; i++) {
-            btn[i].style.visibility = 'visible';
-        }
-        var div = document.getElementsByClassName('add-img');
-        for (i = 0; i < div.length; i++) {
-            div[i].style.visibility = 'hidden';
-        }
-
-        var div_video = document.getElementsByClassName('add-video');
-        for (i = 0; i < div_video.length; i++) {
-            div_video[i].style.visibility = 'hidden';
-        }
-
-        var div_text = document.getElementsByClassName('add-text');
-        for (i = 0; i < div_text.length; i++) {
-            div_text[i].style.visibility = 'hidden';
-        }
-
-        var div_list = document.getElementsByClassName('add-list');
-        for (i = 0; i < div_list.length; i++) {
-            div_list[i].style.visibility = 'hidden';
-        }
-
-        var close = document.getElementsByClassName('close-img');
-        for (i = 0; i < close.length; i++) {
-            close[i].style.visibility = 'hidden';
-        }
-        var slide = presentation[current];
-        slide.tmp = -1;
-    }
-
-    function addFields(node) {
-        var count = node.childNodes.length;
-        if (count < 28) {
-            var input = document.createElement("input");
-            input.type = "text";
-            var id = presentation[current].listItems.length;
-            input.id = id;
-            input.addEventListener("change", function (event) {
-                (presentation[current].listItems)[input.id] = this.value;
-                event.preventDefault();
-            });
-            var oImg = document.createElement("img");
-            oImg.setAttribute('src', 'img/close_blue%20(11).png');
-            oImg.setAttribute('alt', 'na');
-            oImg.setAttribute('height', '20');
-            oImg.setAttribute('width', '20');
-            oImg.setAttribute('margin-left', '20%');
-            oImg.id = id;
-            oImg.addEventListener("click", function (event) {
-                var slide = presentation[current];
-                delete (slide.listItems)[this.id];
-                slide.listItemsNum--;
-                if (slide.listItemsNum == 0) {
-                    slide.listItems = [];
-                }
-
-                var deletedInput = this.previousSibling;
-                deletedInput.parentNode.removeChild(deletedInput);
-                this.parentNode.removeChild(this);
-
-                event.preventDefault();
-            });
-
-            node.appendChild(input);
-            node.appendChild(oImg);
-
-            var slide = presentation[current];
-            slide.listItems.push("");
-            slide.listItemsNum++;
-        }
-    }
-}
+// function updateSlide() {
+//     bdy = document.getElementById("row");
+//     var num = current;
+//
+//     top_content = document.createElement('div');
+//     top_content.id = "top-content" + num;
+//     top_content.style.display = "none";
+//     bdy.appendChild(top_content);
+//
+//     var content = document.createElement('div');
+//     content.id = "content3";
+//     content.className = "content col-lg-12 col-sm-10";
+//
+//     if (num > 2) {
+//         var cnt = document.getElementsByClassName('content');
+//         for (i = 0; i < cnt.length; i++) {
+//             cnt[i].style.margin = '-40rem auto';
+//         }
+//     }
+//     if (num > 2) {
+//         var cntt = document.getElementsByClassName('content');
+//         for (i = 0; i < cnt.length; i++) {
+//             cnt[i].style.top = '49rem';
+//         }
+//
+//     }
+//     top_content.appendChild(content);
+//
+//     var slide = document.createElement('div');
+//     slide.className = "slide  col-lg-12 col-sm-10";
+//     content.appendChild(slide);
+//
+//     var row_title = document.createElement('div');
+//     slide.className = "row-title";
+//     slide.appendChild(row_title);
+//
+//     var button = document.createElement('button');
+//     button.className = "bttn title-btn col-lg-2 col-md-2 col-sm-2 ttl";
+//     button.type = "button";
+//     button.innerHTML = "عنوان";
+//     row_title.appendChild(button);
+//
+//     var title = document.createElement('div');
+//     title.className = "title";
+//     row_title.appendChild(title);
+//
+//     var header_input = document.createElement('textarea');
+//     header_input.className = "col-lg-10 col-sm-8 title-text header-input ng-pristine ng-valid ng-touched";
+//     header_input.type = "text";
+//     header_input.setAttribute('ng-model', 'namein');
+//     header_input.placeholder = "متن خودرا اینجا بنویسید";
+//     header_input.addEventListener("change", function (event) {
+//         var slide = presentation[current];
+//         slide.title = this.value;
+//         event.preventDefault();
+//     });
+//     title.appendChild(header_input);
+//
+//     button.addEventListener("click", function (event) {
+//         var slide = presentation[current];
+//         slide.hasTitle = 1;
+//         var parent = this.parentNode.parentNode;//row-title
+//         var firstChild = parent.childNodes[0]; //
+//         var hideBtn = firstChild.firstChild;//btn
+//
+//         var showtitle = firstChild.childNodes[1].firstChild; //add-list
+//         titleFunction(showtitle, hideBtn);
+//         event.preventDefault();
+//     });
+//
+//     function titleFunction(node, btn) {
+//         node.style.visibility = 'visible';
+//         btn.style.visibility = "hidden";
+//
+//         var close_title = document.createElement('img');
+//         close_title.setAttribute('src', 'img/close_blue%20(11).png');
+//         close_title.setAttribute('alt', 'na');
+//         close_title.setAttribute('margin-left', '20%');
+//         close_title.setAttribute('visibility', 'visible');
+//         close_title.id = "close-title" + counter;
+//         close_title.className = "close-title";
+//         title.appendChild(close_title);
+//
+//         var close = btn.parentNode.childNodes[1].childNodes[1];
+//         close_title.addEventListener("click", function (event) {
+//             closeTitleFunction(node, btn, close);
+//             event.preventDefault();
+//         });
+//
+//         function closeTitleFunction(node, btn,close) {
+//             var slide = presentation[current];
+//             slide.hasTitle = 0;
+//             node.style.visibility = 'hidden';
+//             btn.style.visibility = "visible";
+//             close.style.visibility="hidden";
+//         }
+//     }
+//
+//     var etc = document.createElement('div');
+//     etc.className = 'etc row';
+//     slide.appendChild(etc);
+//
+//     var img_btn = document.createElement('button');
+//     img_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+//     img_btn.id = "add-img" + num;
+//     img_btn.innerHTML = 'اضافه کردن تصویر';
+//     img_btn.type = "button";
+//
+//     img_btn.addEventListener("click", function (event) {
+//         var slide = presentation[current];
+//         slide.tmp = 1;
+//         var parent = this.parentNode.parentNode;//row-title
+//         var hideBtns = parent.childNodes[1]; //etc
+//         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+//         var showImage = thirdChild.firstChild; //add-image
+//         imgFunction(showImage, hideBtns);
+//         event.preventDefault();
+//     });
+//     etc.appendChild(img_btn);
+//
+//     var video_btn = document.createElement('button');
+//     video_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+//     video_btn.innerHTML = 'اضافه کردن فیلم';
+//     video_btn.type = "button";
+//
+//     video_btn.addEventListener("click", function (event) {
+//         var slide = presentation[current];
+//         slide.tmp = 2;
+//         var parent = this.parentNode.parentNode;//row-title
+//         var hideBtns = parent.childNodes[1]; //etc
+//         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+//         var showvideo = thirdChild.childNodes[1]; //add-video
+//
+//         videoFunction(showvideo, hideBtns);
+//
+//         event.preventDefault();
+//     });
+//     etc.appendChild(video_btn);
+//
+//     var text_btn = document.createElement('button');
+//     text_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+//     text_btn.innerHTML = 'اضافه کردن متن';
+//     text_btn.type = "button";
+//
+//     text_btn.addEventListener("click", function (event) {
+//         var slide = presentation[current];
+//         slide.tmp = 3;
+//         var parent = this.parentNode.parentNode;//row-title
+//         var hideBtns = parent.childNodes[1]; //etc
+//         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+//         var showText = thirdChild.childNodes[2]; //add-TEXT
+//
+//         textFunction(showText, hideBtns);
+//         event.preventDefault();
+//     });
+//     etc.appendChild(text_btn);
+//
+//     var list_btn = document.createElement('button');
+//     list_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+//     list_btn.innerHTML = "اضافه کردن لیست";
+//     list_btn.type = "button";
+//     list_btn.addEventListener("click", function (event) {
+//         var slide = presentation[current];
+//         slide.tmp = 4;
+//         var parent = this.parentNode.parentNode;//row-title
+//         var hideBtns = parent.childNodes[1]; //etc
+//         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+//         var showList = thirdChild.childNodes[3]; //add-list
+//
+//         listFunction(showList, hideBtns);
+//         event.preventDefault();
+//     });
+//     etc.appendChild(list_btn);
+//
+//     var close_img = document.createElement('img');
+//     close_img.className = "close-img";
+//     close_img.setAttribute('src', 'img/close_blue%20(11).png');
+//     close_img.addEventListener("click", function (event) {
+//         var parent=this.parentNode.parentNode;//row-title
+//         var showBtns =parent.childNodes[1]; //etc
+//         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+//         closeFunction(thirdChild,showBtns,this);
+//         event.preventDefault();
+//     });
+//     etc.appendChild(close_img);
+//     close_img.style.visibility = "hidden";
+//
+//     var row2 = document.createElement('div');
+//     row2.className = "row";
+//     slide.appendChild(row2);
+//
+//     var add_img = document.createElement('div');
+//     add_img.className = "add-img col-lg-12 col-centered";
+//     row2.appendChild(add_img);
+//
+//     var browse = document.createElement('input');
+//     // browse.className = "img";
+//     browse.type='file';
+//     add_img.appendChild(browse);
+//
+//     var img_place = document.createElement('img');
+//     img_place.className="blah";
+//     img_place.setAttribute('src', '');
+//     add_img.appendChild(img_place);
+//
+//
+//     browse.addEventListener("change", function (event) {
+//         readURL(this);
+//         var slide = presentation[current];
+//         var fReader = new FileReader();
+//         fReader.readAsDataURL(browse.files[0]);
+//         fReader.onloadend = function (event) {
+//             browse.src = event.target.result;
+//             socket.emit('save image', {data: browse.src}, function (response) {
+//                 //you should use response.data to get url of saved image :)
+//                 slide.imageUrl = response.data;
+//             });
+//         };
+//         event.preventDefault();
+//     });
+//
+//     add_img.appendChild(browse);
+//
+//     var add_video = document.createElement('div');
+//     add_video.className = "add-video col-lg-12 col-centered";
+//     row2.appendChild(add_video);
+//
+//     var url_input = document.createElement('input');
+//     url_input.type = "text";
+//     url_input.className = "video-url";
+//     add_video.appendChild(url_input);
+//
+//     var video_url_btn = document.createElement('button');
+//     video_url_btn.className = "bttn acc-add col-lg-2 col-md-2 col-sm-4 ttl  ";
+//     video_url_btn.innerHTML = "تایید ادرس";
+//     video_url_btn.type = "button";
+//     video_url_btn.addEventListener("click", function (event) {
+//         var slide = presentation[current];
+//         var val = this.previousSibling.value;
+//         slide.videoUrl = val;
+//         event.preventDefault();
+//     });
+//     add_video.appendChild(video_url_btn);
+//
+//     var text_area = document.createElement('textarea');
+//     text_area.type = "text";
+//     text_area.className = "add-text hyper-text header-input col-lg-11 col-md-11 col-sm-11 ng-pristine ng-valid ng-touched";
+//     text_area.style.height = "76px";
+//     text_area.style.overflow = "hidden";
+//     text_area.addEventListener("change", function (event) {
+//         var slide = presentation[current];
+//         slide.hyperText = this.value;
+//         event.preventDefault();
+//     });
+//     row2.appendChild(text_area);
+//
+//     var add_list = document.createElement("div");
+//     add_list.className = "add-list col-lg-12 col-centered";
+//     row2.appendChild(add_list);
+//
+//     var row_list = document.createElement('div');
+//     row_list.className = "row_list";
+//     add_list.appendChild(row_list);
+//
+//     var fill_details = document.createElement('button');
+//     fill_details.className = "bttn add-list-btn col-lg-4 col-md-4 col-sm-6 col-centered";
+//     fill_details.type = "button";
+//     fill_details.innerHTML = "افزودن لیست ";
+//     fill_details.addEventListener("click", function (event) {
+//         var parent = this.parentNode;//add-list
+//         var hideBtns = parent.childNodes[1]; //bttn
+//         var thirdChild = parent.childNodes[2]; //container
+//         addFields(thirdChild);
+//         event.preventDefault();
+//     })
+//     add_list.appendChild(fill_details);
+//
+//     var container = document.createElement('div');
+//     container.className = "container";
+//     add_list.appendChild(container);
+//
+//     function imgFunction(node,btn){
+//         var brows =document.getElementsByClassName("browse");
+//         for(i=0;i<brows.length;i++) {
+//            brows[i].style.visibility = "visible";
+//         }
+//         for (i = 0; i <4; i++) {
+//             btn.childNodes[i].style.visibility = 'hidden';
+//         }
+//         btn.childNodes[4].style.visibility="visible";
+//         node.firstChild.style.visibility = "visible";
+//         node.style.visibility="visible";
+//     }
+//
+//     function videoFunction(node, btn) {
+//         for (i = 0; i < 4; i++) {
+//             btn.childNodes[i].style.visibility = 'hidden';
+//         }
+//         btn.childNodes[4].style.visibility = "visible";
+//         node.style.visibility = "visible";
+//     }
+//
+//     function textFunction(node, btn) {
+//         for (i = 0; i < 4; i++) {
+//             btn.childNodes[i].style.visibility = 'hidden';
+//         }
+//         btn.childNodes[4].style.visibility = "visible";
+//         node.style.visibility = "visible";
+//     }
+//
+//     function listFunction(node, btn) {
+//         for (i = 0; i < 4; i++) {
+//             btn.childNodes[i].style.visibility = 'hidden';
+//         }
+//         btn.childNodes[4].style.visibility = "visible";
+//         node.style.visibility = "visible";
+//
+//     }
+//
+//     function closeFunction(node,btns,closeImg) {
+//         for (i = 0; i <4; i++) {
+//             btns.childNodes[i].style.visibility = 'visible';
+//         }
+//         for (i = 0; i <4; i++) {
+//             node.childNodes[i].style.visibility = 'hidden';
+//         }
+//         btns.childNodes[4].style.visibility="hidden";
+//
+//         var parent = closeImg.parentNode.parentNode;//row-title
+//         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+//         var add_img = thirdChild.childNodes[0]; //add-image
+//         var blah = add_img.childNodes[0];//blah
+//         // var file = add_img.childNodes[1];//file
+//         //blah.src="#";
+//         //kiana
+//         blah.style.visibility="hidden";
+//         //-----
+//         //file.src="";
+//         //browse.value="";
+//         var slide = presentation[current];
+//         slide.tmp = -1;
+//     }
+//
+//     function addFields(node) {
+//         var count = node.childNodes.length;
+//         if (count < 28) {
+//             var input = document.createElement("input");
+//             input.type = "text";
+//             var id = presentation[current].listItems.length;
+//             input.id = id;
+//             input.addEventListener("change", function (event) {
+//                 (presentation[current].listItems)[input.id] = this.value;
+//                 event.preventDefault();
+//             });
+//             var oImg = document.createElement("img");
+//             oImg.setAttribute('src', 'img/close_blue%20(11).png');
+//             oImg.setAttribute('alt', 'na');
+//             oImg.setAttribute('height', '20');
+//             oImg.setAttribute('width', '20');
+//             oImg.setAttribute('margin-left', '20%');
+//             oImg.id = id;
+//             oImg.addEventListener("click", function (event) {
+//                 var slide = presentation[current];
+//                 delete (slide.listItems)[this.id];
+//                 slide.listItemsNum--;
+//                 if (slide.listItemsNum == 0) {
+//                     slide.listItems = [];
+//                 }
+//
+//                 var deletedInput = this.previousSibling;
+//                 deletedInput.parentNode.removeChild(deletedInput);
+//                 this.parentNode.removeChild(this);
+//
+//                 event.preventDefault();
+//             });
+//
+//             node.appendChild(input);
+//             node.appendChild(oImg);
+//
+//             var slide = presentation[current];
+//             slide.listItems.push("");
+//             slide.listItemsNum++;
+//         }
+//     }
+// }
 
 function activeText() {
     document.getElementById("acc-btn-preview").style.visibility = "visible";

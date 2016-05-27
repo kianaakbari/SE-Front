@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Edit Slide</title>
+    <title>Create Slides</title>
     <link rel="stylesheet" href="css/lib/bootstrap.css">
-    <!--<link rel="stylesheet" href="css/crate-slide.css">-->
     <link rel="stylesheet" href="css/create-slide.css">
+    <link rel="stylesheet" href="css/std_style.css">
     <script src="js/lib/bootstrap.js"></script>
     <script src="js/lib/jquery.js"></script>
+    <script src="js/createSlide.js"></script>
     <script src="js/lib/angular.min.js"></script>
 
-    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-          rel="stylesheet" type="text/css"/>
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
@@ -19,7 +19,7 @@
 
     <script type="text/javascript"
             src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
-    <script src="js/editSlide.js"></script>
+    <script src="js/createSlide.js"></script>
 
     <script type="text/javascript" charset="utf-8">
 
@@ -70,6 +70,7 @@
 
             ///////////////////////////socket event listeners
             socket.on('my response', function (msg) {
+                console.log('yesssss');
 
                 //change this to append bellow msg somewhere in the view , it's for testing :
                 //  'Received #' + msg.data
@@ -77,6 +78,7 @@
             });
 
             socket.on('connect', function (msg) {
+                console.log('connected');
                 socket.emit('my event', {data: 'I\'m connected!'});
             });
 
@@ -152,14 +154,17 @@
 //                socket.emit('disconnect request');
 //                return false;
 //            });
+
+            //////////////////////////////////////////////////////////////////////////////
         });
     </script>
 
 </head>
 
 
+
 <!---------------------------------------------------------Body------------------------------------------------------->
-<body id="body" ng-app="app" ng-controller="HttpGetController" ng-init="SendData()">
+<body id="body" ng-app>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -181,32 +186,38 @@
 <div class="container col-lg-10 col-sm-12 col-md-8 col-centered">
     <div style="padding-right: 3rem;" id="row" class="row  col-lg-10 col-sm-10 col-md-8 col-centered">
 
-        <div class="slide-preview col-lg-2 col-sm-2">
+        <div class="slide-preview col-lg-2 col-md-2 co-xm-2 col-sm-1">
             <div id="std_view" class="std_view col-lg-2 col-sm-2 col-md-2 col-xs-2">
                 <h5 style="text-align: center;">{{namein}}</h5>
                 <div id="long-answer-preview"></div>
                 <div id="short-answer-preview"></div>
-                <button id="save-to-file">تایید</button>
+                <button id="acc-btn-preview">تایید</button>
+                <button id="save-to-file">save</button>
             </div>
+
             <div class="dropdown">
                 <button class="dropbtn">نوع پاسخ</button>
                 <div class="dropdown-content">
                     <a onclick="activeText()" href="#">متن</a>
                     <a onclick="activeNumber()" href="#">عدد</a>
-                    <a href="#">چند گزینه ای</a>
+                    <a onclick="activeMultipleChoice()" href="#">چند گزینه ای</a>
+                </div>
+            </div>
+
+            <div id="multiple-choice-preview">
+                <button id="add-choice"  onclick="addChoice()" >اضافه کردن گزینه </button>
+                <div id="choices">
+
                 </div>
             </div>
         </div>
 
-
-        <div class="slide-creator col-lg-2 col-md-2 col-sm-3" id="slide-creator">
+        <div class="slide-creator col-lg-2 col-md-2 col-sm-10" id="slide-creator">
             <div class="add-slide-btn">
                 <!--<button type="button" class="btn btn-primary btn-lg col-lg-12">Large button</button>-->
                 <div class="btn-group">
 
-                    <button type="button" id="add-slide-btn" class="btn btn-primary" onclick="addSlide()">اضافه کردن
-                        اسلاید
-                    </button>
+                    <button type="button" id="add-slide-btn" class="btn btn-primary" onclick="addSlide()" >اضافه کردن اسلاید</button>
                     <!--<button type="button" id="save-btn" onclick="save()"  class="btn btn-primary"  >ذخیره</button>-->
 
                     <!--<div class="div" style="background-color: #2b542c; height: 40px; width: 70px;"></div>-->
@@ -221,7 +232,5 @@
 
 </div>
 </div>
-
-
 </body>
 </html>
