@@ -176,6 +176,7 @@ function prvFunc() {
         }
         curTmp = slide.tmp;
     }
+
     if (current == -1) document.getElementById("prv").disabled = true;
     document.getElementById("nxt").disabled = false;
     socket.emit('change page', {page: current, room_name: "roomName"});

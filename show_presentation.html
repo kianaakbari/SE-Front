@@ -25,6 +25,28 @@
 
 
 
+            function joinRoom(roomName) {
+                socket.emit('join', {room: roomName}, function (result) {
+
+                    if (result == 1) {
+                        // do what is needed in view when join session is not successful
+                        alert("join session for presenter finished properly");
+
+                        return false;
+
+                    } else if (result == 0) {
+                        // do what is needed in view when join session is not successful
+                        alert("join session for presenter not finished properly");
+
+                        return true;
+                    }
+
+
+                });
+            }
+
+            joinRoom("roomName");
+
 
             ///////////////////////////socket event listeners
 
@@ -40,12 +62,15 @@
 //                alert("session ended for audience");
             });
 
+            socket.on('catch answer', function (msg) {
+                alert("ok");
+                //alert(msg.answer , msg.page);
+            });
+
 
             socket.on('my response', function (msg) {
 
-                //change this to append bellow msg somewhere in the view , it's for testing :
-                //  'Received #' + msg.data
-                $('#log').append('<br>' + $('<div/>').text('Received #' + msg.data).html());
+                alert(msg.data);
             });
 
             socket.on('connect', function (msg) {
@@ -80,7 +105,7 @@
 
             $('#end-session').click(function (event) {
 
-                endSession();
+
 
                 socket.emit('end session', function (msg) {
                     if (msg == 1) {

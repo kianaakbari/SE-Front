@@ -16,7 +16,6 @@
         $(document).ready(function () {
 
 
-
             ///////////////////////////socket initialization
             try {
                 alert("yess1");
@@ -74,11 +73,29 @@
                 return false;
             }
 
+            //user_id and presentation_id and room are hardcoded.
+            function sendAnswer(answerText, pageNumber, roomName) {
+                alert("giving answer");
+                socket.emit('send answer', {
+                    answer: answerText,
+                    page: pageNumber,
+                    user_id: 1,
+                    presentation_id: 1,
+                    room: roomName
+                });
+                return false;
+            }
+
+
             /////////////////////////////////////////////socket functions
 
 
             ///////////////////////////socket event listeners
 
+            socket.on('catch answer', function (msg) {
+                alert("ok");
+                //alert(msg.answer , msg.page);
+            });
 
             socket.on('init presentation', function (data) {
                 //fill view with json
@@ -101,10 +118,7 @@
 
             socket.on('my response', function (msg) {
                 console.log('yesssss audience');
-
-                //change this to append bellow msg somewhere in the view , it's for testing :
-                //  'Received #' + msg.data
-                $('#log').append('<br>' + $('<div/>').text('Received #' + msg.data).html());
+                alert(msg.data);
             });
 
             socket.on('connect', function (msg) {
@@ -114,7 +128,6 @@
 
             ///////////////////////////socket event listeners
 
-
             $('#leave-room').click(function (event) {
                 //frontend stuff
                 leaveSession();
@@ -122,6 +135,14 @@
                 leaveRoom("roomName");
                 return false;
             });
+
+
+            $('#give-answer').click(function (event) {
+                sendAnswer(answerText="this is the answer text", pageNumber=5, room="roomName");
+
+                return false;
+            });
+
         });
 
     </script>
@@ -149,6 +170,8 @@
 </script>
 
 <button id="leave-room">leave room</button>
+<button id="give-answer">give answer</button>
+<button id="join-room">join room</button>
 
 </body>
 </html>
