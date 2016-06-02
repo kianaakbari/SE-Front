@@ -248,13 +248,22 @@ function createSlide() {
                      answer_div.className="choice-div col-lg-12";
                      answer.appendChild(answer_div);
 
+                     var lable = document.createElement("lable");
+
                      var answer_input = document.createElement("input");
                      answer_input.className="radio-btn";
                      answer_input.type="radio";
                      answer_input.value="male";
                      answer_input.name="gender";
                      answer_input.id=j;
-                     answer_input.innerHTML = "گزینه اول"; //slide.choices[j];
+                     // answer_input.innerHTML = "گزینه اول"; //slide.choices[j];
+                     answer_input.name = "name";
+                     // answer_div.appendChild(answer_input);
+
+                     lable.setAttribute('for','name');
+                     lable.innerHTML=slide.choices[j];
+                     // lable.appendChild(answer_input);
+                     answer_div.appendChild(lable);
                      answer_div.appendChild(answer_input);
                      i++;
                  }
@@ -272,7 +281,7 @@ function createSlide() {
                  var childs = list_answers.childNodes;
                  var n = childs.length;
                  for (z = 0; z < n; z++) {
-                     if(childs[z].childNodes[0].childNodes[0].checked) {
+                     if(childs[z].childNodes[0].childNodes[1].checked) {
                          // alert(z);
                          //ehsan
                          // z index e gozine i k entekhab shodaro nshun mide
