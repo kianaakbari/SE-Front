@@ -25,3 +25,15 @@ html{
 .pass_1{
 	margin-top: 30px;
 }
+
+.pass_2{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.submitting{
+	width: 50%;
+	height: 38px;
+	text-align: center;
+	border-radius: 8px;
+}

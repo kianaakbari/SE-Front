@@ -30,13 +30,13 @@
 
                     if (result == 1) {
                         // do what is needed in view when join session is not successful
-                        alert("join session for presenter finished properly");
+//                        alert("join session for presenter finished properly");
 
                         return false;
 
                     } else if (result == 0) {
                         // do what is needed in view when join session is not successful
-                        alert("join session for presenter not finished properly");
+//                        alert("join session for presenter not finished properly");
 
                         return true;
                     }
@@ -63,14 +63,14 @@
             });
 
             socket.on('catch answer', function (msg) {
-                alert("ok");
+//                alert("ok");
                 //alert(msg.answer , msg.page);
             });
 
 
             socket.on('my response', function (msg) {
 
-                alert(msg.data);
+//                alert(msg.data);
             });
 
             socket.on('connect', function (msg) {

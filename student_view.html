@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show presentation</title>
+    <link rel="stylesheet" href="css/show_presentation.css">
+    <link rel="stylesheet" href="css/lib/bootstrap.css">
+    <link rel="stylesheet" href="css/presenter_style.css">
+    <link rel="stylesheet" href="css/std_style.css">
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+
+    <script src="js/student_view.js"></script>
+
+
+    <!--<script type="text/javascript" charset="utf-8">-->
+
+        <!--$(document).ready(function () {-->
+
+
+
+            <!--function joinRoom(roomName) {-->
+                <!--socket.emit('join', {room: roomName}, function (result) {-->
+
+                    <!--if (result == 1) {-->
+                        <!--// do what is needed in view when join session is not successful-->
+<!--//                        alert("join session for presenter finished properly");-->
+
+                        <!--return false;-->
+
+                    <!--} else if (result == 0) {-->
+                        <!--// do what is needed in view when join session is not successful-->
+<!--//                        alert("join session for presenter not finished properly");-->
+
+                        <!--return true;-->
+                    <!--}-->
+
+
+                <!--});-->
+            <!--}-->
+
+            <!--joinRoom("roomName");-->
+
+
+            <!--///////////////////////////socket event listeners-->
+
+            <!--//this event is not actually for this page-->
+            <!--//it should be moved to audience presentation page-->
+            <!--socket.on('page changed', function (msg) {-->
+<!--//                alert(msg.page);-->
+            <!--});-->
+
+            <!--//this event is not actually for this page-->
+            <!--//it should be moved to audience presentation page-->
+            <!--socket.on('session ended', function () {-->
+<!--//                alert("session ended for audience");-->
+            <!--});-->
+
+            <!--socket.on('catch answer', function (msg) {-->
+<!--//                alert("ok");-->
+                <!--//alert(msg.answer , msg.page);-->
+            <!--});-->
+
+
+            <!--socket.on('my response', function (msg) {-->
+
+<!--//                alert(msg.data);-->
+            <!--});-->
+
+            <!--socket.on('connect', function (msg) {-->
+                <!--socket.emit('my event', {data: 'I\'m connected!'});-->
+            <!--});-->
+
+            <!--///////////////////////////socket event listeners-->
+
+
+<!--//            $('#prv').click(function (event) {-->
+<!--//                prvFunc();-->
+<!--//-->
+<!--//-->
+<!--//                //roomName should be stored somewhere in this file and then-->
+<!--//                //be replaced in below line-->
+<!--//                socket.emit('change page', {page: current, room_name: "roomName"});-->
+<!--//-->
+<!--//-->
+<!--//                return false;-->
+<!--//            });-->
+<!--//-->
+<!--//            $('#nxt').click(function (event) {-->
+<!--//                nxtFunc();-->
+<!--//-->
+<!--//-->
+<!--//                //roomName should be stored somewhere in this file and then-->
+<!--//                //be replaced in below line-->
+<!--//                socket.emit('change page', {page: current, room_name: "roomName"});-->
+<!--//-->
+<!--//                return false;-->
+<!--//            });-->
+
+            <!--$('#end-session').click(function (event) {-->
+
+
+
+                <!--socket.emit('end session', function (msg) {-->
+                    <!--if (msg == 1) {-->
+                        <!--// do what is needed in view when the session in ended-->
+<!--//                        alert("session finished properly");-->
+                    <!--} else if (msg == 0) {-->
+<!--//                        alert("session not finished properly");-->
+                    <!--}-->
+                <!--});-->
+                <!--return false;-->
+            <!--});-->
+
+        <!--});-->
+
+<!--    </script>-->
+
+
+</head>
+
+<body id="slide-blue" class="slide-blue">
+<div id="title" ></div>
+<div id="body"
+     class="body col-lg-10 col-sm-10 col-xs-10 col-md-10 ">
+</div>
+<!--bad az dorost shodane logic navare payin bardashte mishe-->
+<ui class="pnav">
+    <div class="container-fluid">
+        <div class="row">
+            <li class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">
+                <button class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="prv" disabled=true onclick="prvFunc()">
+                    قبلی
+                </button>
+            </li>
+            <li class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">
+                <button class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="nxt" onclick="nxtFunc()">بعدی</button>
+            </li>
+        </div>
+    </div>
+</ui>
+<!---------------------------------------------------------->
+</body>
+</html>
