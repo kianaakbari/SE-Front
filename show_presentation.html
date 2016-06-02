@@ -24,7 +24,6 @@
         $(document).ready(function () {
 
 
-
             function joinRoom(roomName) {
                 socket.emit('join', {room: roomName}, function (result) {
 
@@ -45,22 +44,12 @@
                 });
             }
 
-            joinRoom("roomName");
+            alert(sessionCode);
+            joinRoom(sessionCode);
 
 
             ///////////////////////////socket event listeners
 
-            //this event is not actually for this page
-            //it should be moved to audience presentation page
-            socket.on('page changed', function (msg) {
-//                alert(msg.page);
-            });
-
-            //this event is not actually for this page
-            //it should be moved to audience presentation page
-            socket.on('session ended', function () {
-//                alert("session ended for audience");
-            });
 
             socket.on('catch answer', function (msg) {
 //                alert("ok");
@@ -70,7 +59,8 @@
 
             socket.on('my response', function (msg) {
 
-//                alert(msg.data);
+                alert(msg.data);
+                console.log(msg.data);
             });
 
             socket.on('connect', function (msg) {
@@ -104,7 +94,6 @@
 //            });
 
             $('#end-session').click(function (event) {
-
 
 
                 socket.emit('end session', function (msg) {

@@ -19,115 +19,114 @@
 
     <script src="js/student_view.js"></script>
 
+    <script type="text/javascript" charset="utf-8">
 
-    <!--<script type="text/javascript" charset="utf-8">-->
+        $(document).ready(function () {
 
-        <!--$(document).ready(function () {-->
-
-
-
-            <!--function joinRoom(roomName) {-->
-                <!--socket.emit('join', {room: roomName}, function (result) {-->
-
-                    <!--if (result == 1) {-->
-                        <!--// do what is needed in view when join session is not successful-->
-<!--//                        alert("join session for presenter finished properly");-->
-
-                        <!--return false;-->
-
-                    <!--} else if (result == 0) {-->
-                        <!--// do what is needed in view when join session is not successful-->
-<!--//                        alert("join session for presenter not finished properly");-->
-
-                        <!--return true;-->
-                    <!--}-->
+            alert("salam");
+            alert(sessionCode);
 
 
-                <!--});-->
-            <!--}-->
+            function joinRoom(roomName) {
+                socket.emit('join', {room: roomName}, function (result) {
 
-            <!--joinRoom("roomName");-->
+                    if (result == 1) {
+                        // do what is needed in view when join session is not successful
+                        alert("join session finished properly");
 
+                        return false;
 
-            <!--///////////////////////////socket event listeners-->
+                    } else if (result == 0) {
+                        // do what is needed in view when join session is not successful
+                        alert("join session not finished properly");
 
-            <!--//this event is not actually for this page-->
-            <!--//it should be moved to audience presentation page-->
-            <!--socket.on('page changed', function (msg) {-->
-<!--//                alert(msg.page);-->
-            <!--});-->
-
-            <!--//this event is not actually for this page-->
-            <!--//it should be moved to audience presentation page-->
-            <!--socket.on('session ended', function () {-->
-<!--//                alert("session ended for audience");-->
-            <!--});-->
-
-            <!--socket.on('catch answer', function (msg) {-->
-<!--//                alert("ok");-->
-                <!--//alert(msg.answer , msg.page);-->
-            <!--});-->
+                        return true;
+                    }
 
 
-            <!--socket.on('my response', function (msg) {-->
-
-<!--//                alert(msg.data);-->
-            <!--});-->
-
-            <!--socket.on('connect', function (msg) {-->
-                <!--socket.emit('my event', {data: 'I\'m connected!'});-->
-            <!--});-->
-
-            <!--///////////////////////////socket event listeners-->
+                });
+            }
 
 
-<!--//            $('#prv').click(function (event) {-->
-<!--//                prvFunc();-->
-<!--//-->
-<!--//-->
-<!--//                //roomName should be stored somewhere in this file and then-->
-<!--//                //be replaced in below line-->
-<!--//                socket.emit('change page', {page: current, room_name: "roomName"});-->
-<!--//-->
-<!--//-->
-<!--//                return false;-->
-<!--//            });-->
-<!--//-->
-<!--//            $('#nxt').click(function (event) {-->
-<!--//                nxtFunc();-->
-<!--//-->
-<!--//-->
-<!--//                //roomName should be stored somewhere in this file and then-->
-<!--//                //be replaced in below line-->
-<!--//                socket.emit('change page', {page: current, room_name: "roomName"});-->
-<!--//-->
-<!--//                return false;-->
-<!--//            });-->
-
-            <!--$('#end-session').click(function (event) {-->
+            //replace with the room name the name in the url
+            joinRoom(sessionCode);
 
 
+            ///////////////////////////socket event listeners
 
-                <!--socket.emit('end session', function (msg) {-->
-                    <!--if (msg == 1) {-->
-                        <!--// do what is needed in view when the session in ended-->
-<!--//                        alert("session finished properly");-->
-                    <!--} else if (msg == 0) {-->
-<!--//                        alert("session not finished properly");-->
-                    <!--}-->
-                <!--});-->
-                <!--return false;-->
-            <!--});-->
+            socket.on('catch answer', function (msg) {
+                alert("ok");
+                //alert(msg.answer , msg.page);
+            });
 
-        <!--});-->
+            socket.on('init presentation', function (data) {
+                //things to do here
+                alert(3432);
+                //fill view with json
+                //use 'page' to show specified page in this page .
+                console.log('init presentation');
+                console.log(data.json);
+                console.log(data.page);
+            });
 
-<!--    </script>-->
+            socket.on('page changed', function (msg) {
 
+                alert(msg.page);
+
+                current = msg.page;
+                slide = presentation[current];
+                curTmp = slide.tmp;
+
+                createSlide();
+
+
+            });
+
+
+            socket.on('session ended', function () {
+
+                alert("session ended for audience");
+            });
+
+
+            socket.on('my response', function (msg) {
+                alert(msg.data);
+                console.log(msg.data);
+            });
+
+            socket.on('connect', function (msg) {
+
+                console.log('connected');
+                socket.emit('my event', {data: 'I\'m connected!'});
+            });
+
+            ///////////////////////////socket event listeners
+
+
+            $('#leave-room').click(function (event) {
+                //frontend stuff
+                leaveSession();
+                //replace with the room name the name in the url
+                leaveRoom(sessionCode);
+                return false;
+            });
+
+
+            $('#give-answer').click(function (event) {
+                sendAnswer(answerText = "this is the answer text", pageNumber = 5,
+                        room = sessionCode, user_id = 0, session_id = 0);
+
+                return false;
+            });
+
+        });
+
+    </script>
 
 </head>
 
 <body id="slide-blue" class="slide-blue">
-<div id="title" ></div>
+<div id="title"></div>
 <div id="body"
      class="body col-lg-10 col-sm-10 col-xs-10 col-md-10 ">
 </div>

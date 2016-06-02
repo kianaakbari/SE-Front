@@ -18,31 +18,106 @@ function getCookie(cname) {
 //----------------------------------------------get presetation and session code--------------------------------------//
 
 
-///////////////////////////socket initialization
-// try {
-//     var socket = io.connect('http://localhost:8000/presentation');
-// }
-// catch (err) {
-//     console.log(err);
-// }
-///////////////////////////socket initialization
-
-var current;
-var slide;
-var curTmp;
-
 //ehsan
 //in ghesmat ha marbut b namayeshe safheye avale. fk konam kolesh bayad tu y chizi shabihe onload neveshte bshe.
 var sessionCode = getCookie('sessionCode');
 // alert(sessionCode);
 // code e session tu moteghayere sessionCode gharar dare.
-var data = {"slides":[{"id":0,"hasTitle":0,"title":"","tmp":4,"imageUrl":"","videoUrl":"","hyperText":"","listItems":["a","b"],"listItemsNum":2},{"id":1,"hasTitle":1,"title":"hi","tmp":5,"choices":["a","b"],"choicesNum":2,"imageUrl":"","videoUrl":"","hyperText":"aleyk","listItems":[],"listItemsNum":0}]}
-var presentation =data.slides;
+
+///////////////////////////socket initialization
+try {
+    alert("yess1");
+    var socket = io.connect('http://localhost:8000/presentation');
+
+
+
+    alert("yess2");
+}
+catch (err) {
+    alert(err);
+}
+///////////////////////////socket initialization
+
+
+/////////////////////////////////////////////socket functions
+
+
+
+function leaveRoom(roomName) {
+    socket.emit('leave', {room: roomName}, function (result) {
+        if (result == 1) {
+
+            // do what is needed in view when leave session in successful
+            alert("leave session finished properly");
+            return true;
+        } else if (result == 0) {
+            alert("leave session not finished properly");
+            return false;
+        }
+
+    });
+
+    return false;
+}
+
+//user_id and presentation_id and room are hardcoded.
+function sendAnswer(answerText, pageNumber, roomName, userId, sessionId) {
+    alert("giving answer");
+    socket.emit('send answer', {
+        answer: answerText,
+        page: pageNumber,
+        user_id: userId,
+        session_id: sessionId,
+        room: roomName
+    });
+    return false;
+}
+
+
+/////////////////////////////////////////////socket functions
+
+
+
+
+
+
+
+var current;
+var slide;
+var curTmp;
+
+
+var data = {
+    "slides": [{
+        "id": 0,
+        "hasTitle": 0,
+        "title": "",
+        "tmp": 4,
+        "imageUrl": "",
+        "videoUrl": "",
+        "hyperText": "",
+        "listItems": ["a", "b"],
+        "listItemsNum": 2
+    }, {
+        "id": 1,
+        "hasTitle": 1,
+        "title": "hi",
+        "tmp": 5,
+        "choices": ["a", "b"],
+        "choicesNum": 2,
+        "imageUrl": "",
+        "videoUrl": "",
+        "hyperText": "aleyk",
+        "listItems": [],
+        "listItemsNum": 0
+    }]
+}
+var presentation = data.slides;
 var start = 0;
 current = start;
 slide = presentation[current];
 curTmp = slide.tmp;
-window.onload = function() {
+window.onload = function () {
     createSlide();
 };
 //-----
@@ -53,14 +128,15 @@ window.onload = function() {
 // slide = presentation[current];
 // curTmp = slide.tmp;
 //-----
+//done
 
 //bade dorost shodane logic in dokme ha bayad bardashte shan
 
 preLength = presentation.length;
-var findFirst = 0 ;
-for(i=0;i<preLength;i++){
-    if(presentation[i]!=null){
-        if(!findFirst){
+var findFirst = 0;
+for (i = 0; i < preLength; i++) {
+    if (presentation[i] != null) {
+        if (!findFirst) {
             findFirst = 1;
             first = i;
         }
@@ -71,9 +147,9 @@ for(i=0;i<preLength;i++){
 function nxtFunc() {
     current++;
     slide = presentation[current];
-    while(slide==null){
+    while (slide == null) {
         current++;
-        slide=presentation[current];
+        slide = presentation[current];
     }
     curTmp = slide.tmp;
     if (current == last) document.getElementById("nxt").disabled = true;
@@ -122,7 +198,7 @@ function createSlide() {
         bdy.appendChild(title);
 
         var title_text = document.createElement("p");
-        if(slide.hasTitle) title_text.innerHTML = slide.title;
+        if (slide.hasTitle) title_text.innerHTML = slide.title;
         else title_text.innerHTML = "";
         title.appendChild(title_text);
 
@@ -176,7 +252,7 @@ function createSlide() {
             var text = document.createElement('p');
             text.innerHTML = slide.hyperText;
             text.className = "text";
-             text_slide.appendChild(text);
+            text_slide.appendChild(text);
 
         }
 
@@ -213,143 +289,147 @@ function createSlide() {
             }
         }
 
-        else  if (curTmp==5) { //multichoice answer
-             var body_answer_multiChice = document.getElementById("body");
-             if(body_answer_multiChice.childElementCount>0){
-                 var lastChild_body_multiChoice =body_answer_multiChice.lastElementChild;
-                 lastChild_body_multiChoice.parentNode.removeChild(lastChild_body_multiChoice);
-             }
+        else if (curTmp == 5) { //multichoice answer
+            var body_answer_multiChice = document.getElementById("body");
+            if (body_answer_multiChice.childElementCount > 0) {
+                var lastChild_body_multiChoice = body_answer_multiChice.lastElementChild;
+                lastChild_body_multiChoice.parentNode.removeChild(lastChild_body_multiChoice);
+            }
 
-             var answer_multiChoice_slide = document.createElement('div');
-             answer_multiChoice_slide.className = "row";
+            var answer_multiChoice_slide = document.createElement('div');
+            answer_multiChoice_slide.className = "row";
 
-             for (i = 0; i < body.length; i++) {
-                 body[i].appendChild(answer_multiChoice_slide);
-             }
+            for (i = 0; i < body.length; i++) {
+                body[i].appendChild(answer_multiChoice_slide);
+            }
 
-             var multiChoice = document.createElement("div");
-             multiChoice.id="multipleChoice";
-             multiChoice.className="col-lg-6 col-sm-5";
+            var multiChoice = document.createElement("div");
+            multiChoice.id = "multipleChoice";
+            multiChoice.className = "col-lg-6 col-sm-5";
 
-             var list_answers = document.createElement('ul');
-             list_answers.className = "ul col-lg-12";
+            var list_answers = document.createElement('ul');
+            list_answers.className = "ul col-lg-12";
 
-             var choicesNum = slide.choicesNum;
-             var i = 0;
-             var j = 0;
-             while (i < choicesNum) {
-                 if (slide.choices[j] != null) {
-                     var answer = document.createElement('li');
-                     answer.className="col-lg-12";
+            var choicesNum = slide.choicesNum;
+            var i = 0;
+            var j = 0;
+            while (i < choicesNum) {
+                if (slide.choices[j] != null) {
+                    var answer = document.createElement('li');
+                    answer.className = "col-lg-12";
 
-                     list_answers.appendChild(answer);
+                    list_answers.appendChild(answer);
 
-                     var answer_div = document.createElement('div');
-                     answer_div.className="choice-div col-lg-12";
-                     answer.appendChild(answer_div);
+                    var answer_div = document.createElement('div');
+                    answer_div.className = "choice-div col-lg-12";
+                    answer.appendChild(answer_div);
 
-                     var answer_input = document.createElement("input");
-                     answer_input.className="radio-btn";
-                     answer_input.type="radio";
-                     answer_input.value="male";
-                     answer_input.name="gender";
-                     answer_input.id=j;
-                     answer_input.innerHTML = "گزینه اول"; //slide.choices[j];
-                     answer_div.appendChild(answer_input);
-                     i++;
-                 }
-                 j++;
-             }
+                    var answer_input = document.createElement("input");
+                    answer_input.className = "radio-btn";
+                    answer_input.type = "radio";
+                    answer_input.value = "male";
+                    answer_input.name = "gender";
+                    answer_input.id = j;
+                    answer_input.innerHTML = "گزینه اول"; //slide.choices[j];
+                    answer_div.appendChild(answer_input);
+                    i++;
+                }
+                j++;
+            }
 
-             multiChoice.appendChild(list_answers);
-             answer_multiChoice_slide.appendChild(multiChoice);
+            multiChoice.appendChild(list_answers);
+            answer_multiChoice_slide.appendChild(multiChoice);
 
-             var button = document.createElement("button");
-             button.id="accept_qst";
-             button.className="col-lg-1 col-sm-4";
-             button.innerHTML="تایید";
-             button.addEventListener("click", function (event) {
-                 var childs = list_answers.childNodes;
-                 var n = childs.length;
-                 for (z = 0; z < n; z++) {
-                     if(childs[z].childNodes[0].childNodes[0].checked) {
-                         // alert(z);
-                         //ehsan
-                         // z index e gozine i k entekhab shodaro nshun mide
-                         //-----
-                         return
-                     }
-                 }
-                 event.preventDefault();
-             });
-             answer_multiChoice_slide.appendChild(button);
-         }
+            var button = document.createElement("button");
+            button.id = "accept_qst";
+            button.className = "col-lg-1 col-sm-4";
+            button.innerHTML = "تایید";
+            button.addEventListener("click", function (event) {
+                var childs = list_answers.childNodes;
+                var n = childs.length;
+                for (z = 0; z < n; z++) {
+                    if (childs[z].childNodes[0].childNodes[0].checked) {
+                        // alert(z);
+                        //ehsan
+                        // z index e gozine i k entekhab shodaro nshun mide
+                        //-----
+                        return
+                    }
+                }
+                event.preventDefault();
+            });
+            answer_multiChoice_slide.appendChild(button);
+        }
 
-         else  if (curTmp==6) { //long answer
-             var body_answer_long = document.getElementById("body");
-             if(body_answer_long.childElementCount>0){
+        else if (curTmp == 6) { //long answer
+            var body_answer_long = document.getElementById("body");
+            if (body_answer_long.childElementCount > 0) {
 
-                 var lastChild_body_long =body_answer_long.lastElementChild;
-                 lastChild_body_long.parentNode.removeChild(lastChild_body_long);
-             }
-             var answer_long_slide = document.createElement('div');
-             answer_long_slide.className = "row";
+                var lastChild_body_long = body_answer_long.lastElementChild;
+                lastChild_body_long.parentNode.removeChild(lastChild_body_long);
+            }
+            var answer_long_slide = document.createElement('div');
+            answer_long_slide.className = "row";
 
-             for (i = 0; i < body.length; i++) {
-                 body[i].appendChild(answer_long_slide);
-             }
+            for (i = 0; i < body.length; i++) {
+                body[i].appendChild(answer_long_slide);
+            }
 
-             var textArea = document.createElement("textarea");
-             textArea.id="std_long_ans_input";
-             textArea.className="col-lg-6 col-sm-10 col-md-8 col-xs-8";
-             answer_long_slide.appendChild(textArea);
+            var textArea = document.createElement("textarea");
+            textArea.id = "std_long_ans_input";
+            textArea.className = "col-lg-6 col-sm-10 col-md-8 col-xs-8";
+            answer_long_slide.appendChild(textArea);
 
-             var button = document.createElement("button");
-             button.id="accept_qst";
-             button.className="col-lg-1 col-sm-4";
-             button.innerHTML="تایید";
-             button.addEventListener("click", function (event) {
-                 // alert(textArea.value);
-                 //ehsan
-                 //textArea.value javab ro nshun mide
-                 //------
-                 event.preventDefault();
-             });
-             answer_long_slide.appendChild(button);
+            var button = document.createElement("button");
+            button.id = "accept_qst";
+            button.className = "col-lg-1 col-sm-4";
+            button.innerHTML = "تایید";
+            button.addEventListener("click", function (event) {
+                // alert(textArea.value);
+                //ehsan
+                //textArea.value javab ro nshun mide
+                //------
+                event.preventDefault();
+            });
+            answer_long_slide.appendChild(button);
 
-         }
+        }
 
-         else  if (curTmp==7) { //short answer
-             var body_answer_short = document.getElementById("body");
-             if(body_answer_short.childElementCount>0){
+        else if (curTmp == 7) { //short answer
+            var body_answer_short = document.getElementById("body");
+            if (body_answer_short.childElementCount > 0) {
 
-                 var lastChild_body_short =body_answer_short.lastElementChild;
-                 lastChild_body_short.parentNode.removeChild(lastChild_body_short);
-             }
-             var answer_short_slide = document.createElement('div');
-             answer_short_slide.className = "row";
+                var lastChild_body_short = body_answer_short.lastElementChild;
+                lastChild_body_short.parentNode.removeChild(lastChild_body_short);
+            }
+            var answer_short_slide = document.createElement('div');
+            answer_short_slide.className = "row";
 
-             for (i = 0; i < body.length; i++) {
-                 body[i].appendChild(answer_short_slide);
-             }
+            for (i = 0; i < body.length; i++) {
+                body[i].appendChild(answer_short_slide);
+            }
 
-             var input = document.createElement("input");
-             input.id="std_short_ans_input";
-             input.className="col-lg-6 col-sm-10 col-md-8 col-xs-8 ";
-             answer_short_slide.appendChild(input);
+            var input = document.createElement("input");
+            input.id = "std_short_ans_input";
+            input.className = "col-lg-6 col-sm-10 col-md-8 col-xs-8 ";
+            answer_short_slide.appendChild(input);
 
-             var btn = document.createElement("button");
-             btn.id="accept_qst";
-             btn.className="col-lg-1 col-sm-4";
-             btn.innerHTML="تایید";
-             btn.addEventListener("click", function (event) {
-                 alert(input.value);
-                 //ehsan
-                 //input.value javab ro nshun mide
-                 //------
-                 event.preventDefault();
-             });
-             answer_short_slide.appendChild(btn);
-         }
+            var btn = document.createElement("button");
+            btn.id = "accept_qst";
+            btn.className = "col-lg-1 col-sm-4";
+            btn.innerHTML = "تایید";
+            btn.addEventListener("click", function (event) {
+                alert(input.value);
+                //ehsan
+                //input.value javab ro nshun mide
+                //------
+                event.preventDefault();
+            });
+            answer_short_slide.appendChild(btn);
+        }
     }
 }
+
+
+
+

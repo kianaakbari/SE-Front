@@ -17,6 +17,7 @@ catch (err) {
 var PID = getURLParameter("presentationID");
 var auth = getCookie('auth');
 var sessionCode;
+var e ;
 var presentation;
 var preLength;
 var first;
@@ -85,6 +86,7 @@ app1.controller("HttpGetController1", function ($scope, factory1) {
         });
         factory1.getResponse(data).then(function (data) {
             sessionCode = data.session_code;
+            alert(sessionCode);
             createSlide();
         });
     };
@@ -160,7 +162,7 @@ function nxtFunc() {
 
     curTmp = slide.tmp;
     if (current == last) document.getElementById("nxt").disabled = true;
-    socket.emit('change page', {page: current, room_name: "roomName"});
+    socket.emit('change page', {page: current, room_name: sessionCode});
     document.getElementById("prv").disabled = false;
     createSlide();
 }
@@ -179,7 +181,7 @@ function prvFunc() {
 
     if (current == -1) document.getElementById("prv").disabled = true;
     document.getElementById("nxt").disabled = false;
-    socket.emit('change page', {page: current, room_name: "roomName"});
+    socket.emit('change page', {page: current, room_name: sessionCode});
 
     createSlide();
 }
