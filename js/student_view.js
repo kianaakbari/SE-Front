@@ -289,6 +289,7 @@ function createSlide() {
             }
         }
 
+<<<<<<< HEAD
         else if (curTmp == 5) { //multichoice answer
             var body_answer_multiChice = document.getElementById("body");
             if (body_answer_multiChice.childElementCount > 0) {
@@ -427,6 +428,155 @@ function createSlide() {
             });
             answer_short_slide.appendChild(btn);
         }
+=======
+        else  if (curTmp==5) { //multichoice answer
+             var body_answer_multiChice = document.getElementById("body");
+             if(body_answer_multiChice.childElementCount>0){
+                 var lastChild_body_multiChoice =body_answer_multiChice.lastElementChild;
+                 lastChild_body_multiChoice.parentNode.removeChild(lastChild_body_multiChoice);
+             }
+
+             var answer_multiChoice_slide = document.createElement('div');
+             answer_multiChoice_slide.className = "row";
+
+             for (i = 0; i < body.length; i++) {
+                 body[i].appendChild(answer_multiChoice_slide);
+             }
+
+             var multiChoice = document.createElement("div");
+             multiChoice.id="multipleChoice";
+             multiChoice.className="col-lg-6 col-sm-5";
+
+             var list_answers = document.createElement('ul');
+             list_answers.className = "ul col-lg-12";
+
+             var choicesNum = slide.choicesNum;
+             var i = 0;
+             var j = 0;
+             while (i < choicesNum) {
+                 if (slide.choices[j] != null) {
+                     var answer = document.createElement('li');
+                     answer.className="col-lg-12";
+
+                     list_answers.appendChild(answer);
+
+                     var answer_div = document.createElement('div');
+                     answer_div.className="choice-div col-lg-12";
+                     answer.appendChild(answer_div);
+
+                     var lable = document.createElement("lable");
+
+                     var answer_input = document.createElement("input");
+                     answer_input.className="radio-btn";
+                     answer_input.type="radio";
+                     answer_input.value="male";
+                     answer_input.name="gender";
+                     answer_input.id=j;
+                     // answer_input.innerHTML = "گزینه اول"; //slide.choices[j];
+                     answer_input.name = "name";
+                     // answer_div.appendChild(answer_input);
+
+                     lable.setAttribute('for','name');
+                     lable.innerHTML=slide.choices[j];
+                     // lable.appendChild(answer_input);
+                     answer_div.appendChild(lable);
+                     answer_div.appendChild(answer_input);
+                     i++;
+                 }
+                 j++;
+             }
+
+             multiChoice.appendChild(list_answers);
+             answer_multiChoice_slide.appendChild(multiChoice);
+
+             var button = document.createElement("button");
+             button.id="accept_qst";
+             button.className="col-lg-1 col-sm-4";
+             button.innerHTML="تایید";
+             button.addEventListener("click", function (event) {
+                 var childs = list_answers.childNodes;
+                 var n = childs.length;
+                 for (z = 0; z < n; z++) {
+                     if(childs[z].childNodes[0].childNodes[1].checked) {
+                         // alert(z);
+                         //ehsan
+                         // z index e gozine i k entekhab shodaro nshun mide
+                         //-----
+                         return
+                     }
+                 }
+                 event.preventDefault();
+             });
+             answer_multiChoice_slide.appendChild(button);
+         }
+
+         else  if (curTmp==6) { //long answer
+             var body_answer_long = document.getElementById("body");
+             if(body_answer_long.childElementCount>0){
+
+                 var lastChild_body_long =body_answer_long.lastElementChild;
+                 lastChild_body_long.parentNode.removeChild(lastChild_body_long);
+             }
+             var answer_long_slide = document.createElement('div');
+             answer_long_slide.className = "row";
+
+             for (i = 0; i < body.length; i++) {
+                 body[i].appendChild(answer_long_slide);
+             }
+
+             var textArea = document.createElement("textarea");
+             textArea.id="std_long_ans_input";
+             textArea.className="col-lg-6 col-sm-10 col-md-8 col-xs-8";
+             answer_long_slide.appendChild(textArea);
+
+             var button = document.createElement("button");
+             button.id="accept_qst";
+             button.className="col-lg-1 col-sm-4";
+             button.innerHTML="تایید";
+             button.addEventListener("click", function (event) {
+                 // alert(textArea.value);
+                 //ehsan
+                 //textArea.value javab ro nshun mide
+                 //------
+                 event.preventDefault();
+             });
+             answer_long_slide.appendChild(button);
+
+         }
+
+         else  if (curTmp==7) { //short answer
+             var body_answer_short = document.getElementById("body");
+             if(body_answer_short.childElementCount>0){
+
+                 var lastChild_body_short =body_answer_short.lastElementChild;
+                 lastChild_body_short.parentNode.removeChild(lastChild_body_short);
+             }
+             var answer_short_slide = document.createElement('div');
+             answer_short_slide.className = "row";
+
+             for (i = 0; i < body.length; i++) {
+                 body[i].appendChild(answer_short_slide);
+             }
+
+             var input = document.createElement("input");
+             input.id="std_short_ans_input";
+             input.className="col-lg-6 col-sm-10 col-md-8 col-xs-8 ";
+             answer_short_slide.appendChild(input);
+
+             var btn = document.createElement("button");
+             btn.id="accept_qst";
+             btn.className="col-lg-1 col-sm-4";
+             btn.innerHTML="تایید";
+             btn.addEventListener("click", function (event) {
+                 alert(input.value);
+                 //ehsan
+                 //input.value javab ro nshun mide
+                 //------
+                 event.preventDefault();
+             });
+             answer_short_slide.appendChild(btn);
+         }
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
     }
 }
 

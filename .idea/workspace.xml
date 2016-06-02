@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8693577f-390a-46b6-9eff-3328edeeb7f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/student_view.js" afterPath="$PROJECT_DIR$/js/student_view.js" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
     </list>
     <ignored path="main project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +31,13 @@
       <file leaf-file-name="show_presentation.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/show_presentation.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="199">
               <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+=======
+            <state relative-caret-position="203">
+              <caret line="7" column="58" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
               <folding />
             </state>
           </provider>
@@ -37,8 +46,23 @@
       <file leaf-file-name="show_presentation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/show_presentation.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="249">
               <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="44" />
+=======
+            <state relative-caret-position="735">
+              <caret line="56" column="27" selection-start-line="55" selection-start-column="25" selection-end-line="56" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student_view.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/student_view.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="288" column="31" selection-start-line="288" selection-start-column="31" selection-end-line="288" selection-end-column="31" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
               <folding />
             </state>
           </provider>
@@ -176,7 +200,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
+=======
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -223,9 +250,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SE-Front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -497,7 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4147">
           <caret line="143" column="13" selection-start-line="143" selection-start-column="13" selection-end-line="143" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -519,6 +567,7 @@
     <entry file="file://$PROJECT_DIR$/js/controllers/sessionJoin.js" />
     <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/se_front/create slide.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="36">
           <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
           <folding />
@@ -540,21 +589,44 @@
         <state relative-caret-position="33">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
           <folding />
+=======
+        <state relative-caret-position="203">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/authedjoin.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interactive presentation.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="36">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+=======
+        <state relative-caret-position="203">
+          <caret line="7" column="58" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/student_view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+=======
+    <entry file="file://$PROJECT_DIR$/js/student_view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="288" column="31" selection-start-line="288" selection-start-column="31" selection-end-line="288" selection-end-column="31" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
           <folding />
         </state>
       </provider>
@@ -579,8 +651,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/show_presentation.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="199">
           <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+=======
+        <state relative-caret-position="735">
+          <caret line="56" column="27" selection-start-line="55" selection-start-column="25" selection-end-line="56" selection-end-column="27" />
+>>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
           <folding />
         </state>
       </provider>
