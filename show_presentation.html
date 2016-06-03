@@ -24,32 +24,12 @@
         $(document).ready(function () {
 
 
-            function joinRoom(roomName) {
-                socket.emit('join', {room: roomName}, function (result) {
-
-                    if (result == 1) {
-                        // do what is needed in view when join session is not successful
-//                        alert("join session for presenter finished properly");
-
-                        return false;
-
-                    } else if (result == 0) {
-                        // do what is needed in view when join session is not successful
-//                        alert("join session for presenter not finished properly");
-
-                        return true;
-                    }
-
-
-                });
-            }
-
-            alert(sessionCode);
-            joinRoom(sessionCode);
-
-
             ///////////////////////////socket event listeners
 
+            socket.on('init presentation', function (msg) {
+                console.log(msg.json);
+                console.log(msg.page);
+            });
 
             socket.on('catch answer', function (msg) {
 //                alert("ok");
@@ -58,8 +38,6 @@
 
 
             socket.on('my response', function (msg) {
-
-                alert(msg.data);
                 console.log(msg.data);
             });
 
@@ -67,36 +45,12 @@
                 socket.emit('my event', {data: 'I\'m connected!'});
             });
 
-            ///////////////////////////socket event listeners
+///////////////////////////socket event listeners
 
-
-//            $('#prv').click(function (event) {
-//                prvFunc();
-//
-//
-//                //roomName should be stored somewhere in this file and then
-//                //be replaced in below line
-//                socket.emit('change page', {page: current, room_name: "roomName"});
-//
-//
-//                return false;
-//            });
-//
-//            $('#nxt').click(function (event) {
-//                nxtFunc();
-//
-//
-//                //roomName should be stored somewhere in this file and then
-//                //be replaced in below line
-//                socket.emit('change page', {page: current, room_name: "roomName"});
-//
-//                return false;
-//            });
 
             $('#end-session').click(function (event) {
 
-
-                socket.emit('end session', function (msg) {
+                socket.emit('end session', sessionCode, function (msg) {
                     if (msg == 1) {
                         // do what is needed in view when the session in ended
 //                        alert("session finished properly");

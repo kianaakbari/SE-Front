@@ -23,8 +23,7 @@
 
         $(document).ready(function () {
 
-            alert("salam");
-            alert(sessionCode);
+            console.log(sessionCode);
 
 
             function joinRoom(roomName) {
@@ -32,13 +31,13 @@
 
                     if (result == 1) {
                         // do what is needed in view when join session is not successful
-                        alert("join session finished properly");
+                        console.log("join session finished properly");
 
                         return false;
 
                     } else if (result == 0) {
                         // do what is needed in view when join session is not successful
-                        alert("join session not finished properly");
+                        console.log("join session not finished properly");
 
                         return true;
                     }
@@ -60,18 +59,21 @@
             });
 
             socket.on('init presentation', function (data) {
-                //things to do here
-                alert(3432);
-                //fill view with json
-                //use 'page' to show specified page in this page .
-                console.log('init presentation');
-                console.log(data.json);
-                console.log(data.page);
+
+                //presentation should be assigned here
+
+                var obj = JSON.parse(data.json.replace(/\'/gi, '"'));
+                presentation = obj.slides;
+                current = data.page;
+                slide = presentation[current];
+                curTmp = slide.tmp;
+                createSlide();
+
             });
 
             socket.on('page changed', function (msg) {
 
-                alert(msg.page);
+                //alert(msg.page);
 
                 current = msg.page;
                 slide = presentation[current];
@@ -90,7 +92,7 @@
 
 
             socket.on('my response', function (msg) {
-                alert(msg.data);
+                //alert(msg.data);
                 console.log(msg.data);
             });
 

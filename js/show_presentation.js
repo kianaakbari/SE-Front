@@ -14,17 +14,38 @@ catch (err) {
 }
 ///////////////////////////socket initialization
 
+
+function joinRoom(roomName) {
+    socket.emit('join', {room: roomName}, function (result) {
+
+        if (result == 1) {
+            // do what is needed in view when join session is not successful
+            alert("join session finished properly");
+
+            return false;
+
+        } else if (result == 0) {
+            // do what is needed in view when join session is not successful
+            alert("join session not finished properly");
+
+            return true;
+        }
+
+
+    });
+}
+
+
 var PID = getURLParameter("presentationID");
 var auth = getCookie('auth');
 var sessionCode;
-var e ;
 var presentation;
 var preLength;
 var first;
 var last;
 
 function getURLParameter(name) {
-  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
 }
 
 function getCookie(cname) {
@@ -87,6 +108,7 @@ app1.controller("HttpGetController1", function ($scope, factory1) {
         factory1.getResponse(data).then(function (data) {
             sessionCode = data.session_code;
             alert(sessionCode);
+            joinRoom(sessionCode);
             createSlide();
         });
     };
@@ -126,10 +148,10 @@ app.controller("HttpGetController", function ($scope, factoryName) {
         factoryName.getResponse(PID).then(function (data) {
             presentation = data.slides;
             preLength = presentation.length;
-            var findFirst = 0 ;
-            for(i=0;i<preLength;i++){
-                if(presentation[i]!=null){
-                    if(!findFirst){
+            var findFirst = 0;
+            for (i = 0; i < preLength; i++) {
+                if (presentation[i] != null) {
+                    if (!findFirst) {
                         findFirst = 1;
                         first = i;
                     }
@@ -150,14 +172,15 @@ $('#body').ready(function () {
 var current = -1;
 var curTmp;
 
+
 function nxtFunc() {
     current++;
 
     slide = presentation[current];
 
-    while(slide==null){
+    while (slide == null) {
         current++;
-        slide=presentation[current];
+        slide = presentation[current];
     }
 
     curTmp = slide.tmp;
@@ -169,7 +192,7 @@ function nxtFunc() {
 
 function prvFunc() {
     if (current == first) current = -1;
-    else if(current!=-1) {
+    else if (current != -1) {
         current--;
         slide = presentation[current];
         while (slide == null) {
@@ -181,10 +204,13 @@ function prvFunc() {
 
     if (current == -1) document.getElementById("prv").disabled = true;
     document.getElementById("nxt").disabled = false;
+
     socket.emit('change page', {page: current, room_name: sessionCode});
+
 
     createSlide();
 }
+
 
 function createSlide() {
 
@@ -279,7 +305,7 @@ function createSlide() {
         //}
 
         var title_text = document.createElement("p");
-        if(slide.hasTitle) title_text.innerHTML = slide.title;
+        if (slide.hasTitle) title_text.innerHTML = slide.title;
         else title_text.innerHTML = "";
         title.appendChild(title_text);
 
@@ -362,7 +388,7 @@ function createSlide() {
             var text = document.createElement('p');
             text.innerHTML = slide.hyperText;
             text.className = "text";
-             text_slide.appendChild(text);
+            text_slide.appendChild(text);
 
         }
 

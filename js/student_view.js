@@ -26,12 +26,7 @@ var sessionCode = getCookie('sessionCode');
 
 ///////////////////////////socket initialization
 try {
-    alert("yess1");
     var socket = io.connect('http://localhost:8000/presentation');
-
-
-
-    alert("yess2");
 }
 catch (err) {
     alert(err);
@@ -76,12 +71,6 @@ function sendAnswer(answerText, pageNumber, roomName, userId, sessionId) {
 
 /////////////////////////////////////////////socket functions
 
-
-
-
-
-
-
 var current;
 var slide;
 var curTmp;
@@ -111,7 +100,7 @@ var data = {
         "listItems": [],
         "listItemsNum": 0
     }]
-}
+};
 var presentation = data.slides;
 var start = 0;
 current = start;
@@ -289,7 +278,7 @@ function createSlide() {
             }
         }
 
-<<<<<<< HEAD
+
         else if (curTmp == 5) { //multichoice answer
             var body_answer_multiChice = document.getElementById("body");
             if (body_answer_multiChice.childElementCount > 0) {
@@ -428,7 +417,7 @@ function createSlide() {
             });
             answer_short_slide.appendChild(btn);
         }
-=======
+
         else  if (curTmp==5) { //multichoice answer
              var body_answer_multiChice = document.getElementById("body");
              if(body_answer_multiChice.childElementCount>0){
@@ -576,7 +565,7 @@ function createSlide() {
              });
              answer_short_slide.appendChild(btn);
          }
->>>>>>> a523972180078c1404ef8a22b06fcf52b9c91758
+
     }
 }
 
