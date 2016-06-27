@@ -297,6 +297,7 @@ function createSlide() {
                         deletedInput.parentNode.removeChild(deletedInput);
                         this.parentNode.removeChild(this);
 
+                        //ehsan
                         event.preventDefault();
                     });
                     choicesdiv.appendChild(closeChoice);
@@ -356,6 +357,7 @@ function createSlide() {
             newSlide.style.display = "block";
         }
 
+        //ehsan
         event.preventDefault();
     });
 
@@ -421,6 +423,7 @@ function fillSlide(i,savedslide) {
     header_input.ngModel='namein';
     header_input.addEventListener("change", function (event) {
         savedslide.title = this.value;
+        //ehsan
         event.preventDefault();
     });
     
@@ -439,6 +442,7 @@ function fillSlide(i,savedslide) {
 
         var showtitle = firstChild.childNodes[1].firstChild; //add-list
         titleFunction(showtitle, hideBtn);
+        //ehsan
         event.preventDefault();
     });
 
@@ -467,6 +471,7 @@ function fillSlide(i,savedslide) {
             node.style.visibility = 'hidden';
             btn.style.visibility = "visible";
             close.style.visibility="hidden";
+            //ehsan
         }
     }
 
@@ -487,6 +492,7 @@ function fillSlide(i,savedslide) {
         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
         var showImage = thirdChild.firstChild; //add-image
         imgFunction(showImage, hideBtns);
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(img_btn);
@@ -505,6 +511,7 @@ function fillSlide(i,savedslide) {
 
         videoFunction(showvideo, hideBtns);
 
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(video_btn);
@@ -522,6 +529,7 @@ function fillSlide(i,savedslide) {
         var showText = thirdChild.childNodes[2]; //add-TEXT
 
         textFunction(showText, hideBtns);
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(text_btn);
@@ -538,6 +546,7 @@ function fillSlide(i,savedslide) {
         var showList = thirdChild.childNodes[3]; //add-list
 
         listFunction(showList, hideBtns);
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(list_btn);
@@ -590,13 +599,16 @@ function fillSlide(i,savedslide) {
                slide.imageUrl = response.data;
             });
         };
+        //ehsan
         event.preventDefault();
     });
 
     add_img.appendChild(browse);
 
     if(tmp == 1){
-        setURL(savedslide.imageUrl);
+        // setURL(savedslide.imageUrl,img_place);
+        img_place.setAttribute("src", savedslide.imageUrl);
+        img_place.style.visibility="visible";
         imgFunction(add_img,etc);
     }
     
@@ -616,6 +628,7 @@ function fillSlide(i,savedslide) {
     video_url_btn.addEventListener("click", function (event) {
         var val = this.previousSibling.value;
         savedslide.videoUrl = val;
+        //ehsan
         event.preventDefault();
     });
     add_video.appendChild(video_url_btn);
@@ -632,6 +645,7 @@ function fillSlide(i,savedslide) {
     text_area.style.overflow = "hidden";
     text_area.addEventListener("change", function (event) {
         savedslide.hyperText = this.value;
+        //ehsan
         event.preventDefault();
     });
     row2.appendChild(text_area);
@@ -734,8 +748,9 @@ function fillSlide(i,savedslide) {
         var blah = add_img.childNodes[0];//blah
 
         blah.style.visibility="hidden";
-
+        
         savedslide.tmp = -1;
+        //ehsan
     }
 
     function addFields(node) {
@@ -768,6 +783,7 @@ function fillSlide(i,savedslide) {
                 deletedInput.parentNode.removeChild(deletedInput);
                 this.parentNode.removeChild(this);
 
+                //ehsan
                 event.preventDefault();
             });
 
@@ -776,6 +792,7 @@ function fillSlide(i,savedslide) {
 
             savedslide.listItems.push("");
             savedslide.listItemsNum++;
+            //ehsan
         }
     }
 
@@ -786,6 +803,7 @@ function fillSlide(i,savedslide) {
         input.id = j;
         input.addEventListener("change", function (event) {
             (savedslide.listItems)[j] = this.value;
+            //ehsan
             event.preventDefault();
         });
         var oImg = document.createElement("img");
@@ -806,6 +824,7 @@ function fillSlide(i,savedslide) {
             deletedInput.parentNode.removeChild(deletedInput);
             this.parentNode.removeChild(this);
 
+            //ehsan
             event.preventDefault();
         });
         
@@ -819,14 +838,26 @@ function fillSlide(i,savedslide) {
 
 //---------
 
-function setURL(src) {
-            $('.blah')
-                .attr('src',src)
-        var blah =document.getElementsByClassName("blah");
-        for(i=0;i<blah.length;i++) {
-            blah[i].style.visibility = "visible";
-        }
-}
+// function setURL(src) {
+//         $('.blah')
+//             .attr('src',src)
+//     var blah =document.getElementsByClassName("blah");
+//     for(i=0;i<blah.length;i++) {
+//         blah[i].style.visibility = "visible";
+//     }
+// }
+
+// function setURL(src,image) {
+    // if (input.files && input.files[0]) {
+    //     var reader = new FileReader();
+
+        // reader.onload = function (e) {
+        //     image.setAttribute("src", src);
+        //     image.style.visibility="visible";
+        // };
+        // reader.readAsDataURL(input.files[0]);
+    // }
+// }
 
 //____________________________________________________________________________________________________________________//
 
@@ -884,17 +915,18 @@ function addSlide() {
         title: "",
         tmp: -1,
         // 0 stands for uploaded slides. they only have image url.
-        imageUrl: "", //1
+        //1 for image slide
         videoUrl: "",//2
         hyperText: "", //3
         listItems: [], //4
-        listItemsNum: 0, //mitune hazf she!
+        listItemsNum: 0,
         anstmp: -1,
-        choicesList: [], //2
+        choicesList: [], // anstmp = 2
         choicesNum: 0
         // anstmp = 0 baraye matn
         //anstmp = 1 baraye adad
     });
+    //ehsan
 
     var oImg = document.createElement("img");
     oImg.setAttribute('src', 'img/close_blue%20(11).png');
@@ -974,11 +1006,10 @@ function addSlide() {
                     input.value = choices[j];
                     input.addEventListener("change", function (event) {
                         (slide.choicesList)[input.id] = this.value;
+                        //ehsan
                         event.preventDefault();
                     });
-                    //slide.choicesNum++;
                     choicesdiv.appendChild(input);
-                    //slide.choicesList.push("");
 
                     var closeChoice = document.createElement("img");
                     closeChoice.setAttribute('src', 'img/VisualEditor_-_Icon_-_Close.svg.png');
@@ -995,7 +1026,7 @@ function addSlide() {
                         var deletedInput = this.previousSibling;
                         deletedInput.parentNode.removeChild(deletedInput);
                         this.parentNode.removeChild(this);
-
+                        //ehsan
                         event.preventDefault();
                     });
                     choicesdiv.appendChild(closeChoice);
@@ -1014,7 +1045,7 @@ function addSlide() {
         }
         event.preventDefault();
     });
-    
+
     oImg.addEventListener("click", function (event) {
         var num = this.id;
         var last = current;
@@ -1054,7 +1085,7 @@ function addSlide() {
             var newSlide = document.getElementById("top-content" + current);
             newSlide.style.display = "block";
         }
-
+        //ehsan
         event.preventDefault();
     });
 
@@ -1118,6 +1149,7 @@ function updateSlide() {
     header_input.addEventListener("change", function (event) {
         var slide = presentation[current];
         slide.title = this.value;
+        //ehsan
         event.preventDefault();
     });
     title.appendChild(header_input);
@@ -1131,6 +1163,7 @@ function updateSlide() {
 
         var showtitle = firstChild.childNodes[1].firstChild; //add-list
         titleFunction(showtitle, hideBtn);
+        //ehsan
         event.preventDefault();
     });
 
@@ -1161,10 +1194,8 @@ function updateSlide() {
             btn.style.visibility = "visible";
             close.style.visibility="hidden";
 
-            //var cls_btn = document.getElementsByClassName('close-title');
-            //for (i = 0; i < cls_btn.length; i++) {
-            //    cls_btn[i].style.visibility = 'hidden';
-            //}
+            //ehsan
+
         }
     }
 
@@ -1186,6 +1217,7 @@ function updateSlide() {
         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
         var showImage = thirdChild.firstChild; //add-image
         imgFunction(showImage, hideBtns);
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(img_btn);
@@ -1204,7 +1236,7 @@ function updateSlide() {
         var showvideo = thirdChild.childNodes[1]; //add-video
 
         videoFunction(showvideo, hideBtns);
-
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(video_btn);
@@ -1223,6 +1255,7 @@ function updateSlide() {
         var showText = thirdChild.childNodes[2]; //add-TEXT
 
         textFunction(showText, hideBtns);
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(text_btn);
@@ -1240,6 +1273,7 @@ function updateSlide() {
         var showList = thirdChild.childNodes[3]; //add-list
 
         listFunction(showList, hideBtns);
+        //ehsan
         event.preventDefault();
     });
     etc.appendChild(list_btn);
@@ -1299,10 +1333,10 @@ function updateSlide() {
         fReader.readAsDataURL(browse.files[0]);
         fReader.onloadend = function (event) {
             browse.src = event.target.result;
-            //socket.emit('save image', {data: browse.src}, function (response) {
+            socket.emit('save image', {data: browse.src}, function (response) {
             //    //you should use response.data to get url of saved image :)
-            //    slide.imageUrl = response.data;
-            //});
+               slide.imageUrl = response.data;
+            });
         };
         event.preventDefault();
     });
@@ -1326,6 +1360,7 @@ function updateSlide() {
         var slide = presentation[current];
         var val = this.previousSibling.value;
         slide.videoUrl = val;
+        //ehsan
         event.preventDefault();
     });
     add_video.appendChild(video_url_btn);
@@ -1338,6 +1373,7 @@ function updateSlide() {
     text_area.addEventListener("change", function (event) {
         var slide = presentation[current];
         slide.hyperText = this.value;
+        //ehsan
         event.preventDefault();
     });
     row2.appendChild(text_area);
@@ -1428,6 +1464,7 @@ function updateSlide() {
         //browse.value="";
         var slide = presentation[current];
         slide.tmp = -1;
+        //ehsan
     }
 
     function addFields(node) {
@@ -1461,6 +1498,7 @@ function updateSlide() {
                 deletedInput.parentNode.removeChild(deletedInput);
                 this.parentNode.removeChild(this);
 
+                //ehsan
                 event.preventDefault();
             });
 
@@ -1470,6 +1508,7 @@ function updateSlide() {
             var slide = presentation[current];
             slide.listItems.push("");
             slide.listItemsNum++;
+            //ehsan
         }
     }
 
@@ -1483,6 +1522,7 @@ function activeText() {
     document.getElementById("long-answer-preview").style.visibility = "visible";
     document.getElementById("short-answer-preview").style.visibility = "hidden";
     document.getElementById("add-choice").style.visibility = "hidden";
+    //ehsan
 }
 
 function activeNumber() {
@@ -1492,6 +1532,7 @@ function activeNumber() {
     document.getElementById("short-answer-preview").style.visibility = "visible";
     document.getElementById("acc-btn-preview").style.visibility = "visible";
     document.getElementById("add-choice").style.visibility = "hidden";
+    //ehsan
 }
 
 function activeMultipleChoice(){
@@ -1501,6 +1542,7 @@ function activeMultipleChoice(){
     document.getElementById("short-answer-preview").style.visibility = "hidden";
     document.getElementById("long-answer-preview").style.visibility = "hidden";
     document.getElementById("add-choice").style.visibility = "visible";
+    //ehsan
 }
 
 function addChoice(){
@@ -1514,6 +1556,7 @@ function addChoice(){
     input.placeholder="گزینه " + placeHolder;
     input.addEventListener("change", function (event) {
         (slide.choicesList)[input.id] = this.value;
+        //ehsan
         event.preventDefault();
     });
     slide.choicesNum++;
@@ -1536,9 +1579,10 @@ function addChoice(){
         var deletedInput = this.previousSibling;
         deletedInput.parentNode.removeChild(deletedInput);
         this.parentNode.removeChild(this);
-
+        //ehsan
         event.preventDefault();
     });
     choices.appendChild(closeChoice);
+    //ehsan
 }
 

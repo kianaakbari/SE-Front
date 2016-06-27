@@ -20,13 +20,13 @@ function joinRoom(roomName) {
 
         if (result == 1) {
             // do what is needed in view when join session is not successful
-            alert("join session finished properly");
+            // alert("join session finished properly");
 
             return false;
 
         } else if (result == 0) {
             // do what is needed in view when join session is not successful
-            alert("join session not finished properly");
+            // alert("join session not finished properly");
 
             return true;
         }
@@ -107,7 +107,6 @@ app1.controller("HttpGetController1", function ($scope, factory1) {
         });
         factory1.getResponse(data).then(function (data) {
             sessionCode = data.session_code;
-            alert(sessionCode);
             joinRoom(sessionCode);
             createSlide();
         });
@@ -171,7 +170,8 @@ $('#body').ready(function () {
 
 var current = -1;
 var curTmp;
-
+var questionTmp;
+var ansViewMode = 0;
 
 function nxtFunc() {
     current++;
@@ -184,6 +184,7 @@ function nxtFunc() {
     }
 
     curTmp = slide.tmp;
+    questionTmp = slide.anstmp;
     if (current == last) document.getElementById("nxt").disabled = true;
     socket.emit('change page', {page: current, room_name: sessionCode});
     document.getElementById("prv").disabled = false;
@@ -200,6 +201,7 @@ function prvFunc() {
             slide = presentation[current];
         }
         curTmp = slide.tmp;
+        questionTmp = slide.anstmp;
     }
 
     if (current == -1) document.getElementById("prv").disabled = true;
@@ -211,6 +213,19 @@ function prvFunc() {
     createSlide();
 }
 
+function ansViewFunc(){
+    ansViewMode = 1;
+    document.getElementById("ansView").disabled = true;
+    document.getElementById("normalView").disabled = false;
+    createSlide();
+}
+
+function normalViewFunc() {
+    ansViewMode = 0;
+    document.getElementById("ansView").disabled = false;
+    document.getElementById("normalView").disabled = true;
+    createSlide();
+}
 
 function createSlide() {
 
@@ -223,7 +238,6 @@ function createSlide() {
 
         var code_dive = document.getElementById("code");
 
-        // alert(code_dive.childElementCount);
         if (code_dive.childElementCount > 0) {
 
             var lastChild = code_dive.lastElementChild;
@@ -231,7 +245,6 @@ function createSlide() {
         }
 
         var body_code = document.getElementById("body");
-        // alert(body_code.childElementCount);
         if (body_code.childElementCount > 0) {
 
             var lastChild_body_code = body_code.lastElementChild;
@@ -239,7 +252,6 @@ function createSlide() {
         }
 
         var title_code = document.getElementById("title");
-        //alert(title_title.childElementCount);
         if (title_code.childElementCount > 0) {
 
             var lastChild_code_title = title_code.lastElementChild;
@@ -247,18 +259,10 @@ function createSlide() {
         }
 
         slide_blue.style.backgroundColor = "#2C4141";
-        //for (i = 0; i < slide_blue.length; i++) {
-        //    slide_blue[i].style.backgroundColor="#2C4141";
-        //}
 
         var alpha_join = document.createElement("div");
         alpha_join.className = "col-xs-9 col-md-7 lo-alpha_join";
         code_dive.appendChild(alpha_join);
-        //for (i = 0; i < slide_blue.length; i++) {
-        //        slide_blue[i].appendChild(alpha_join);
-        //    }
-//
-//         bdy.appendchild(alpha_join);
 
         var alpha_step = document.createElement("div");
         alpha_step.className = "alpha-step";
@@ -271,7 +275,6 @@ function createSlide() {
 
     }
 
-
     else if (curTmp == 0) {
         //namayeshe axe slide i k up shode
     }
@@ -281,14 +284,12 @@ function createSlide() {
 
         //namayeshe title
         var code_title = document.getElementById("code");
-        //alert(code_title.childElementCount);
         if (code_title.childElementCount > 0) {
             var lastChild_title_code = code_title.lastElementChild;
             lastChild_title_code.parentNode.removeChild(lastChild_title_code);
         }
 
         var title_title = document.getElementById("title");
-        //alert(title_title.childElementCount);
         if (title_title.childElementCount > 0) {
 
             var lastChild_title_title = title_title.lastElementChild;
@@ -300,141 +301,159 @@ function createSlide() {
         var title = document.createElement("div");
         title.className = "title col-lg-10 col-sm-10 col-xs-10 col-md-10 ";
         bdy.appendChild(title);
-        //for (i = 0; i < bdy.length; i++) {
-        //    bdy[i].appendChild(title);
-        //}
 
         var title_text = document.createElement("p");
         if (slide.hasTitle) title_text.innerHTML = slide.title;
         else title_text.innerHTML = "";
         title.appendChild(title_text);
 
+        if(!ansViewMode) {
 
-        if (curTmp == 1) { //image slide
-            var code_img = document.getElementById("code");
-            // alert(code_img.childElementCount);
-            if (code_img.childElementCount > 0) {
+            if (curTmp == 1) { //image slide
+                var code_img = document.getElementById("code");
+                if (code_img.childElementCount > 0) {
 
-                var lastChild_img_code = code_img.lastElementChild;
-                lastChild_img_code.parentNode.removeChild(lastChild_img_code);
-            }
-
-            var body_id = document.getElementById("body");
-            // alert(body_id.childElementCount);
-            if (body_id.childElementCount > 0) {
-
-                var lastChild_body = body_id.lastElementChild;
-                lastChild_body.parentNode.removeChild(lastChild_body);
-            }
-
-            var image = document.createElement('img');
-            image.className = "picture col-lg-10 col-sm-10 col-xs-10 col-md-10";
-            image.setAttribute('src', slide.imageUrl);
-            // image_slide.appendChild(image);
-
-            for (i = 0; i < body.length; i++) {
-                body[i].appendChild(image);
-            }
-
-        }
-        else if (curTmp == 2) { //video slide
-            var code_video = document.getElementById("code");
-            // alert(code_video.childElementCount);
-            if (code_video.childElementCount > 0) {
-
-                var lastChild_video_code = code_video.lastElementChild;
-                lastChild_video_code.parentNode.removeChild(lastChild_video_code);
-            }
-
-            var body_video = document.getElementById("body");
-            // alert(body_video.childElementCount);
-            if (body_video.childElementCount > 0) {
-
-                var lastChild_body_video = body_video.lastElementChild;
-                lastChild_body_video.parentNode.removeChild(lastChild_body_video);
-            }
-            var video = document.createElement('div');
-            video.className = "video col-lg-10 col-sm-10 col-md-10 col-xs-10";
-            //body.appendChild(video);
-            for (i = 0; i < body.length; i++) {
-                body[i].appendChild(video);
-            }
-        }
-
-        else if (curTmp == 3) { //text slide
-
-            var code_text = document.getElementById("code");
-            // alert(code_text.childElementCount);
-            if (code_text.childElementCount > 0) {
-
-                var lastChild_text_code = code_text.lastElementChild;
-                lastChild_text_code.parentNode.removeChild(lastChild_text_code);
-            }
-
-            var body_text = document.getElementById("body");
-            // alert(body_text.childElementCount);
-            if (body_text.childElementCount > 0) {
-
-                var lastChild_body_text = body_text.lastElementChild;
-                lastChild_body_text.parentNode.removeChild(lastChild_body_text);
-            }
-            var text_slide = document.createElement('div');
-            text_slide.className = "text_slide col-lg-10 col-sm-10 col-md-10 col-xs-10";
-
-            for (i = 0; i < body.length; i++) {
-                body[i].appendChild(text_slide);
-            }
-
-            var text = document.createElement('p');
-            text.innerHTML = slide.hyperText;
-            text.className = "text";
-            text_slide.appendChild(text);
-
-        }
-
-        else if (curTmp == 4) { //list slide
-            var code_list = document.getElementById("code");
-            // alert(code_list.childElementCount);
-            if (code_list.childElementCount > 0) {
-
-                var lastChild_list_code = code_list.lastElementChild;
-                lastChild_list_code.parentNode.removeChild(lastChild_list_code);
-            }
-
-            var body_list = document.getElementById("body");
-            // alert(body_list.childElementCount);
-            if (body_list.childElementCount > 0) {
-
-                var lastChild_body_list = body_list.lastElementChild;
-                lastChild_body_list.parentNode.removeChild(lastChild_body_list);
-            }
-            var list_slide = document.createElement('div');
-            list_slide.className = "list_slide col-lg-10 col-sm-10 col-md-10 col-xs-10";
-
-            for (i = 0; i < body.length; i++) {
-                body[i].appendChild(list_slide);
-            }
-
-            var list = document.createElement('ul');
-            list.className = "ul";
-            list_slide.appendChild(list);
-
-            var listItemsNum = slide.listItemsNum;
-            var i = 0;
-            var j = 0;
-            while (i < listItemsNum) {
-                if (slide.listItems[j] != null) {
-                    var list_item = document.createElement('p');
-                    list_item.innerHTML = slide.listItems[j];
-                    list.appendChild(list_item);
-                    i++;
+                    var lastChild_img_code = code_img.lastElementChild;
+                    lastChild_img_code.parentNode.removeChild(lastChild_img_code);
                 }
-                j++;
+
+                var body_id = document.getElementById("body");
+                if (body_id.childElementCount > 0) {
+
+                    var lastChild_body = body_id.lastElementChild;
+                    lastChild_body.parentNode.removeChild(lastChild_body);
+                }
+
+                var image = document.createElement('img');
+                image.className = "picture col-lg-10 col-sm-10 col-xs-10 col-md-10";
+                image.setAttribute('src', slide.imageUrl);
+                // image_slide.appendChild(image);
+
+                for (i = 0; i < body.length; i++) {
+                    body[i].appendChild(image);
+                }
+
+            }
+            else if (curTmp == 2) { //video slide
+                var code_video = document.getElementById("code");
+                if (code_video.childElementCount > 0) {
+
+                    var lastChild_video_code = code_video.lastElementChild;
+                    lastChild_video_code.parentNode.removeChild(lastChild_video_code);
+                }
+
+                var body_video = document.getElementById("body");
+                if (body_video.childElementCount > 0) {
+
+                    var lastChild_body_video = body_video.lastElementChild;
+                    lastChild_body_video.parentNode.removeChild(lastChild_body_video);
+                }
+                var video = document.createElement('div');
+                video.className = "video col-lg-10 col-sm-10 col-md-10 col-xs-10";
+                //body.appendChild(video);
+                for (i = 0; i < body.length; i++) {
+                    body[i].appendChild(video);
+                }
             }
 
+            else if (curTmp == 3) { //text slide
 
+                var code_text = document.getElementById("code");
+                if (code_text.childElementCount > 0) {
+
+                    var lastChild_text_code = code_text.lastElementChild;
+                    lastChild_text_code.parentNode.removeChild(lastChild_text_code);
+                }
+
+                var body_text = document.getElementById("body");
+                if (body_text.childElementCount > 0) {
+
+                    var lastChild_body_text = body_text.lastElementChild;
+                    lastChild_body_text.parentNode.removeChild(lastChild_body_text);
+                }
+                var text_slide = document.createElement('div');
+                text_slide.className = "text_slide col-lg-10 col-sm-10 col-md-10 col-xs-10";
+
+                for (i = 0; i < body.length; i++) {
+                    body[i].appendChild(text_slide);
+                }
+
+                var text = document.createElement('p');
+                text.innerHTML = slide.hyperText;
+                text.className = "text";
+                text_slide.appendChild(text);
+
+            }
+
+            else if (curTmp == 4) { //list slide
+
+                var code_list = document.getElementById("code");
+                if (code_list.childElementCount > 0) {
+
+                    var lastChild_list_code = code_list.lastElementChild;
+                    lastChild_list_code.parentNode.removeChild(lastChild_list_code);
+                }
+
+                var body_list = document.getElementById("body");
+                if (body_list.childElementCount > 0) {
+
+                    var lastChild_body_list = body_list.lastElementChild;
+                    lastChild_body_list.parentNode.removeChild(lastChild_body_list);
+                }
+                var list_slide = document.createElement('div');
+                list_slide.className = "list_slide col-lg-10 col-sm-10 col-md-10 col-xs-10";
+
+                for (i = 0; i < body.length; i++) {
+                    body[i].appendChild(list_slide);
+                }
+
+                var list = document.createElement('ul');
+                list.className = "ul";
+                list_slide.appendChild(list);
+
+                var listItemsNum = slide.listItemsNum;
+                var i = 0;
+                var j = 0;
+                while (i < listItemsNum) {
+                    if (slide.listItems[j] != null) {
+                        var list_item = document.createElement('p');
+                        list_item.innerHTML = slide.listItems[j];
+                        list.appendChild(list_item);
+                        i++;
+                    }
+                    j++;
+                }
+            }
         }
 
+        else{
+            var code_list = document.getElementById("code");
+                if (code_list.childElementCount > 0) {
+
+                    var lastChild_list_code = code_list.lastElementChild;
+                    lastChild_list_code.parentNode.removeChild(lastChild_list_code);
+                }
+
+                var body_list = document.getElementById("body");
+                if (body_list.childElementCount > 0) {
+
+                    var lastChild_body_list = body_list.lastElementChild;
+                    lastChild_body_list.parentNode.removeChild(lastChild_body_list);
+                }
+            if(questionTmp== 0){
+                
+            }
+
+            else if(questionTmp == 1){
+                
+            }
+
+            else if(questionTmp == 2){
+               
+            }
+
+        }
 
     }
 }
+
