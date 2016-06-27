@@ -25,14 +25,15 @@ function readURL(input,image) {
             image.style.visibility="visible";
         };
         reader.readAsDataURL(input.files[0]);
-
-
-
     }
 }
 
 function addSlide() {
 
+    document.getElementById("short-answer-preview").style.visibility = "hidden";
+    document.getElementById("long-answer-preview").style.visibility = "hidden";
+    document.getElementById("add-choice").style.visibility = "hidden";
+    document.getElementById("acc-btn-preview").style.visibility = "hidden";
 
     var container = document.getElementById("slide-creator");
     divsNum = (container.childElementCount - 1) / 2;
@@ -50,7 +51,9 @@ function addSlide() {
         if (this.id != child.id)
             child.style.border = "none";
     }
-
+    if(current>-1) {
+        document.getElementById("top-content" + current).style.display = "none";
+    }
     counter++;
     div.id = counter;
     max = counter;
@@ -71,7 +74,12 @@ function addSlide() {
         videoUrl: "",//2
         hyperText: "", //3
         listItems: [], //4
-        listItemsNum: 0 //mitune hazf she!
+        listItemsNum: 0, //mitune hazf she!
+        anstmp: -1,
+        choicesList: [], //2
+        choicesNum: 0
+        // anstmp = 0 baraye matn
+        //anstmp = 1 baraye adad
     });
 
     var oImg = document.createElement("img");
@@ -83,6 +91,9 @@ function addSlide() {
     oImg.id = counter;
 
     container.appendChild(oImg);
+
+    var choicespar = document.getElementById("choices");
+    choicespar.innerHTML = '';
 
     div.addEventListener("click",function(event){
         div.style.border = "3px solid #337AB7";
@@ -98,6 +109,95 @@ function addSlide() {
         current = this.id;
         var crnt = document.getElementById("top-content" + current);
         crnt.style.display = "block";
+
+        slide = presentation[current];
+        anstmp = slide.anstmp;
+        //anstitle = slide.title;
+
+        var choicespar = document.getElementById("choices");
+        choicespar.innerHTML = '';
+
+        if(anstmp == 0){
+            document.getElementById("acc-btn-preview").style.visibility = "visible";
+            document.getElementById("long-answer-preview").style.visibility = "visible";
+            document.getElementById("short-answer-preview").style.visibility = "hidden";
+            document.getElementById("add-choice").style.visibility = "hidden";
+            //document.getElementById("title_preview").innerHTML = title;
+            //document.getElementById("title_preview").innerHTML = title;
+        }
+        else if(anstmp == 1){
+            document.getElementById("long-answer-preview").style.visibility = "hidden";
+            document.getElementById("short-answer-preview").style.visibility = "visible";
+            document.getElementById("acc-btn-preview").style.visibility = "visible";
+            document.getElementById("add-choice").style.visibility = "hidden";
+            //document.getElementById("title_preview").innerHTML = title;
+        }
+
+        else if(anstmp == 2){
+            document.getElementById("acc-btn-preview").style.visibility = "hidden";
+            document.getElementById("short-answer-preview").style.visibility = "hidden";
+            document.getElementById("long-answer-preview").style.visibility = "hidden";
+            document.getElementById("add-choice").style.visibility = "visible";
+            //document.getElementById("title_preview").innerHTML = title;
+            var choices = slide.choicesList;
+            var choicesNum = slide.choicesNum;
+            var i = 0;
+            var j = 0;
+            var choicesdiv = document.getElementById("choices");
+            while (i<choicesNum) {
+                if(choices[j]!=null){
+                    //var list_item = document.createElement('p');
+                    //list_item.innerHTML = choices[i];
+                    //list.appendChild(list_item);
+                    //--------------------------------------------------------------------------------------------------------------
+                    var input = document.createElement("input");
+                    input.className="input-choice col-md-10 col-lg-10 col-sm-8 col-xs-10";
+                    input.id = j;
+                    var placeHolder = input.id;
+                    placeHolder++;
+                    input.placeholder="گزینه " + placeHolder;
+                    //alert(choices[i]);
+                    input.value = choices[j];
+                    input.addEventListener("change", function (event) {
+                        (slide.choicesList)[input.id] = this.value;
+                        event.preventDefault();
+                    });
+                    //slide.choicesNum++;
+                    choicesdiv.appendChild(input);
+                    //slide.choicesList.push("");
+
+                    var closeChoice = document.createElement("img");
+                    closeChoice.setAttribute('src', 'img/VisualEditor_-_Icon_-_Close.svg.png');
+                    closeChoice.className="close-choice";
+                    closeChoice.id = j;
+                    closeChoice.addEventListener('click',function(event){
+                        var slide = presentation[current];
+                        delete (slide.choicesList)[this.id];
+                        slide.choicesNum--;
+                        if (slide.choicesNum == 0) {
+                            slide.choicesList = [];
+                        }
+
+                        var deletedInput = this.previousSibling;
+                        deletedInput.parentNode.removeChild(deletedInput);
+                        this.parentNode.removeChild(this);
+
+                        event.preventDefault();
+                    });
+                    choicesdiv.appendChild(closeChoice);
+                    //--------------------------------------------------------------------------------------------------------------
+                    i++;
+                }
+                j++;
+            }
+        }
+        else{
+            document.getElementById("short-answer-preview").style.visibility = "hidden";
+            document.getElementById("long-answer-preview").style.visibility = "hidden";
+            document.getElementById("add-choice").style.visibility = "hidden";
+            document.getElementById("acc-btn-preview").style.visibility = "hidden";
+            document.getElementById("title_preview").innerHTML = "";
+        }
         event.preventDefault();
     });
     
@@ -149,18 +249,18 @@ function addSlide() {
     }
 }
 
-
 function updateSlide() {
-    bdy = document.getElementById("row");
+    bdy = document.getElementById("center");
     num = counter;
     top_content = document.createElement('div');
     top_content.id = "top-content" + num;
+    top_content.className="top-content col-lg-12 col-sm-12 col-xs-12 col-md-12";
     top_content.style.display = "none";
     bdy.appendChild(top_content);
 
     var content = document.createElement('div');
     content.id = "content3";
-    content.className = "content col-lg-12 col-sm-10";
+    content.className = "content col-lg-12 col-sm-12";
 
     if (num > 2) {
         var cnt = document.getElementsByClassName('content');
@@ -200,6 +300,7 @@ function updateSlide() {
     header_input.type = "text";
     header_input.setAttribute('ng-model', 'namein');
     header_input.placeholder = "متن خودرا اینجا بنویسید";
+    header_input.ngModel='namein';
     header_input.addEventListener("change", function (event) {
         var slide = presentation[current];
         slide.title = this.value;
@@ -245,6 +346,11 @@ function updateSlide() {
             node.style.visibility = 'hidden';
             btn.style.visibility = "visible";
             close.style.visibility="hidden";
+
+            //var cls_btn = document.getElementsByClassName('close-title');
+            //for (i = 0; i < cls_btn.length; i++) {
+            //    cls_btn[i].style.visibility = 'hidden';
+            //}
         }
     }
 
@@ -253,7 +359,7 @@ function updateSlide() {
     slide.appendChild(etc);
 
     var img_btn = document.createElement('button');
-    img_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+    img_btn.className = "gp-btn bttn col-lg-3 col-md-3 col-sm-3 col-xs-3 "; //taghiir
     img_btn.id = "add-img" + num;
     img_btn.innerHTML = 'اضافه کردن تصویر';
     img_btn.type = "button";
@@ -271,7 +377,7 @@ function updateSlide() {
     etc.appendChild(img_btn);
 
     var video_btn = document.createElement('button');
-    video_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+    video_btn.className = "gp-btn bttn col-lg-3 col-md-3 col-sm-3 col-xs-3 ";//taghiir
     video_btn.innerHTML = 'اضافه کردن فیلم';
     video_btn.type = "button";
 
@@ -290,7 +396,7 @@ function updateSlide() {
     etc.appendChild(video_btn);
 
     var text_btn = document.createElement('button');
-    text_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+    text_btn.className = "gp-btn bttn col-lg-3 col-md-3 col-sm-3 col-xs-3 "; //taghiir
     text_btn.innerHTML = 'اضافه کردن متن';
     text_btn.type = "button";
 
@@ -308,7 +414,7 @@ function updateSlide() {
     etc.appendChild(text_btn);
 
     var list_btn = document.createElement('button');
-    list_btn.className = "gp-btn bttn col-lg-2 col-md-2 col-sm-2 ";
+    list_btn.className = "gp-btn bttn col-lg-3 col-md-3 col-sm-3 col-xs-3 "; //taghiir
     list_btn.innerHTML = "اضافه کردن لیست";
     list_btn.type = "button";
     list_btn.addEventListener("click", function (event) {
@@ -332,6 +438,7 @@ function updateSlide() {
         var parent=this.parentNode.parentNode;//row-title
         var showBtns =parent.childNodes[1]; //etc
         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
+        var hideDives = thirdChild.childNodes; //all childes
 
         closeFunction(thirdChild,showBtns,this);
         event.preventDefault();
@@ -435,6 +542,7 @@ function updateSlide() {
     fill_details.innerHTML = "افزودن لیست ";
     fill_details.addEventListener("click", function (event) {
         var parent = this.parentNode;//add-list
+        var hideBtns = parent.childNodes[1]; //bttn
         var thirdChild = parent.childNodes[2]; //container
         addFields(thirdChild);
         event.preventDefault();
@@ -442,7 +550,8 @@ function updateSlide() {
     add_list.appendChild(fill_details);
 
     var container = document.createElement('div');
-    container.className = "container1";
+    container.className = "container1 col-lg-6 col-md-6 col-sm-6 col-xs-6"; //taghiir
+
     add_list.appendChild(container);
 
     function imgFunction(node,btn){
@@ -509,9 +618,10 @@ function updateSlide() {
 
     function addFields(node) {
         var count = node.childNodes.length;
-        if (count < 28) {
+        if (count < 10) { //taghiir
             var input = document.createElement("input");
             input.type = "text";
+            //input.className="col-lg-12 col-xs-12 col-md-12 col-sm-12" ; //taghiir - ezafe shode
             var id = presentation[current].listItems.length;
             input.id = id;
             input.addEventListener("change", function (event) {
@@ -553,33 +663,67 @@ function updateSlide() {
 }
 
 function activeText() {
+    slide = presentation[current];
+    slide.anstmp = 0;
     document.getElementById("acc-btn-preview").style.visibility = "visible";
     document.getElementById("long-answer-preview").style.visibility = "visible";
     document.getElementById("short-answer-preview").style.visibility = "hidden";
-
+    document.getElementById("add-choice").style.visibility = "hidden";
 }
 
 function activeNumber() {
+    slide = presentation[current];
+    slide.anstmp = 1;
     document.getElementById("long-answer-preview").style.visibility = "hidden";
     document.getElementById("short-answer-preview").style.visibility = "visible";
     document.getElementById("acc-btn-preview").style.visibility = "visible";
+    document.getElementById("add-choice").style.visibility = "hidden";
 }
 
 function activeMultipleChoice(){
+    slide = presentation[current];
+    slide.anstmp = 2;
     document.getElementById("acc-btn-preview").style.visibility = "hidden";
     document.getElementById("short-answer-preview").style.visibility = "hidden";
     document.getElementById("long-answer-preview").style.visibility = "hidden";
     document.getElementById("add-choice").style.visibility = "visible";
-
-
 }
 
 function addChoice(){
+    var slide = presentation[current];
     var choices = document.getElementById("choices");
-    var childCount = choices.childElementCount;
-    childCount++;
     var input = document.createElement("input");
-    input.className="input-choice";
-    input.placeholder="گزینه " + childCount;
+    input.className="input-choice col-md-10 col-lg-10 col-sm-8 col-xs-10";
+    input.id = slide.choicesList.length;
+    var placeHolder = input.id;
+    placeHolder++;
+    input.placeholder="گزینه " + placeHolder;
+    input.addEventListener("change", function (event) {
+        (slide.choicesList)[input.id] = this.value;
+        event.preventDefault();
+    });
+    slide.choicesNum++;
     choices.appendChild(input);
+
+    slide.choicesList.push("");
+
+    var closeChoice = document.createElement("img");
+    closeChoice.setAttribute('src', 'img/VisualEditor_-_Icon_-_Close.svg.png');
+    closeChoice.className="close-choice";
+    closeChoice.id = slide.choicesList.length;
+    closeChoice.addEventListener('click',function(event){
+        var slide = presentation[current];
+        delete (slide.choicesList)[this.id];
+        slide.choicesNum--;
+        if (slide.choicesNum == 0) {
+            slide.choicesList = [];
+        }
+
+        var deletedInput = this.previousSibling;
+        deletedInput.parentNode.removeChild(deletedInput);
+        this.parentNode.removeChild(this);
+
+        event.preventDefault();
+    });
+    choices.appendChild(closeChoice);
 }

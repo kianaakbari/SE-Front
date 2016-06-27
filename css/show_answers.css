@@ -1,0 +1,81 @@
+.choices{
+    min-height: 6rem;
+    float: none;
+    margin: 20% auto;
+    display: table;
+    border: 5px solid #31708f;
+    border-radius: 9px;
+    height: 18rem;
+}
+
+ul{
+    list-style: none;
+}
+li{
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+}
+
+.choice-div{
+    border-bottom: 3px solid #31708f ;
+    background-color: #d5dee6;
+    border-bottom: 3px solid #31708f;
+    height: 8rem;
+    text-align: right;
+    font-size: 4rem;
+    float: none;
+    display: table;
+    margin: 5px auto;
+    font-family: "B Kamran";
+}
+
+.counts{
+    float: left;
+}
+
+/*******************************************************************************short**********************************************************************************/
+.answers{
+    float: left;
+}
+.answer {
+    float: left;
+    display: table;
+    /*background-color: #a94442;*/
+
+
+}
+
+.p{
+    text-align: center;
+    font-size: 4rem;
+    height:25rem;
+    width: 35rem;
+    float: left;
+    background-image: url("short-dilog-box.jpg");
+    background-repeat: no-repeat;
+    /*margin-top: 5%;*/
+}
+.p p{
+    padding-top: 3rem;
+}
+/*******************************************************long**************************************************************/
+.l-answers{
+    float: right;
+    padding-top: 20px;
+    margin-right: 10px;
+}
+
+.answer-long{
+    border: solid 3px #337ab7;
+    border-radius: 10px;
+    font-size: 3rem;
+    font-family: "B Kamran";
+    text-align: right;
+    min-width: 55%;
+    min-height:8rem;
+    padding-top: 10px;
+    margin-top: 10px;
+
+
+}

@@ -132,7 +132,7 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
 
 
 function onEditClick(editBtn){
-    var url=updateQueryStringParameter("edit slide.html",'presentationID',presentationID);
+    var url=updateQueryStringParameter("editSlide.html",'presentationID',presentationID);
     window.location=url;
 }
 

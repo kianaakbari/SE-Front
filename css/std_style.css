@@ -8,9 +8,10 @@
 }
 
 #question{
-    font-size: 3rem;
+    font-size: 7rem;
     text-align: center;
     margin-top: 15%;
+    font-family: "B Kamran";
 }
 #accept_qst{
     margin: 3rem auto;
@@ -38,18 +39,47 @@
 
     border: 5px solid darkred;
     border-radius: 9px;
-    height: 40rem;
+    height: 18rem;
     display: table;
     float: none;
     margin: 1% auto;
+    min-height: 18rem;
 
 }
 ul{
     list-style: none;
 }
+li{
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+}
+
+#multipleChoice{
+
+}
+.choice-div{
+    border-bottom: 3px solid darkred ;
+    background-color: #C4848A;
+    border-bottom: 3px solid darkred;
+    height: 8rem;
+    text-align: right;
+    font-size: 5rem;
+    float: none;
+    display: table;
+    margin: 0 auto;
+    font-family: "B Kamran";
+}
+.radio-btn{
+    float: right;
+    margin-top: 2rem;
+    height: 6rem;
+    width: 3rem;
+    padding: 15px;
+}
 /********************************************************************************************PREVIEW****************************************************************************/
 #long-answer-preview{
-    margin: 30% auto;
+    margin: 19% auto;
     min-height: 7rem;
     border: 3px solid darkred;
     border-radius: 7px;
@@ -62,7 +92,7 @@ ul{
     visibility: hidden;
 }
 #short-answer-preview{
-    margin: -74% auto;
+    margin: -47% auto;
     min-height: 4rem;
     border: 3px solid darkred;
     border-radius: 7px;
@@ -77,7 +107,10 @@ ul{
 }
 
 #acc-btn-preview{
-    margin: 17rem auto;
+    margin-top: 18rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 23rem;
     float: none;
     display: table;
     height: 4rem;
@@ -134,6 +167,11 @@ ul{
     text-align: right;
     font-size: 2rem;
 }
+.close-choice{
+    margin-top: 2rem;
+    width: 23px;
+    float: left;
+}
 
 
 @media screen and (max-width: 767px) {
@@ -161,10 +199,19 @@ body{
 /*background-color: #9d9d9d;*/
 }
 }
+
+/*mediom 2*/
+@media (min-width: 1200px) and (max-width: 1599px) {
+}
+
+
 /*large*/
-@media (min-width: 1200px) {
-body{
-/*background-color: #030E33;*/
+@media (min-width: 1600px) {
+    .input-choice {
+        margin-top: 2rem;
+    }
+
+    /*background-color: #030E33;*/
 }
-}
+
 
