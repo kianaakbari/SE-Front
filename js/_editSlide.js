@@ -184,16 +184,8 @@ app.controller("HttpGetController", function ($scope, factoryName) {
     }
 });
 
-//---------
 
 function createSlide() {
-
-    // document.getElementById("short-answer-preview").style.visibility = "hidden";
-    // document.getElementById("long-answer-preview").style.visibility = "hidden";
-    // document.getElementById("add-choice").style.visibility = "hidden";
-    // document.getElementById("acc-btn-preview").style.visibility = "hidden";
-    // var choicespar = document.getElementById("choices");
-    // choicespar.innerHTML = '';
 
     var container = document.getElementById("slide-creator");
     divsNum = (container.childElementCount - 1) / 2;
