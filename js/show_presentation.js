@@ -172,6 +172,9 @@ var current = -1;
 var curTmp;
 var questionTmp;
 var ansViewMode = 0;
+var short_ans_list = [];
+var long_ans_list = [];
+var multi_choice_ans_list = [];
 
 function nxtFunc() {
     current++;
@@ -427,29 +430,145 @@ function createSlide() {
         }
 
         else{
-            var code_list = document.getElementById("code");
-                if (code_list.childElementCount > 0) {
 
-                    var lastChild_list_code = code_list.lastElementChild;
-                    lastChild_list_code.parentNode.removeChild(lastChild_list_code);
-                }
+            if(questionTmp== 0){//longanswer
+                    var code_answer_long_ans = document.getElementById("code");
+                 //alert(code_answer_multiChoice.childElementCount);
+                 if(code_answer_long_ans.childElementCount>0){
 
-                var body_list = document.getElementById("body");
-                if (body_list.childElementCount > 0) {
+                     var lastChild_answer_code_long =code_answer_short_ans.lastElementChild;
+                     lastChild_answer_code_long.parentNode.removeChild(lastChild_answer_code_long);
+                 }
 
-                    var lastChild_body_list = body_list.lastElementChild;
-                    lastChild_body_list.parentNode.removeChild(lastChild_body_list);
-                }
-            if(questionTmp== 0){
-                
+                 var body_answer_long_ans = document.getElementById("body");
+                 //alert(body_answer_multiChice.childElementCount);
+                 if(body_answer_long_ans.childElementCount>0){
+
+                     var lastChild_body_long_ans =body_answer_long_ans.lastElementChild;
+                     lastChild_body_long_ans.parentNode.removeChild(lastChild_body_long_ans);
+                 }
+                 var answer_long_row = document.createElement('div');
+                 answer_long_row.className = "row";
+
+                 for (i = 0; i < body.length; i++) {
+                     body[i].appendChild(answer_long_row);
+                 }
+                 var answer_short = document.createElement("div");
+                 answer_short.className="l-answers";
+                 answer_long_row.appendChild(answer_short);
+
+                 var counter = long_ans_list.length;
+                 for (i=0;i<counter;i++) {
+                     var long_ans_div = document.createElement('div');
+                     long_ans_div.className = "answer-long";
+                     answer_short.appendChild(long_ans_div);
+
+                     var long_ans_p = document.createElement('p');
+                     long_ans_p.innerHTML = long_ans_list[i];
+                     long_ans_div.appendChild(long_ans_p);
+                 }
+
             }
 
-            else if(questionTmp == 1){
-                
-            }
+            else if(questionTmp == 1){//short-answer
 
-            else if(questionTmp == 2){
-               
+                 var code_answer_short_ans = document.getElementById("code");
+                 //alert(code_answer_multiChoice.childElementCount);
+                 if(code_answer_short_ans.childElementCount>0){
+
+                     var lastChild_answer_code_short =code_answer_short_ans.lastElementChild;
+                     lastChild_answer_code_short.parentNode.removeChild(lastChild_answer_code_short);
+                 }
+
+                 var body_answer_short_ans = document.getElementById("body");
+                 //alert(body_answer_multiChice.childElementCount);
+                 if(body_answer_short_ans.childElementCount>0){
+
+                 var lastChild_body_short_ans =body_answer_short_ans.lastElementChild;
+                     lastChild_body_short_ans.parentNode.removeChild(lastChild_body_short_ans);
+                 }
+                 var answer_short_row = document.createElement('div');
+                 answer_short_row.className = "row";
+
+                 for (i = 0; i < body.length; i++) {
+                     body[i].appendChild(answer_short_row);
+                 }
+                 var choices_short = document.createElement("div");
+                 choices_short.className="answers col-lg-12 col-md-12 col-sm-12 col-xs-12";
+                 answer_short_row.appendChild(choices_short);
+
+                var counter = short_ans_list.length;
+                for (i=0;i<counter;i++) {
+                    var short_ans_div = document.createElement('div');
+                    short_ans_div.className = "answer";
+                    choices_short.appendChild(short_ans_div);
+
+                    var short_ans_p = document.createElement('p');
+                    short_ans_p.className = "p";
+                    short_ans_p.innerHTML = short_ans_list[i];
+                    short_ans_div.appendChild(short_ans_p);
+                }
+
+             }
+
+            else  if (questionTmp==2) { //multichoice answer_show
+                 var code_answer_multiChoice_answer = document.getElementById("code");
+                 //alert(code_answer_multiChoice.childElementCount);
+                 if(code_answer_multiChoice_answer.childElementCount>0){
+
+                     var lastChild_answer_multi_code_answer =code_answer_multiChoice_answer.lastElementChild;
+                     lastChild_answer_multi_code_answer.parentNode.removeChild(lastChild_answer_multi_code_answer);
+                 }
+
+                 var body_answer_multiChoice_ans = document.getElementById("body");
+                 //alert(body_answer_multiChice.childElementCount);
+                 if(body_answer_multiChoice_ans.childElementCount>0){
+
+                     var lastChild_body_multiChoice_ans =body_answer_multiChoice_ans.lastElementChild;
+                     lastChild_body_multiChoice_ans.parentNode.removeChild(lastChild_body_multiChoice_ans);
+                 }
+
+                 var answer_multiChoice_row = document.createElement('div');
+                 answer_multiChoice_row.className = "row";
+
+                 for (i = 0; i < body.length; i++) {
+                     body[i].appendChild(answer_multiChoice_row);
+                 }
+                 var choices = document.createElement("div");
+                 choices.className="choices col-lg-12 col-md-12 col-sm-12 col-xs-12";
+                 answer_multiChoice_row.appendChild(choices);
+
+                 var answers_ul = document.createElement('ul');
+                 answers_ul.className = "col-lg-12 col-md-12 col-sm-12 col-xs-12";
+                 choices.appendChild(answers_ul);
+
+                var choicesNum = slide.choicesNum;
+
+                var i = 0;
+                var j = 0;
+                while (i < choicesNum) {
+                    if (slide.choicesList[j] != null) {
+                        var answer_li = document.createElement('li');
+                            answer_li.className = "choice-div col-lg-12 col-md-12 col-sm-12 col-xs-12";
+
+                            answers_ul.appendChild(answer_li);
+
+                            var answer_p = document.createElement('p');
+                            answer_p.innerHTML = slide.choicesList[j];
+                            answer_li.appendChild(answer_p);
+
+                            var answer_P_P = document.createElement("p");
+                            answer_P_P.className = "counts";
+                            if(multi_choice_ans_list[i]!=null)
+                                answer_P_P.innerHTML = multi_choice_ans_list[i];
+                            else
+                                answer_P_P.innerHTML = 0;
+                            answer_p.appendChild(answer_P_P);
+                        i++;
+                    }
+                    j++;
+                }
+
             }
 
         }

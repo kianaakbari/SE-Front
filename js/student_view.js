@@ -76,31 +76,7 @@ var slide;
 var curTmp;
 var questionTmp;
 
-var data = {
-    "slides": [{
-        "id": 0,
-        "hasTitle": 0,
-        "title": "",
-        "tmp": 4,
-        "imageUrl": "",
-        "videoUrl": "",
-        "hyperText": "",
-        "listItems": ["a", "b"],
-        "listItemsNum": 2
-    }, {
-        "id": 1,
-        "hasTitle": 1,
-        "title": "hi",
-        "tmp": 5,
-        "choices": ["a", "b"],
-        "choicesNum": 2,
-        "imageUrl": "",
-        "videoUrl": "",
-        "hyperText": "aleyk",
-        "listItems": [],
-        "listItemsNum": 0
-    }]
-};
+var data = {"slides":[{"id":0,"hasTitle":0,"title":"","tmp":1,"imageUrl":"img/education.jpg","videoUrl":"","hyperText":"","listItems":["a","b"],"listItemsNum":2,"anstmp":2,"choicesList":["1","",null,"3"],"choicesNum":3},{"id":1,"hasTitle":1,"title":"df","tmp":3,"imageUrl":"","videoUrl":"","hyperText":"sdfv","listItems":[],"listItemsNum":0,"anstmp":0,"choicesList":[],"choicesNum":0}]};
 var presentation = data.slides;
 var start = 0;
 current = start;
@@ -289,7 +265,7 @@ function createSlide() {
             var i = 0;
             var j = 0;
             while (i < choicesNum) {
-                if (slide.choices[j] != null) {
+                if (slide.choicesList[j] != null) {
                     var answer = document.createElement('li');
                     answer.className = "col-lg-12";
 
@@ -305,7 +281,7 @@ function createSlide() {
                     answer_input.value = "male";
                     answer_input.name = "gender";
                     answer_input.id = j;
-                    answer_input.innerHTML = "گزینه اول"; //slide.choices[j];
+                    answer_input.innerHTML = slide.choicesList[j];
                     answer_div.appendChild(answer_input);
                     i++;
                 }
