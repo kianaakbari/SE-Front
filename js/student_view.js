@@ -200,6 +200,7 @@ function createSlide() {
                 // alert(textArea.value);
                 //ehsan
                 //textArea.value javab ro nshun mide
+                //current ham shomareye slide e
                 //------
                 event.preventDefault();
             });
@@ -231,9 +232,10 @@ function createSlide() {
             btn.className="col-lg-1 col-sm-4";
             btn.innerHTML="تایید";
             btn.addEventListener("click", function (event) {
-                alert(input.value);
+                // alert(input.value);
                 //ehsan
                 //input.value javab ro nshun mide
+                //current ham shomareye slide e
                 //------
                 event.preventDefault();
             });
@@ -305,6 +307,7 @@ function createSlide() {
                         // alert(z);
                         //ehsan
                         // z index e gozine i k entekhab shodaro nshun mide
+                        //current ham shomareye slide e
                         //-----
                         return
                     }

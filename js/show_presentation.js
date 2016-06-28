@@ -457,14 +457,14 @@ function createSlide() {
                  answer_short.className="l-answers";
                  answer_long_row.appendChild(answer_short);
 
-                 var counter = long_ans_list.length;
+                 var counter = long_ans_list[current].length;
                  for (i=0;i<counter;i++) {
                      var long_ans_div = document.createElement('div');
                      long_ans_div.className = "answer-long";
                      answer_short.appendChild(long_ans_div);
 
                      var long_ans_p = document.createElement('p');
-                     long_ans_p.innerHTML = long_ans_list[i];
+                     long_ans_p.innerHTML = long_ans_list[current][i];
                      long_ans_div.appendChild(long_ans_p);
                  }
 
@@ -497,7 +497,7 @@ function createSlide() {
                  choices_short.className="answers col-lg-12 col-md-12 col-sm-12 col-xs-12";
                  answer_short_row.appendChild(choices_short);
 
-                var counter = short_ans_list.length;
+                var counter = short_ans_list[current].length;
                 for (i=0;i<counter;i++) {
                     var short_ans_div = document.createElement('div');
                     short_ans_div.className = "answer";
@@ -505,7 +505,7 @@ function createSlide() {
 
                     var short_ans_p = document.createElement('p');
                     short_ans_p.className = "p";
-                    short_ans_p.innerHTML = short_ans_list[i];
+                    short_ans_p.innerHTML = short_ans_list[current][i];
                     short_ans_div.appendChild(short_ans_p);
                 }
 
@@ -559,8 +559,8 @@ function createSlide() {
 
                             var answer_P_P = document.createElement("p");
                             answer_P_P.className = "counts";
-                            if(multi_choice_ans_list[i]!=null)
-                                answer_P_P.innerHTML = multi_choice_ans_list[i];
+                            if(multi_choice_ans_list[current][i]!=null)
+                                answer_P_P.innerHTML = multi_choice_ans_list[current][i];
                             else
                                 answer_P_P.innerHTML = 0;
                             answer_p.appendChild(answer_P_P);
