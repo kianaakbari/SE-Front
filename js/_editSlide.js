@@ -606,9 +606,8 @@ function fillSlide(i,savedslide) {
     add_img.appendChild(browse);
 
     if(tmp == 1){
-        // setURL(savedslide.imageUrl,img_place);
         img_place.setAttribute("src", savedslide.imageUrl);
-        img_place.style.visibility="visible";
+        // img_place.style.visibility="visible";
         imgFunction(add_img,etc);
     }
     
