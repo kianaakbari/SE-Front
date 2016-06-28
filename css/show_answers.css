@@ -1,7 +1,7 @@
 .choices{
     min-height: 6rem;
     float: none;
-    margin: 20% auto;
+    margin: 0 auto;
     display: table;
     border: 5px solid #31708f;
     border-radius: 9px;

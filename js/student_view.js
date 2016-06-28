@@ -272,7 +272,7 @@ function createSlide() {
                     list_answers.appendChild(answer);
 
                     var answer_div = document.createElement('div');
-                    answer_div.className = "choice-div col-lg-12";
+                    answer_div.className = "choice-divv col-lg-12";
                     answer.appendChild(answer_div);
 
                     var answer_input = document.createElement("input");
@@ -280,9 +280,11 @@ function createSlide() {
                     answer_input.type = "radio";
                     answer_input.value = "male";
                     answer_input.name = "gender";
-                    answer_input.id = j;
-                    answer_input.innerHTML = slide.choicesList[j];
                     answer_div.appendChild(answer_input);
+                    
+                    var answer_input_p = document.createElement("p");
+                    answer_input_p.innerHTML=slide.choicesList[j];//slide.listItems[j];
+                    answer_div.appendChild(answer_input_p);
                     i++;
                 }
                 j++;
