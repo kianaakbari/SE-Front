@@ -43,6 +43,9 @@ var presentation;
 var preLength;
 var first;
 var last;
+var short_ans_list = [];
+var long_ans_list = [];
+var multi_choice_ans_list = [];
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
@@ -150,6 +153,9 @@ app.controller("HttpGetController", function ($scope, factoryName) {
             var findFirst = 0;
             for (i = 0; i < preLength; i++) {
                 if (presentation[i] != null) {
+                    short_ans_list.push([]);
+                    long_ans_list.push([]);
+                    multi_choice_ans_list.push([]);
                     if (!findFirst) {
                         findFirst = 1;
                         first = i;
@@ -172,9 +178,6 @@ var current = -1;
 var curTmp;
 var questionTmp;
 var ansViewMode = 0;
-var short_ans_list = [];
-var long_ans_list = [];
-var multi_choice_ans_list = [];
 
 function nxtFunc() {
     current++;
