@@ -30,6 +30,7 @@ app.controller("loginAppController", function ($scope, $http) {
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         setCookie('auth', data.token, 365);
+                        setCookie('user_id',data.user_id, 365);
                         window.location="Presenter Page.html";
 
                     })
