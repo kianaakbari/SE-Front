@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo</title>
+    <script src="js/lib/angular.min.js"></script>
+</head>
+<body>
+<h3 style="color:red;">test create with server.</h3><hr />
+<script>
+    var x;
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
+
+    var auth = getCookie('auth');
+    var app = angular.module("app", []);
+    app.factory("factoryName",function($http,$q) {
+        var obj = {};
+        obj.getResponse = function (data) {
+            var myPromise = $q.defer();
+            var username = auth;
+            var password = '';
+
+
+            function make_base_auth(user, password) {
+                var tok = user + ':' + password;
+                var hash = btoa(tok);
+                return "Basic " + hash;
+            }
+
+            $http({
+                method: 'POST',
+                url: 'http://127.0.0.1:8000/api/v1/create_presentation',
+                data: JSON.stringify(data),
+                headers: {
+                    'Authorization': make_base_auth(username, password),
+                    'Content-Type': 'application/json'
+                }
+            })
+                    .success(function (data, status, headers, config) {
+                        myPromise.resolve(data);
+                    })
+                    .error(function (data, status, header, config) {
+                        myPromise.resolve(data);
+                    });
+            return ( myPromise.promise);
+
+        };
+        return obj;
+    });
+
+    app.controller("HttpGetController", function ($scope, factoryName) {
+
+        $scope.SendData = function () {
+            var data = ({
+                name: ""
+            });
+            factoryName.getResponse(data).then(function(data){
+                x=data.presentation_id; // number of presentation id
+                $scope.PostDataResponse=data;
+            });
+        };
+    });
+
+    function f(){
+        alert(x);
+    }
+
+</script>
+<div ng-app="app" ng-controller="HttpGetController">
+    <!--<p>presentation Name: <input type="text" name="firstName" ng-model="email" required /></p>-->
+
+    <button ng-click="SendData()">Submit</button>
+    <button onclick="f()">then show x value</button>
+    <hr />
+    {{ PostDataResponse }}
+</div>
+</body>
+</html>

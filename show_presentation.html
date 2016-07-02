@@ -33,9 +33,24 @@
             });
 
             socket.on('catch answer', function (msg) {
-//                alert("ok");
-                //alert(msg.answer , msg.page);
+                sockPage = msg.page;
+                sockAns = msg.answer;
+                sockAnsTmp = presentation[page].anstmp;
+                if(sockAnsTmp == 0){
+                    long_ans_list[sockPage].push(sockAns);
+                }
+                else if(sockAnsTmp == 1){
+                    short_ans_list[sockPage].push(sockAns);
+                }
+                else{
+                    if(multi_choice_ans_list[sockPage][sockAns] == null)
+                         multi_choice_ans_list[sockPage][sockAns] = 1;
+                    else
+                         multi_choice_ans_list[sockPage][sockAns]++;
+                }
 
+                if(ansViewMode) createSlide();
+                //alert(msg.answer , msg.page);
             });
 
 

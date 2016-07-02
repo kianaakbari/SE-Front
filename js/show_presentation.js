@@ -46,6 +46,9 @@ var last;
 var short_ans_list = [];
 var long_ans_list = [];
 var multi_choice_ans_list = [];
+var sockPage;
+var sockAns;
+var sockAnsTmp;
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;

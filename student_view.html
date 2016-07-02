@@ -62,23 +62,35 @@
 
                 //presentation should be assigned here
 
+                alert(data.page);
+
                 var obj = JSON.parse(data.json.replace(/\'/gi, '"'));
+                console.log(obj);
                 presentation = obj.slides;
                 current = data.page;
-                slide = presentation[current];
-                curTmp = slide.tmp;
+                if(data.page != -1) {
+                    slide = presentation[current];
+                    curTmp = slide.tmp;
+                    questionTmp = slide.anstmp;
+                }
+                else codePage = 1;
                 createSlide();
 
             });
 
+
+
+
+
+
             socket.on('page changed', function (msg) {
-
-                //alert(msg.page);
-
                 current = msg.page;
-                slide = presentation[current];
-                curTmp = slide.tmp;
-
+                if(msg.page!=-1) {
+                    slide = presentation[current];
+                    curTmp = slide.tmp;
+                    questionTmp = slide.anstmp;
+                }
+                else codePage = 1;
                 createSlide();
 
 
@@ -134,18 +146,18 @@
 </div>
 <!--bad az dorost shodane logic navare payin bardashte mishe-->
 <ui class="pnav">
-    <div class="container-fluid">
-        <div class="row">
-            <li class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">
-                <button class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="prv" disabled=true onclick="prvFunc()">
-                    قبلی
-                </button>
-            </li>
-            <li class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">
-                <button class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="nxt" onclick="nxtFunc()">بعدی</button>
-            </li>
-        </div>
-    </div>
+    <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+            <!--<li class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">-->
+                <!--<button class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="prv" disabled=true onclick="prvFunc()">-->
+                    <!--قبلی-->
+                <!--</button>-->
+            <!--</li>-->
+            <!--<li class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav_control">-->
+                <!--<button class="col-xs-4 col-md-4 col-lg-4 col-sm-4 pnav-btn" id="nxt" onclick="nxtFunc()">بعدی</button>-->
+            <!--</li>-->
+        <!--</div>-->
+    <!--</div>-->
 </ui>
 <!---------------------------------------------------------->
 </body>
