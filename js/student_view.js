@@ -75,14 +75,15 @@ var current;
 var slide;
 var curTmp;
 var questionTmp;
+var presentation;
 
-var data = {"slides":[{"id":0,"hasTitle":0,"title":"","tmp":1,"imageUrl":"img/education.jpg","videoUrl":"","hyperText":"","listItems":["a","b"],"listItemsNum":2,"anstmp":2,"choicesList":["1","",null,"3"],"choicesNum":3},{"id":1,"hasTitle":1,"title":"df","tmp":3,"imageUrl":"","videoUrl":"","hyperText":"sdfv","listItems":[],"listItemsNum":0,"anstmp":0,"choicesList":[],"choicesNum":0}]};
-var presentation = data.slides;
-var start = 0;
-current = start;
-slide = presentation[current];
-curTmp = slide.tmp;
-questionTmp = slide.anstmp;
+//var data = {"slides":[{"id":0,"hasTitle":0,"title":"","tmp":1,"imageUrl":"img/education.jpg","videoUrl":"","hyperText":"","listItems":["a","b"],"listItemsNum":2,"anstmp":2,"choicesList":["1","",null,"3"],"choicesNum":3},{"id":1,"hasTitle":1,"title":"df","tmp":3,"imageUrl":"","videoUrl":"","hyperText":"sdfv","listItems":[],"listItemsNum":0,"anstmp":0,"choicesList":[],"choicesNum":0}]};
+// var presentation = data.slides;
+// var start = 0;
+// current = start;
+// slide = presentation[current];
+// curTmp = slide.tmp;
+// questionTmp = slide.anstmp;
 window.onload = function () {
     createSlide();
 };

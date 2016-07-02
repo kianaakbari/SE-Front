@@ -8,7 +8,7 @@
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
                 password: $scope.password,
-                is_audience: $scope.is_audience
+                is_audience: 0
             });
 
             var config = {

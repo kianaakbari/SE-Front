@@ -16,6 +16,20 @@ function setCookie(cname, cvalue, exdays) {
 
 app.controller("loginAppController", function ($scope, $http) {
 
+    function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
 
 //------------------------------------teacher login-------------------------------------//
 
@@ -30,6 +44,7 @@ app.controller("loginAppController", function ($scope, $http) {
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         setCookie('auth', data.token, 365);
+                        setCookie('user_id',data.user_id, 365);
                         window.location="Presenter Page.html";
 
                     })
@@ -55,6 +70,7 @@ app.controller("loginAppController", function ($scope, $http) {
             $http.get('http://127.0.0.1:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         setCookie('auth', data.token, 365);
+                        setCookie('user_id',data.user_id, 365);
                         window.location="authedjoin.html";
                     })
                     .error(function (data, status, header, config) {

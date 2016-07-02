@@ -1,0 +1,42 @@
+/**
+ * Remake of "HTML + CSS3 Icons" by Clay Cauley
+ *
+ * Inspiration was taken from:
+ * - http://designmoo.com/5368/html-css3-icons/
+ */
+
+/**
+ * Demo styles
+ */
+body{
+    margin: 0;
+    font-family:'Open Sans',Arial,sans-serif;
+    background:#FFF;
+    font-weight:300;
+    height:100%;
+    padding:0;
+    color: #a90329;
+}
+.header{
+    position:relative;
+    padding:80px 15px;
+    color:#FFF;
+    text-align:center;
+    text-shadow:0 1px 0 rgba(0,0,0,.1);
+    /*background-image:url("education.jpg");*/
+    width: 100% ;
+    height: 1200px;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-attachment:fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+}
+
+/*body { background: #383838; }*/
+
+#container {
+    margin: 3px 115px auto;
+    width: 125px; }

@@ -2,25 +2,27 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/register.css" />
+	<script src="js/lib/angular.min.js"></script>
+    <script src="js/controllers/register.js"></script>
 	<title>Register From</title>
 </head>
 
 <body>
-	<main class="header" role="main">
+	<main class="header" role="main" ng-app="registerApp" ng-controller="registerAppController">
 		<form action="" method="post">
 
-			<input type="text" placeholder="first name" id="fName"/>
-			<input type="text" placeholder="last name" id="lName"/>
-			<input type="email" placeholder="email"/>
-			<input type="password" placeholder="password"/>
+			<input type="text" placeholder="first name" id="fName" ng-model = "firstname"/>
+			<input type="text" placeholder="last name" id="lName" ng-model = "lastname"/>
+			<input type="email" placeholder="email" ng-model = "email"/>
+			<input type="password" placeholder="password" ng-model = "password"/>
 			<input type="password" placeholder="re-enter password"/>
 
 			<div id="container">
-				<a href="#" class="s3d register">
-					register
+				<a href="#" class="s3d register" ng-click="SendData()">
+					ثبت نام
 				</a>
 			</div>
-			
+			<div style="font-size:18px; color: #67051B;" id="error"> <p>{{errtext}}</p> </div>
 		</form>
 	</main>
 </body>
