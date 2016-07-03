@@ -27,10 +27,10 @@
 
             ///////////////////////////socket event listeners
 
-            socket.on('init presentation', function (msg) {
-                console.log(msg.json);
-                console.log(msg.page);
-            });
+//            socket.on('init presentation', function (msg) {
+//                console.log(msg.json);
+//                console.log(msg.page);
+//            });
 
             socket.on('catch answer', function (msg1) {
 
@@ -43,8 +43,11 @@
 
                 sockAns = msg1.answer;
                 console.log(sockAns);
-                sockPage = msg1.currentPage;
+                sockPage = msg1.page;
 
+                console.log(presentation);
+                console.log(sockPage);
+//                console.log(presentation[sockPage]);
 
                 sockAnsTmp = presentation[sockPage].anstmp;
                 if(sockAnsTmp == 0){

@@ -152,6 +152,7 @@ app.controller("HttpGetController", function ($scope, factoryName) {
     $scope.SendData = function () {
         factoryName.getResponse(PID).then(function (data) {
             presentation = data.slides;
+            // console.log(presentation);
             preLength = presentation.length;
             var findFirst = 0;
             for (i = 0; i < preLength; i++) {
