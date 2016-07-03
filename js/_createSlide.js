@@ -62,6 +62,7 @@ app.controller("HttpGetController", function ($scope, factoryName) {
         });
         factoryName.getResponse(data).then(function(data){
             pID=data.presentation_id; // number of presentation id
+            alert(pID);
             $scope.PostDataResponse=data;
         });
     };
@@ -719,6 +720,7 @@ function updateSlide() {
             input.id = id;
             input.addEventListener("change", function (event) {
                 (presentation[current].listItems)[input.id] = this.value;
+                realtimeSaveInServer();  //ehsan
                 event.preventDefault();
             });
             var oImg = document.createElement("img");

@@ -159,6 +159,7 @@ app.controller("HttpGetController", function ($scope, factoryName) {
                             input.value = choices[j];
                             input.addEventListener("change", function (event) {
                                 (slide.choicesList)[input.id] = this.value;
+                                realtimeSaveInServer();  //ehsan
                                 event.preventDefault();
                             });
                             //slide.choicesNum++;
@@ -295,6 +296,7 @@ function createSlide() {
                     input.value = choices[j];
                     input.addEventListener("change", function (event) {
                         (slide.choicesList)[input.id] = this.value;
+                        realtimeSaveInServer();  //ehsan
                         event.preventDefault();
                     });
                     //slide.choicesNum++;
@@ -782,6 +784,7 @@ function fillSlide(i,savedslide) {
             input.id = id;
             input.addEventListener("change", function (event) {
                 (presentation[current].listItems)[input.id] = this.value;
+                realtimeSaveInServer();  //ehsan
                 event.preventDefault();
             });
             var oImg = document.createElement("img");
@@ -1496,6 +1499,7 @@ function updateSlide() {
             input.id = id;
             input.addEventListener("change", function (event) {
                 (presentation[current].listItems)[input.id] = this.value;
+                realtimeSaveInServer();  //ehsan
                 event.preventDefault();
             });
             var oImg = document.createElement("img");

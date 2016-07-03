@@ -32,10 +32,21 @@
                 console.log(msg.page);
             });
 
-            socket.on('catch answer', function (msg) {
-                sockPage = msg.page;
-                sockAns = msg.answer;
-                sockAnsTmp = presentation[page].anstmp;
+            socket.on('catch answer', function (msg1) {
+
+                console.log(2222);
+                console.log(msg1);
+
+                //var obj = JSON.parse(msg);
+
+                //console.log(obj);
+
+                sockAns = msg1.answer;
+                console.log(sockAns);
+                sockPage = msg1.currentPage;
+
+
+                sockAnsTmp = presentation[sockPage].anstmp;
                 if(sockAnsTmp == 0){
                     long_ans_list[sockPage].push(sockAns);
                 }
