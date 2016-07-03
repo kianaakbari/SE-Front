@@ -43,7 +43,7 @@ app.controller("HttpGetController", function ($scope, $http) {
         });
 
         $http({
-            method: 'POST', url: 'http://127.0.0.1:8000/api/v1/join_session',data: JSON.stringify(data), headers: {
+            method: 'POST', url: 'http://154.16.156.58:8000/api/v1/join_session',data: JSON.stringify(data), headers: {
                 'Authorization': make_base_auth(username,password),
                 'Content-Type': 'application/json'
             }

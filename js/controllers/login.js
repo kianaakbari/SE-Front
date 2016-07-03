@@ -41,7 +41,7 @@ app.controller("loginAppController", function ($scope, $http) {
                     'Authorization': make_base_auth($scope.username, $scope.password)
                 }
             };
-            $http.get('http://127.0.0.1:8000/get-auth-token', config)
+            $http.get('http://154.16.156.58:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         setCookie('auth', data.token, 365);
                         setCookie('user_id',data.user_id, 365);
@@ -67,7 +67,7 @@ app.controller("loginAppController", function ($scope, $http) {
                 }
             };
 
-            $http.get('http://127.0.0.1:8000/get-auth-token', config)
+            $http.get('http://154.16.156.58:8000/get-auth-token', config)
                     .success(function (data, status, headers, config) {
                         setCookie('auth', data.token, 365);
                         setCookie('user_id',data.user_id, 365);

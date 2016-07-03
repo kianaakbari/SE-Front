@@ -69,7 +69,7 @@ app.factory("factoryName", function ($http, $q) {
             return "Basic " + hash;
         };
         $http({
-            method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_presentation/' + index, headers: {
+            method: 'GET', url: 'http://154.16.156.58:8000/api/v1/get_presentation/' + index, headers: {
                 'Authorization': make_base_auth(username, password)
             }
         })

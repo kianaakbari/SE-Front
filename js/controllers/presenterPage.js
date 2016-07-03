@@ -42,7 +42,7 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
         };
 
         $http({
-            method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_all_presentations/', headers: {
+            method: 'GET', url: 'http://154.16.156.58/api/v1/get_all_presentations/', headers: {
                 'Authorization': make_base_auth(username,password)
 
             }
@@ -151,7 +151,7 @@ app1.factory("factorySessions",function($http,$q){
             return "Basic " + hash;
         };
         $http({
-            method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_sessions/' + index, headers: {
+            method: 'GET', url: 'http://154.16.156.58/api/v1/get_sessions/' + index, headers: {
                 'Authorization': make_base_auth(username, password)
             }
         })
@@ -170,6 +170,7 @@ app1.controller("HttpGetSessions", function ($scope,factorySessions) {
         $scope.SendData1 = function () {
             factorySessions.getResponse(userID).then(function(data){
                 sessionsList = data;
+                // console.log(data);
                 sessionsSize = sessionsList.length;
                 var table =document.getElementById("table");
                 for(i=0;i<sessionsSize;i++){
@@ -179,14 +180,14 @@ app1.controller("HttpGetSessions", function ($scope,factorySessions) {
                     // if(i==0) console.log(list);
                     // for(j=0;j<3;j++) {
                     var td = document.createElement("td");
-                    td.innerHTML = list.name;
+                    td.innerHTML = list.end_date;
                     // console.log(list);
                     tr.appendChild(td);
                     var td = document.createElement("td");
-                    td.innerHTML = list.presentation_name;
+                    td.innerHTML = list.participant_size;
                     tr.appendChild(td);
                     var td = document.createElement("td");
-                    td.innerHTML = list.end_date;
+                    td.innerHTML = list.name;
 
                     tr.appendChild(td);
 

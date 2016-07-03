@@ -17,7 +17,7 @@
                 }
             };
 
-            $http.post('http://127.0.0.1:8000/api/v1/register', (data), config)
+            $http.post('http://154.16.156.58:8000/api/v1/register', (data), config)
                     .success(function (data, status, headers, config) {
                     })
                     .error(function (data, status, header, config) {

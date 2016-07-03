@@ -35,7 +35,7 @@ app.factory("factoryName",function($http,$q) {
 
         $http({
             method: 'POST',
-            url: 'http://127.0.0.1:8000/api/v1/create_presentation',
+            url: 'http://154.16.156.58:8000/api/v1/create_presentation',
             data: JSON.stringify(data),
             headers: {
                 'Authorization': make_base_auth(username, password),
