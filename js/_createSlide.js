@@ -1,6 +1,7 @@
 ///////////////////////////create empty presentation
 var pID;
 var userID = getCookie('user_id');
+// alert(userID);
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -633,7 +634,7 @@ function updateSlide() {
     function video_preview(url){//taghiir
         preview_video.id=url;//taghiir
         preview_video.style.visibility="visible";//taghiir
-        video_script.src="https://www.aparat.com/embed/"+url+"?data[rnddiv]=2X7KV&data[responsive]=yes";//taghiir
+        video_script.src="https://www.aparat.com/embed/"+url+"?data[rnddiv]="+url+"&data[responsive]=yes";//taghiir
     }
     
     var text_area = document.createElement('textarea');

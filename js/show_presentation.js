@@ -359,11 +359,22 @@ function createSlide() {
                     lastChild_body_video.parentNode.removeChild(lastChild_body_video);
                 }
                 var video = document.createElement('div');
-                video.className = "video col-lg-10 col-sm-10 col-md-10 col-xs-10";
+                video.style.margin="0% auto";
+                video.style.width="75%";
+                //video.className = "video col-lg-10 col-sm-10 col-md-10 col-xs-10";
+                videoData = slide.videoUrl;
+                //alert(videoData);
+                video.id=videoData;
                 //body.appendChild(video);
                 for (i = 0; i < body.length; i++) {
                     body[i].appendChild(video);
                 }
+
+                var video_script = document.createElement("script");//taghiir
+                video_script.type="text/JavaScript";//taghiir
+                video_script.src="https://www.aparat.com/embed/"+videoData+"?data[rnddiv]="+videoData+"&data[responsive]=yes";
+
+                video.appendChild(video_script);//taghiir
             }
 
             else if (curTmp == 3) { //text slide

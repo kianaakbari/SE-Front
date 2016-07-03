@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="#">
     <meta name="author" content="#">
-    <script src="js/lib/jquery.js"></script>
     <title>Presenter</title>
+    <script src="js/lib/jquery.js"></script>>
     <script src="js/lib/angular.min.js"></script>
-
+    <script src="js/lib/bootstrap.js"></script>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap.min.css" rel="stylesheet">
 
@@ -22,7 +22,6 @@
     <!--<link rel="stylesheet" href="js/_presenter_dialog.js">-->
 
     <!--<script type="text/javascript" src="js/_presenter_dialog.js"></script>-->
-    <script type="text/javascript" src="js/controllers/presenterPage.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,36 +29,41 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>+
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
+
+    <script type="text/javascript" src="js/controllers/presenterPage.js"></script>
 </head>
 
 <body>
-<!--<div class="nav-bar">
-    <nav></nav>
-</div>-->
+
+<div class="nav-bar" style="position: fixed;z-index: 1000; top: 0;">
+   <a href = "create%20slide.html"> <button type="button"  class="create-slide" >ساخت فایل ارایه </button></a>
+</div>
 
 <div class="container-fluid">
 
-    <div class = "row">
+    <!--<div class = "row">-->
 
 
-        <nav class="nav-bar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <div class="navbar-brand">
-                        <!--<img class="logo" src="photo_2016-03-24_04-16-36.jpg" alt="">-->
-                    </div>
-                </div>
+        <!--<nav class="nav-bar navbar-inverse navbar-fixed-top" role="navigation">-->
+            <!--<div class="container">-->
+                <!--<div class="navbar-header">-->
+                    <!--<div class="navbar-brand">-->
+                        <!--&lt;!&ndash;<img class="logo" src="photo_2016-03-24_04-16-36.jpg" alt="">&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                    </ul>
-                </div>
+                <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+                    <!--<ul class="nav navbar-nav">-->
+                    <!--</ul>-->
+                <!--</div>-->
 
-            </div>
+            <!--</div>-->
 
-        </nav>
-    </div>
+        <!--</nav>-->
+    <!--</div>-->
 <!--<div id="wrapper">-->
 
     <!-- Sidebar -->
@@ -67,23 +71,22 @@
 
     <div class="row">
          <div role="button" id = "clk_upload" class = "button-set">
-            <a class = "button button--white">بارگذاری</a>
+            <!--<a class = "button button&#45;&#45;white">بارگذاری</a>-->
 
         </div>
     </div>
- 
+
 
 
     <div class="row-fluid">
 
-        <div class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
+        <div id = "presentations" class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
             <ul class="row" id="some">
             </ul>
-        </div>
+        </div></div>
 
 
-        <div class="sessions col-sm-9 col-lg-9 col-md-9 col-centered col-centered" style="visibility:hidden;  float: none; display: table;">
-             <!--ng-app="app1" ng-controller="HttpGetController1" ng-init="SendData1()>-->
+        <div id = "sessions" class="sessions col-sm-9 col-lg-9 col-md-9 col-centered col-centered" style="visibility:hidden;  float: none; display: table;" ng-app="app1" ng-controller="HttpGetSessions" ng-init="SendData1();">
                 <style>
                     table, th, td {
                         /*border: 3px solid black;*/
@@ -110,25 +113,13 @@
                     </tr>
 
                 </table>
-            </div>
-        </div>
+            </div></div>
 
     </div>
 </div>
 
 
 <script>
-    var table =document.getElementById("table");
-    for(i=0;i<2;i++){
-        var tr = document.createElement("tr");
-        table.appendChild(tr);
-        var list=["12-5-69","10","sssss"];
-        for(j=0;j<3;j++) {
-            var td = document.createElement("td");
-            td.innerHTML = list[j];
-            tr.appendChild(td);
-        }
-    }
 
     function showSession(){
        // alert("ok");
@@ -163,7 +154,7 @@
 
 
 
-        <div class = "col-xs-5 col-sm-3 col-md-3 sidebar-nav" id="sidebar-wrapper">
+        <div style="position: fixed;" class = "col-xs-5 col-sm-3 col-md-3 sidebar-nav" id="sidebar-wrapper">
             <ul>
                 <li>
                     <a href="#"><i class="fa fa-home fa-5x" style="fill: #ffffff" aria-hidden="true" onclick="showHome()"></i>
@@ -241,8 +232,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
-      <span id= "close1" class="close">X</span>
-      <p class="upp">بارگذاری</p>
+      <span id= "close1" class="close">X</span><!--<p class="upp">بارگذاری</p>-->
     </div>
 
     <div class = "jn-mo-eb jn-hi-eb">

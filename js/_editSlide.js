@@ -646,16 +646,46 @@ function fillSlide(i,savedslide) {
     video_url_btn.className = "bttn acc-add col-lg-2 col-md-2 col-sm-4 ttl  ";
     video_url_btn.innerHTML = "تایید ادرس";
     video_url_btn.type = "button";
+    add_video.appendChild(video_url_btn);//taghiir
     video_url_btn.addEventListener("click", function (event) {
-        var val = this.previousSibling.value;
-        savedslide.videoUrl = val;
-        realtimeSaveInServer(); //ehsan
+        var slide = presentation[current];
+        var video_address = this.previousSibling.value; //taghiir
+        if(video_address == 0) {alert("یک آدرس وارد کنید ")}
+        if(video_address != 0) { //taghiir
+            //slide.videoUrl = video_address;
+            var id_url = video_address[24]; //taghiir
+            for (i = 25; i < video_address.length; i++) {////taghiir
+                id_url = id_url + video_address[i];//taghiir
+            }
+            //alert(id_url);//taghiir  in un bakhshie k lazem dari ,
+            slide.videoUrl = id_url;
+            this.style.visibility = "hidden";//taghiir
+            this.previousSibling.style.visibility = "hidden";//taghiir
+            video_preview(id_url);//taghiir
+        }
+        realtimeSaveInServer();  //ehsan 
         event.preventDefault();
     });
-    add_video.appendChild(video_url_btn);
+    var preview_video = document.createElement("div"); //taghiir
+    preview_video.style.visibility="hidden";//taghiir
+    preview_video.style.margin="-28% auto";
+    preview_video.style.width="77%";
+
+    add_video.appendChild(preview_video);//taghiir
+
+    var video_script = document.createElement("script");//taghiir
+    video_script.type="text/JavaScript";//taghiir
+    preview_video.appendChild(video_script);//taghiir
+
+
+    function video_preview(url){//taghiir
+        preview_video.id=url;//taghiir
+        preview_video.style.visibility="visible";//taghiir
+        video_script.src="https://www.aparat.com/embed/"+url+"?data[rnddiv]="+url+"&data[responsive]=yes";//taghiir
+    }
 
     if(tmp == 2){
-        //
+        video_preview(savedslide.videoUrl);
         videoFunction(add_video,etc);
     }
     
@@ -766,6 +796,8 @@ function fillSlide(i,savedslide) {
         var parent = closeImg.parentNode.parentNode;//row-title
         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
         var add_img = thirdChild.childNodes[0]; //add-image
+        var add_vid = thirdChild.childNodes[1]; //add-video //taghir
+        var film = add_vid.childNodes[2].style.visibility="hidden"; //taghir
         var blah = add_img.childNodes[0];//blah
 
         blah.style.visibility="hidden";
@@ -1376,15 +1408,44 @@ function updateSlide() {
     video_url_btn.className = "bttn acc-add col-lg-2 col-md-2 col-sm-4 ttl  ";
     video_url_btn.innerHTML = "تایید ادرس";
     video_url_btn.type = "button";
+    add_video.appendChild(video_url_btn);//taghiir
     video_url_btn.addEventListener("click", function (event) {
         var slide = presentation[current];
-        var val = this.previousSibling.value;
-        slide.videoUrl = val;
+        var video_address = this.previousSibling.value; //taghiir
+        if(video_address == 0) {alert("یک آدرس وارد کنید ")}
+        if(video_address != 0) { //taghiir
+            //slide.videoUrl = video_address;
+            var id_url = video_address[24]; //taghiir
+            for (i = 25; i < video_address.length; i++) {////taghiir
+                id_url = id_url + video_address[i];//taghiir
+            }
+            //alert(id_url);//taghiir  in un bakhshie k lazem dari ,
+            slide.videoUrl = id_url;
+            this.style.visibility = "hidden";//taghiir
+            this.previousSibling.style.visibility = "hidden";//taghiir
+            video_preview(id_url);//taghiir
+        }
         realtimeSaveInServer();  //ehsan 
         event.preventDefault();
     });
-    add_video.appendChild(video_url_btn);
+    var preview_video = document.createElement("div"); //taghiir
+    preview_video.style.visibility="hidden";//taghiir
+    preview_video.style.margin="-28% auto";
+    preview_video.style.width="77%";
 
+    add_video.appendChild(preview_video);//taghiir
+
+    var video_script = document.createElement("script");//taghiir
+    video_script.type="text/JavaScript";//taghiir
+    preview_video.appendChild(video_script);//taghiir
+
+
+    function video_preview(url){//taghiir
+        preview_video.id=url;//taghiir
+        preview_video.style.visibility="visible";//taghiir
+        video_script.src="https://www.aparat.com/embed/"+url+"?data[rnddiv]="+url+"&data[responsive]=yes";//taghiir
+    }
+    
     var text_area = document.createElement('textarea');
     text_area.type = "text";
     text_area.className = "add-text hyper-text header-input col-lg-11 col-md-11 col-sm-11 ng-pristine ng-valid ng-touched";
@@ -1443,6 +1504,8 @@ function updateSlide() {
         }
         btn.childNodes[4].style.visibility = "visible";
         node.style.visibility = "visible";
+        node.childNodes[0].style.visibility="visible"; // taghiir
+        node.childNodes[1].style.visibility="visible"; //taghirr
     }
 
     function textFunction(node, btn) {
@@ -1474,6 +1537,8 @@ function updateSlide() {
         var parent = closeImg.parentNode.parentNode;//row-title
         var thirdChild = parent.childNodes[2]; //row (add-image , ..)
         var add_img = thirdChild.childNodes[0]; //add-image
+        var add_vid = thirdChild.childNodes[1]; //add-video //taghir
+        var film = add_vid.childNodes[2].style.visibility="hidden"; //taghir
         var blah = add_img.childNodes[0];//blah
         // var file = add_img.childNodes[1];//file
         //blah.src="#";
@@ -1553,7 +1618,7 @@ function activeNumber() {
     document.getElementById("short-answer-preview").style.visibility = "visible";
     document.getElementById("acc-btn-preview").style.visibility = "visible";
     document.getElementById("add-choice").style.visibility = "hidden";
-    realtimeSaveInServer();  //ehsan
+    realtimeSaveInServer();  //ehsan 
 }
 
 function activeMultipleChoice(){

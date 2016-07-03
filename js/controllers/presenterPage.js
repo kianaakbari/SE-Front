@@ -130,8 +130,79 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
 });
 
 
-$('#body').ready(function () {
-    angular.bootstrap($('#body'), ['app1']);
+/////////////////////sessions//////////////////////////////
+
+var sessionsList;
+var sessionsSize;
+var userID =1;
+var auth = getCookie('auth');
+
+var app1 = angular.module("app1", []);
+app1.factory("factorySessions",function($http,$q){
+    var obj={};
+    obj.getResponse = function(index){
+        var myPromise = $q.defer();
+        var username = auth;
+        var password = '';
+
+        function make_base_auth(user, password) {
+            var tok = user + ':' + password;
+            var hash = btoa(tok);
+            return "Basic " + hash;
+        };
+        $http({
+            method: 'GET', url: 'http://127.0.0.1:8000/api/v1/get_sessions/' + index, headers: {
+                'Authorization': make_base_auth(username, password)
+            }
+        })
+                .success(function (data, status, headers, config) {
+                    myPromise.resolve(data);
+                })
+                .error(function (data, status) {
+                    myPromise.resolve(data);
+                });
+        return ( myPromise.promise);
+    }
+    return obj;
+});
+
+app1.controller("HttpGetSessions", function ($scope,factorySessions) {
+        $scope.SendData1 = function () {
+            factorySessions.getResponse(userID).then(function(data){
+                sessionsList = data;
+                sessionsSize = sessionsList.length;
+                var table =document.getElementById("table");
+                for(i=0;i<sessionsSize;i++){
+                    var tr = document.createElement("tr");
+
+                    var list=sessionsList[i];
+                    // if(i==0) console.log(list);
+                    // for(j=0;j<3;j++) {
+                    var td = document.createElement("td");
+                    td.innerHTML = list.name;
+                    // console.log(list);
+                    tr.appendChild(td);
+                    var td = document.createElement("td");
+                    td.innerHTML = list.presentation_name;
+                    tr.appendChild(td);
+                    var td = document.createElement("td");
+                    td.innerHTML = list.end_date;
+
+                    tr.appendChild(td);
+
+                    table.appendChild(tr);
+                    // }
+                }
+                
+            });
+        };
+    });
+
+///////////////////////////////////////////////////////////
+
+
+$('#sessions').ready(function () {
+    angular.bootstrap($('#sessions'), ['app1']);
 });
 
 function onEditClick(editBtn){

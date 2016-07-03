@@ -120,7 +120,13 @@ function createSlide() {
     // alert('dovomi: '+codePage);
 
     if (codePage) {
+        var title_code = document.getElementById("title");
+        if (title_code.childElementCount > 0) {
 
+            var lastChild_code_title = title_code.lastElementChild;
+            lastChild_code_title.parentNode.removeChild(lastChild_code_title);
+        }
+        
          var body_text = document.getElementById("body");
         // alert(body_text.childElementCount);
          if(body_text.childElementCount>0){
@@ -203,7 +209,7 @@ function createSlide() {
                     //------
                     sendAnswer(textArea.value, current, sessionCode, userID, sessionCode);
 
-
+                    this.disabled = true;
                     event.preventDefault();
                 });
                 answer_long_slide.appendChild(button);
@@ -241,7 +247,7 @@ function createSlide() {
                     //------
                     sendAnswer(input.value, current, sessionCode, userID, sessionCode);
 
-
+                    this.disabled = true;
                     event.preventDefault();
                 });
                 answer_short_slide.appendChild(btn);
@@ -320,6 +326,7 @@ function createSlide() {
                             return
                         }
                     }
+                    this.disabled = true;
                     event.preventDefault();
                 });
                 answer_multiChoice_slide.appendChild(button);
@@ -352,10 +359,22 @@ function createSlide() {
                     lastChild_body_video.parentNode.removeChild(lastChild_body_video);
                 }
                 var video = document.createElement('div');
-                video.className = "video col-lg-10 col-sm-10 col-md-10 col-xs-10";
+                video.style.margin="0% auto";
+                video.style.width="75%";
+                //video.className = "video col-lg-10 col-sm-10 col-md-10 col-xs-10";
+                videoData = slide.videoUrl;
+                //alert(videoData);
+                video.id=videoData;
+                //body.appendChild(video);
                 for (i = 0; i < body.length; i++) {
                     body[i].appendChild(video);
                 }
+
+                var video_script = document.createElement("script");//taghiir
+                video_script.type="text/JavaScript";//taghiir
+                video_script.src="https://www.aparat.com/embed/"+videoData+"?data[rnddiv]="+videoData+"&data[responsive]=yes";
+
+                video.appendChild(video_script);//taghiir
             }
 
             else if (curTmp == 3) { //text slide
