@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="#">
     <meta name="author" content="#">
-
+    <script src="js/lib/jquery.js"></script>
     <title>Presenter</title>
     <script src="js/lib/angular.min.js"></script>
 
@@ -76,31 +76,110 @@
 
     <div class="row-fluid">
 
-        <div class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8">
-            <ul class="row" id="some" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
+        <div class="templates col-xs-8 col-sm-offset-1 col-sm-8 col-md-8" ng-app="app" ng-controller="HttpGetController" ng-init="SendData();">
+            <ul class="row" id="some">
             </ul>
         </div>
+
+
+        <div class="sessions col-sm-9 col-lg-9 col-md-9 col-centered col-centered" style="visibility:hidden;  float: none; display: table;">
+             <!--ng-app="app1" ng-controller="HttpGetController1" ng-init="SendData1()>-->
+                <style>
+                    table, th, td {
+                        /*border: 3px solid black;*/
+                        border-collapse: collapse;
+                    }
+                    th, td {
+                        padding: 5px;
+                    }
+                </style>
+
+                <table id="table" class="table table-striped" style="width:100%;text-align: center; margin: 5rem auto;">
+                    <tr style="text-align: center;">
+
+                        <th>تاریخ</th>
+                        <th>افراد ملحق شده</th>
+                        <th>نام نشست</th>
+                        <style>
+                            th{
+                                text-align: center;
+
+                            }
+                        </style>
+
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    var table =document.getElementById("table");
+    for(i=0;i<2;i++){
+        var tr = document.createElement("tr");
+        table.appendChild(tr);
+        var list=["12-5-69","10","sssss"];
+        for(j=0;j<3;j++) {
+            var td = document.createElement("td");
+            td.innerHTML = list[j];
+            tr.appendChild(td);
+        }
+    }
+
+    function showSession(){
+       // alert("ok");
+       var templates= document.getElementsByClassName("templates");
+        for(i=0;i<templates.length;i++){
+            templates[i].style.visibility="hidden";
+        }
+
+        var sessions= document.getElementsByClassName("sessions");
+        for(i=0;i<sessions.length;i++){
+            sessions[i].style.visibility="visible";
+        }
+    }
+
+    function showHome(){
+        var templates= document.getElementsByClassName("templates");
+        for(i=0;i<templates.length;i++){
+            templates[i].style.visibility="visible";
+        }
+
+        var sessions= document.getElementsByClassName("sessions");
+        for(i=0;i<sessions.length;i++){
+            sessions[i].style.visibility="hidden";
+        }
+
+    }
+
+
+
+
+</script>
+
 
 
         <div class = "col-xs-5 col-sm-3 col-md-3 sidebar-nav" id="sidebar-wrapper">
             <ul>
                 <li>
-                    <a href="#"><i class="fa fa-home fa-5x" style="fill: #ffffff" aria-hidden="true"></i>
+                    <a href="#"><i class="fa fa-home fa-5x" style="fill: #ffffff" aria-hidden="true" onclick="showHome()"></i>
                     </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-user fa-5x" ></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-television fa-5x" ></i></a>
+                    <a href="#"><i class="fa fa-television fa-5x" onclick="showSession()"></i></a>
                 </li>
             </ul>
         </div>
+
     </div>
 
-
-
-    
 </div>
 
 
@@ -199,7 +278,7 @@
 
 <!-- jQuery -->
 
-<script src="js/lib/jquery.js"></script>
+
 
 <!-- Bootstrap Core JavaScript -->
 <!--<script src="js/lib/bootstrap.min.js"></script>-->

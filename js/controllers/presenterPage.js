@@ -130,6 +130,10 @@ app.controller("HttpGetController", function ($scope, $http, $log, $window) {
 });
 
 
+$('#body').ready(function () {
+    angular.bootstrap($('#body'), ['app1']);
+});
+
 function onEditClick(editBtn){
     var url=updateQueryStringParameter("editSlide.html",'presentationID',presentationID);
     window.location=url;

@@ -22,7 +22,7 @@ function getCookie(cname) {
 //in ghesmat ha marbut b namayeshe safheye avale. fk konam kolesh bayad tu y chizi shabihe onload neveshte bshe.
 var sessionCode = getCookie('sessionCode');
 var userID = getCookie('user_id');
-var codePage = 0;
+var codePage = 1;
 // alert(sessionCode);
 // code e session tu moteghayere sessionCode gharar dare.
 
@@ -59,7 +59,7 @@ function leaveRoom(roomName) {
 
 //user_id and presentation_id and room are hardcoded.
 function sendAnswer(answerText, pageNumber, roomName, userId, sessionCode) {
-    alert("giving answer");
+    // alert("giving answer");
     socket.emit('send answer', {
         answer: answerText,
         page: pageNumber,
@@ -117,10 +117,31 @@ function createSlide() {
 
     var body = document.getElementsByClassName('body');
     var slide_blue = document.getElementById("slide-blue");
+    // alert('dovomi: '+codePage);
 
     if (codePage) {
-        //samane
+
+         var body_text = document.getElementById("body");
+        // alert(body_text.childElementCount);
+         if(body_text.childElementCount>0){
+
+             var lastChild_body_text =body_text.lastElementChild;
+             lastChild_body_text.parentNode.removeChild(lastChild_body_text);
+         }
+
+         var text_slide = document.createElement('div');
+         text_slide.className = "text_slide col-lg-10 col-sm-10 col-md-10 col-xs-10";
+
+         for (i = 0; i < body.length; i++) {
+             body[i].appendChild(text_slide);
+         }
+
+         var text = document.createElement('p');
+         text.innerHTML="ارایه هنوز آغاز نشده است";//slide.hyperText
+         text.className="text";
+         text_slide.appendChild(text);
     }
+
     else {
         if (curTmp == 0) {
             //namayeshe axe slide i k up shode

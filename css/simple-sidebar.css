@@ -212,7 +212,7 @@ body{
 
 .templates{
     position: absolute;
-    margin-top: 20px;
+    /*margin-top: 100rem;*/
     /*left:-255px ;*/
     display: inline;
     border: 2px solid #030E33;

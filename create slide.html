@@ -48,7 +48,7 @@
                     var dataURL = canvas.toDataURL();
                     socket.emit('save image', {data: dataURL}, function (response) {
                         //you should use response.data to get url of saved image :)
-                        alert(response.data);
+//                        alert(response.data);
                     });
 
                 }
@@ -60,11 +60,11 @@
                 fReader.readAsDataURL(input.files[0]);
                 fReader.onloadend = function (event) {
                     input.src = event.target.result;
-                    alert(input.src);
+//                    alert(input.src);
 
                     socket.emit('save image', {data: input.src}, function (response) {
                         //you should use response.data to get url of saved image :)
-                        alert(response.data);
+//                        alert(response.data);
                     });
                 }
             }

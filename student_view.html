@@ -62,18 +62,21 @@
 
                 //presentation should be assigned here
 
-                alert(data.page);
+//                alert(data.page);
 
                 var obj = JSON.parse(data.json.replace(/\'/gi, '"'));
                 console.log(obj);
                 presentation = obj.slides;
                 current = data.page;
                 if(data.page != -1) {
+                    codePage = 0;
                     slide = presentation[current];
                     curTmp = slide.tmp;
                     questionTmp = slide.anstmp;
                 }
-                else codePage = 1;
+//                else codePage = 1;
+//                alert('page: '+data.page);
+//                alert('avali: '+codePage);
                 createSlide();
 
             });
@@ -86,13 +89,13 @@
             socket.on('page changed', function (msg) {
                 current = msg.page;
                 if(msg.page!=-1) {
+                    codePage = 0;
                     slide = presentation[current];
                     curTmp = slide.tmp;
                     questionTmp = slide.anstmp;
                 }
                 else codePage = 1;
                 createSlide();
-
 
             });
 
