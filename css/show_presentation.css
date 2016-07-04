@@ -6,6 +6,7 @@
     margin: 1rem auto;
     font-size: 8rem;
     display: table;
+    float: none;
     position: static;
 
 }
@@ -13,19 +14,19 @@
 .body{
     height: 70rem;
     /*background-color: #337ab7;*/
-    margin-top: 2rem;
+    margin: 0 auto;
 }
 
 .image{
     /*background-color: #3e8e41;*/
     height: 60rem;
-    margin-left: 25rem;
-    margin-top: 5rem;
+    margin: 0 auto;
 }
 
 .picture {
-    margin-left: 38rem;
-    margin-top: 4rem;
+    display: table;
+    float: none !important;
+    margin:0 auto;
     z-index: 0;
     max-height: 800px;
     max-width: 1000px;
@@ -40,24 +41,22 @@
 .text_slide {
 
     /*width: 95%;*/
+    border: 3px dotted #28AADC !important;
     border-radius: 0 !important;
     font-size: 2rem;
     text-align: right;
     background-color: #FFFFFF;
     outline: none;
     color: #344141;
-    height: 100%;
+    min-height: 60%;
     resize: none;
     /*overflow-y: auto !important;*/
     max-height: 6em;
     position: static;
-    margin-left: 17rem;
-    margin-top: 0;
-    padding-right: 25%;
-    padding-left: 25%;
-    padding-bottom: 65rem;
-    z-index: 6;
-    float: none;
+    margin:0 auto;
+    z-index: -1000;
+    float: none !important;
+    display: table;
     /*overflow: hidden;*/
     /*text-indent: 20rem;*/
 }
@@ -70,8 +69,9 @@
 
 .list_slide{
     height: 60rem;
-    margin-left: 17rem;
-    margin-top: 5rem;
+   margin: -7rem auto;
+    display: table;
+    float: none !important;
     /*background-color:#2b542c;*/
 }
 
@@ -85,70 +85,29 @@
 }
 @media screen and (max-width: 767px) {
     .title{
-        margin: 1rem 8rem;
+        margin: 1rem auto;
     }
-    .body{
-        margin-left: 8rem;
-    }
-    .text_slide{
-        margin-left: 10rem;
-    }
+
 }
 /*small*/
 @media (min-width: 768px) and (max-width: 991px) {
 
     .title{
-        margin: 3rem 8rem;
-    }
-    .body{
-        margin-left: 8rem;
-    }
-    .video{
-        margin-left: 7rem;
-    }
-    .picture{
-        margin-left: 7rem;
-    }
-    .text_slide{
-        margin-left: 8rem;
-    }
-    .list_slide{
-        margin-left: 6rem;
+        margin: 3rem auto;
     }
 
 }
 /*medium*/
 @media (min-width: 992px) and (max-width: 1799px) {
     .title{
-        margin: 1rem 14rem;
-    }
-    .body{
-        margin-left: 14rem;
-    }
-    .text_slide{
-        margin-left: 10rem;
-    }
-    .list_slide{
-        margin-left: 6rem;
-    }
-    .picture{
-        margin-left: 13rem;
+        margin: 1rem auto;
     }
 
 }
 /*large*/
 @media (min-width: 1800px) {
     .title{
-        margin: 3rem 16rem;
-    }
-    .body{
-        margin-left: 16rem;
-    }
-    .text_slide{
-        margin-left: 10rem;
-    }
-    .list_slide{
-        margin-left: 13rem;
+        margin: 3rem auto;
     }
 
 }

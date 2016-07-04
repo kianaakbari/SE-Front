@@ -1,37 +1,19 @@
 html{
-	font-weight: normal;
-	font-style: normal;
-	color: #7a9494;
-}
-
-.button{
-    border: none;
-}
-
-.button :hover:enabled{
-    cursor:pointer;
-}
-
-.pnav{
-	position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color:#000000;
-    color: #FFFFFF;
-    height: 5em;
+  font-weight: normal;
+  font-style: normal;
+  color: #7a9494;
 }
 
 
 .slide-blue{
-	background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 
 .slide-layout{
-	text-align: center;
-	width: 100%;
-	
+  text-align: center;
+  width: 100%;
+
 
 }
 
@@ -40,12 +22,12 @@ html{
 }
 
 .lo-alpha_tips{
-	margin-top: 22%;
+  margin-top: 22%;
 
 }
 
 .para{
-	color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .alpha-step{
@@ -54,37 +36,50 @@ html{
     padding: 2em 0;
     border: 1px solid #7a9494;
     border-radius: 1em;
-    margin-top: -35%;
+    /*margin-top: -35%;*/
     text-align: center;
+    display: table;
+    float: none !important;
+    margin: 0 auto;
 
 }
 
 .alpha-pa{
-	font-size: 5vw;
-	color: #FFFFFF;
-	line-height: 1;
-	font-family: sans-serif;
-	font-weight: normal;
-	font-style: normal;
+  font-size: 5vw;
+  color: #FFFFFF;
+  line-height: 1;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 .lo-alpha_join{
-	margin:10% auto;
+  margin:10% auto;
     float: none;
     display: table;
 }
 
 .alpha-pa1{
-	font-size: 10vw;
+  font-size: 20rem;
     line-height: 1;
     letter-spacing: 10px;
     margin-bottom: 0.125em;
     color: #FFFFFF;
-    font-family: sans-serif;
+    font-family:"Comic Sans MS";
     font-weight: normal;
     font-style: normal;
 }
 
+.pnav{
+  position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #FFFFFF;
+    height: 4em;
+
+}
 
 .responser{
 
@@ -118,10 +113,16 @@ button{
 }
 
 li{
-    text-decoration: none;
+    /*text-decoration: none;*/
     display: inline;
+
 }
 
+.li:after { /*samane*/
+    content: "•";
+    color:#2c4141;
+    font-size: 6rem;
+}
 .connect{
     text-align: center;
     margin-top: 10px;
@@ -136,19 +137,12 @@ li{
 /*small*/
 @media (min-width: 768px) and (max-width: 991px) {
 
-    .alpha-step{
-        /*margin-top: -50%;*/
-    }
 }
 /*medium*/
 @media (min-width: 992px) and (max-width: 1799px) {
-    body{
+    body {
         background-color: rebeccapurple;
     }
-    .alpha-step{;
-        /*margin-top: -62%;*/
-    }
-
 
 }
 /*large*/
@@ -157,7 +151,178 @@ li{
         background-color: #030E33;
     }
 
-    .alpha-step{
-        /*margin-top: -48%;*/
-    }
 }
+
+
+
+
+
+
+/*html{*/
+	/*font-weight: normal;*/
+	/*font-style: normal;*/
+	/*color: #7a9494;*/
+/*}*/
+
+/*.button{*/
+    /*border: none;*/
+/*}*/
+
+/*.button :hover:enabled{*/
+    /*cursor:pointer;*/
+/*}*/
+
+/*.pnav{*/
+	/*position: fixed;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    /*left: 0;*/
+    /*background-color:#000000;*/
+    /*color: #FFFFFF;*/
+    /*height: 5em;*/
+/*}*/
+
+
+/*.slide-blue{*/
+	/*background-color: #ffffff;*/
+/*}*/
+
+/*.li:after { !*samane*!*/
+    /*content: "•";*/
+    /*color:#2c4141;*/
+    /*font-size: 6rem;*/
+/*}*/
+
+/*.slide-layout{*/
+	/*text-align: center;*/
+	/*width: 100%;*/
+	/**/
+
+/*}*/
+
+/*.lo-alpha{*/
+
+/*}*/
+
+/*.lo-alpha_tips{*/
+	/*margin-top: 22%;*/
+
+/*}*/
+
+/*.para{*/
+	/*color: #FFFFFF;*/
+/*}*/
+
+/*.alpha-step{*/
+    /*color: #B3B3B3;*/
+    /*margin-bottom: 0.5em;*/
+    /*padding: 2em 0;*/
+    /*border: 1px solid #7a9494;*/
+    /*border-radius: 1em;*/
+    /*margin-top: -35%;*/
+    /*text-align: center;*/
+
+/*}*/
+
+/*.alpha-pa{*/
+	/*font-size: 5vw;*/
+	/*color: #FFFFFF;*/
+	/*line-height: 1;*/
+	/*font-family: sans-serif;*/
+	/*font-weight: normal;*/
+	/*font-style: normal;*/
+/*}*/
+
+/*.lo-alpha_join{*/
+	/*margin:10% auto;*/
+    /*float: none;*/
+    /*display: table;*/
+/*}*/
+
+/*.alpha-pa1{*/
+	/*font-size: 10vw;*/
+    /*line-height: 1;*/
+    /*letter-spacing: 10px;*/
+    /*margin-bottom: 0.125em;*/
+    /*color: #FFFFFF;*/
+    /*font-family: sans-serif;*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+/*}*/
+
+
+/*.responser{*/
+
+/*}*/
+
+/*.invisible{*/
+    /*background:transparent;*/
+    /*border:0;*/
+/*}*/
+
+/*.pnav-btn1{*/
+    /*display: block;*/
+    /*position: relative;*/
+    /*border: 0;*/
+
+    /*padding: 0.75em;*/
+    /*margin: 0;*/
+    /*height: 3em;*/
+    /*width: 3em;*/
+    /*opacity: 0.5;*/
+    /*outline: none;*/
+    /*-webkit-transition: opacity 0.1s ease-in-out;*/
+    /*transition: opacity 0.1s ease-in-out;*/
+/*}*/
+
+/*button{*/
+    /*font-family: sans-serif;*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+    /*color: #7a9494;*/
+/*}*/
+
+/*li{*/
+    /*text-decoration: none;*/
+    /*display: inline;*/
+/*}*/
+
+/*.connect{*/
+    /*text-align: center;*/
+    /*margin-top: 10px;*/
+/*}*/
+
+
+/*@media screen and (max-width: 767px) {*/
+    /*body{*/
+        /*background-color: #8a6d3b;*/
+    /*}*/
+/*}*/
+/*!*small*!*/
+/*@media (min-width: 768px) and (max-width: 991px) {*/
+
+    /*.alpha-step{*/
+        /*!*margin-top: -50%;*!*/
+    /*}*/
+/*}*/
+/*!*medium*!*/
+/*@media (min-width: 992px) and (max-width: 1799px) {*/
+    /*body{*/
+        /*background-color: rebeccapurple;*/
+    /*}*/
+    /*.alpha-step{;*/
+        /*!*margin-top: -62%;*!*/
+    /*}*/
+
+
+/*}*/
+/*!*large*!*/
+/*@media (min-width: 1800px) {*/
+    /*body{*/
+        /*background-color: #030E33;*/
+    /*}*/
+
+    /*.alpha-step{*/
+        /*!*margin-top: -48%;*!*/
+    /*}*/
+/*}*/

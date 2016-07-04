@@ -71,7 +71,7 @@ app.controller("HttpGetController", function ($scope, factoryName) {
 ///////////////////////////socket initialization
 try {
     console.log("yess1");
-    var socket = io.connect('http://localhost:8000/edit_presentation');
+    var socket = io.connect('http://154.16.156.58:8000/edit_presentation');
 
     console.log("yess2");
 }

@@ -7,7 +7,7 @@
 
 ///////////////////////////socket initialization
 try {
-    var socket = io.connect('http://localhost:8000/presentation');
+    var socket = io.connect('http://154.16.156.58:8000/presentation');
 }
 catch (err) {
     console.log(err);
@@ -309,7 +309,7 @@ function createSlide() {
         var bdy = document.getElementById("title");
 
         var title = document.createElement("div");
-        title.className = "title col-lg-10 col-sm-10 col-xs-10 col-md-10 ";
+        title.className = "title col-lg-12 col-sm-12 col-xs-12 col-md-12 ";
         bdy.appendChild(title);
 
         var title_text = document.createElement("p");
@@ -437,13 +437,36 @@ function createSlide() {
                 var j = 0;
                 while (i < listItemsNum) {
                     if (slide.listItems[j] != null) {
-                        var list_item = document.createElement('p');
-                        list_item.innerHTML = slide.listItems[j];
+                        var list_item = document.createElement("br");
                         list.appendChild(list_item);
+                        var list_li = document.createElement('li'); //samane
+                        list_li.innerHTML = slide.listItems[i];
+                        list_li.className="li";
+                        list.appendChild(list_li);
+                        // var list_item = document.createElement('p');
+                        // list_item.innerHTML = slide.listItems[j];
+                        // list.appendChild(list_item);
                         i++;
                     }
                     j++;
                 }
+            }
+
+            else{
+                var nothing = document.getElementById("code");
+                if (nothing.childElementCount > 0) {
+
+                    var lastChild_list_code = nothing.lastElementChild;
+                    lastChild_list_code.parentNode.removeChild(lastChild_list_code);
+                }
+
+                var body_list = document.getElementById("body");
+                if (body_list.childElementCount > 0) {
+
+                    var lastChild_body_list = body_list.lastElementChild;
+                    lastChild_body_list.parentNode.removeChild(lastChild_body_list);
+                }
+                //samane
             }
         }
 
@@ -587,6 +610,22 @@ function createSlide() {
                     j++;
                 }
 
+            }
+
+            else{
+                var nothing = document.getElementById("code");
+                if (nothing.childElementCount > 0) {
+
+                    var lastChild_list_code = nothing.lastElementChild;
+                    lastChild_list_code.parentNode.removeChild(lastChild_list_code);
+                }
+
+                var body_list = document.getElementById("body");
+                if (body_list.childElementCount > 0) {
+
+                    var lastChild_body_list = body_list.lastElementChild;
+                    lastChild_body_list.parentNode.removeChild(lastChild_body_list);
+                }
             }
 
         }

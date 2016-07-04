@@ -28,7 +28,7 @@ var codePage = 1;
 
 ///////////////////////////socket initialization
 try {
-    var socket = io.connect('http://localhost:8000/presentation');
+    var socket = io.connect('http://154.16.156.58:8000/presentation');
 }
 catch (err) {
     alert(err);

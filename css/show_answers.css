@@ -47,6 +47,7 @@ li{
 }
 
 .p{
+    padding-top: 5rem;
     text-align: center;
     font-size: 4rem;
     height:25rem;

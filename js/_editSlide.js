@@ -1,6 +1,6 @@
 ///////////////////////////socket initialization
 try {
-    var socket = io.connect('http://localhost:8000/edit_presentation');
+    var socket = io.connect('http://154.16.156.58:8000/edit_presentation');
 }
 catch (err) {
     console.log(err);
